@@ -1,16 +1,12 @@
 import java.util.*;
-/**
- *
- * @author vishn_000
- */
-class stack{
-    private char arr[]=new char[50];
+class Stack{
+    private char characterArray[]=new char[50];
     private int top;
-    stack()
+    Stack()
     {
         top=-1;
     }
-    public void push(char push_val)
+    public void push(char pushValue)
     {
         if(top==50)
         {
@@ -19,41 +15,40 @@ class stack{
         else
         {
             top++;
-            arr[top]=push_val;
+            characterArray[top]=pushValue;
         }
     }
     public char pop()
     {
-        char s;
-        
-            s=arr[top];
+        char poppedValue;
+            poppedValue=characterArray[top];
             top--;
-          return s;
+          return poppedValue;
     }
 }
-public class Pallindrome_test_stack {
-
-    /**
-     * @param args the command line arguments
-     */
+public class PallindromeTestStack {
     public static void main(String[] args) {
         // TODO code application logic here
-        stack stk=new stack();
+        Stack stack=new Stack();
         System.out.println("Enter the string");
         Scanner sc=new Scanner(System.in);
-        String str=sc.nextLine();
-        int len=str.length();
-        if(len%2==0)
+        String input=sc.nextLine();
+        int length=input.length();
+        if(length%2==0)
         {
-            for(int i=0;i<len/2;i++)
-                stk.push(str.charAt(i));
-            for(int i=len/2;i<len;i++)
+            for(int i=0;i<length/2;i++)
             {
-                if(str.charAt(i)==stk.pop())
+                stack.push(input.charAt(i));
+            }
+            for(int i=length/2;i<length;i++)
+            {
+                if(input.charAt(i)==stack.pop())
+                {
                     continue;
+                }
                 else
                 {
-                    System.out.println("string is not pallindrome");
+                    System.out.println("String is not pallindrome");
                     return ;
                 }
             }
@@ -61,12 +56,16 @@ public class Pallindrome_test_stack {
         }
         else
         {
-             for(int i=0;i<len/2;i++)
-                stk.push(str.charAt(i));
-            for(int i=((len/2)+1);i<len;i++)
+             for(int i=0;i<length/2;i++)
+             {
+                stack.push(input.charAt(i));
+             }
+            for(int i=((length/2)+1);i<length;i++)
             {
-                if(str.charAt(i)==stk.pop())
+                if(input.charAt(i)==stack.pop())
+                {
                     continue;
+                }
                 else
                 {
                     System.out.println("string is not pallindrome");
