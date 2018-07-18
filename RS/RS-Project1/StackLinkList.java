@@ -1,48 +1,50 @@
 
 import java.util.*;
-class list_stack
+class ListStack
 {
-    private LinkedList<Integer> stk=new LinkedList<Integer>();
-    public void push(Integer push_val)
+    private LinkedList<Integer> stack=new LinkedList<Integer>();
+    public void push(Integer pushValue)
     {
-        stk.add(push_val);
+        stack.add(pushValue);
     }
     public void pop()
     {
-        if(stk.isEmpty())
+        if(stack.isEmpty())
+        {
             System.out.println("Stack is Empty");
+        }
         else
-            stk.removeLast();
+        {
+            stack.removeLast();
+        }
     }
     public void top()
     {
-        System.out.println(stk.getLast());
+        System.out.println(stack.getLast());
     }
     public void isEmpty()
     {
-        if(stk.isEmpty())
+        if(stack.isEmpty())
+        {
             System.out.println("Stack is Empty");
+        }
         else
+        {
             System.out.println("Stack is not Empty");
+        }
     }
     public void print()
     {
-        for(int i=0;i<stk.size();i++)
-            System.out.println(stk.get(i));
+        for(int i=0;i<stack.size();i++)
+        {
+            System.out.println(stack.get(i));
+        }
     }
 }
-/**
- *
- * @author vishn_000
- */
-public class Stack_linklist {
-
-    /**
-     * @param args the command line arguments
-     */
+public class StackLinkList {
     public static void main(String[] args) {
         // TODO code application logic here
-        list_stack stack=new list_stack();
+        ListStack stack=new ListStack();
         stack.push(20);
         stack.push(30);
         stack.push(40);
@@ -57,4 +59,5 @@ public class Stack_linklist {
     }
     
 }
+
 
