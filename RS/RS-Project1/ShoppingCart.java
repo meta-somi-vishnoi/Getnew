@@ -39,38 +39,38 @@ class Items{
 }
 
 class Products{
-	private ArrayList<Items> listCustomer=new ArrayList<Items>();
-	private ArrayList<Items> prodPresent=new ArrayList<Items>();
+	private ArrayList<Items> listCustomer = new ArrayList<Items>();
+	private ArrayList<Items> productPresent = new ArrayList<Items>();
 	
-	public void existingProducts()
+	public Products()
 	{
-		Items prod1=new Items(1,"Mobiles",10000,50);
-		Items prod2=new Items(2,"Cameras",5000,100);
-		Items prod3=new Items(3,"laptops",30000,20);
-		Items prod4=new Items(4,"watch",2000,10);
-		Items prod5=new Items(5,"Ipads",7000,20);
-		Items prod6=new Items(6,"Tablets",25000,70);
-		prodPresent.add(prod1);
-		prodPresent.add(prod2);
-		prodPresent.add(prod3);
-		prodPresent.add(prod4);
-		prodPresent.add(prod5);
+		Items product1 = new Items(1,"Mobiles",10000,50);
+		Items product2 = new Items(2,"Cameras",5000,100);
+		Items product3 = new Items(3,"laptops",30000,20);
+		Items product4 = new Items(4,"watch",2000,10);
+		Items product5 = new Items(5,"Ipads",7000,20);
+		Items product6 = new Items(6,"Tablets",25000,70);
+		productPresent.add(product1);
+		productPresent.add(product2);
+		productPresent.add(product3);
+		productPresent.add(product4);
+		productPresent.add(product5);
 	}
 	public void addProduct(int itemId, int quantity)
 	{
 		int flag=0;
 		int price;
 		String name; 
-		for(int j=0;j<prodPresent.size();j++)
+		for(int j=0;j<productPresent.size();j++)
 		{
-			if(itemId==prodPresent.get(j).getId() && quantity<=prodPresent.get(j).getQuantity())
+			if(itemId==productPresent.get(j).getId() && quantity<=productPresent.get(j).getQuantity())
 			{
-				price=prodPresent.get(j).getPrice();
-				name=prodPresent.get(j).getName();
+				price=productPresent.get(j).getPrice();
+				name=productPresent.get(j).getName();
 				Items item = new Items(itemId, name, price, quantity);
 				listCustomer.add(item);
 				flag=1;
-				prodPresent.get(j).updateQuantity(prodPresent.get(j).getQuantity()-quantity);
+				productPresent.get(j).updateQuantity(productPresent.get(j).getQuantity()-quantity);
 			}
 			if(flag==0)
 			{
@@ -86,11 +86,11 @@ class Products{
 		{
 			if(listCustomer.get(i).getId()==itemId)
 			{
-				for(int j=0;j<prodPresent.size();j++)
+				for(int j=0;j<productPresent.size();j++)
 				{
-					if(prodPresent.get(j).getId()==itemId)
+					if(productPresent.get(j).getId()==itemId)
 					{
-							prodPresent.get(j).updateQuantity(prodPresent.get(j).getQuantity()+listCustomer.get(i).getQuantity());
+							productPresent.get(j).updateQuantity(productPresent.get(j).getQuantity()+listCustomer.get(i).getQuantity());
 					}
 				}
 				listCustomer.remove(i);
@@ -108,16 +108,16 @@ class Products{
 	}
 	public void updateQuantity(int itemId, int newQuantity)
 	{
-		for(int j=0;j<prodPresent.size();j++)
+		for(int j=0;j<productPresent.size();j++)
 		{
-			if(prodPresent.get(j).getId()==itemId && prodPresent.get(j).getQuantity()>=newQuantity)
+			if(productPresent.get(j).getId()==itemId && productPresent.get(j).getQuantity()>=newQuantity)
 			{
 				for(int i=0;i<listCustomer.size();i++)
 				{
 					if(listCustomer.get(i).getId()==itemId)
 					{
 						listCustomer.get(i).updateQuantity(newQuantity);
-						prodPresent.get(j).updateQuantity(prodPresent.get(j).getQuantity()-newQuantity);
+						productPresent.get(j).updateQuantity(productPresent.get(j).getQuantity()-newQuantity);
 					}
 				}
 			}
@@ -146,12 +146,12 @@ class Products{
 	}
 	public int totalPrice()
 	{
-		int sum=0;
+		int totalSum=0;
 		for(int i=0;i<listCustomer.size();i++)
 		{
-			sum = sum + (listCustomer.get(i).getQuantity())*(listCustomer.get(i).getPrice());
+			totalSum = totalSum + (listCustomer.get(i).getQuantity())*(listCustomer.get(i).getPrice());
 		}
-		return sum;
+		return totalSum;
 	}
 	public void displayItems()
 	{
@@ -162,9 +162,9 @@ class Products{
 	}
 	public void displayExistingItems()
 	{
-		for(int i=0;i<prodPresent.size();i++)
+		for(int i=0;i<productPresent.size();i++)
 		{
-			System.out.print(" The " + (i+1) + " item is: \n" + prodPresent.get(i).getId() + "\t" + prodPresent.get(i).getName() + "\t" + prodPresent.get(i).getPrice() + "\t" + prodPresent.get(i).getQuantity() + "\n");	
+			System.out.print(" The " + (i+1) + " item is: \n" + productPresent.get(i).getId() + "\t" + productPresent.get(i).getName() + "\t" + productPresent.get(i).getPrice() + "\t" + productPresent.get(i).getQuantity() + "\n");	
 		}
 	}
 }
@@ -172,52 +172,52 @@ class Products{
 public class ShoppingCart {
 	public static void main(String args[])
 	{
-		Products prod=new Products();
-		prod.existingProducts();
-		int id,price,quantity;
+		Products product = new Products();
+		//product.existingProducts();
+		int itemId, itemPrice, itemQuantity;
 		float totalDiscount;
-		String name;
+		String itemName;
 		System.out.println("Select options: \n press 1 to add product to cart \n press 2 to remove product from cart \n "
 				+ "press 3 to update quantity of product \n press 4 to get price of particular product"
 				+ "\n press 5 to get billing price \n press 6 to display list of products \n press 7 to exit \n");
 		do
 		{
 			System.out.println("The existing products are:");
-			prod.displayExistingItems();
+			product.displayExistingItems();
 			System.out.println("\n");
-			Scanner sc=new Scanner(System.in);
-			int option=sc.nextInt();
+			Scanner sc = new Scanner(System.in);
+			int option = sc.nextInt();
 			switch(option)
 			{
 			case 1: System.out.println("Enter Id of product");
-					id=sc.nextInt();
-					System.out.println("Enter quantity of product");
-					quantity=sc.nextInt();
-					prod.addProduct(id, quantity);
-					break;
+			        itemId=sc.nextInt();
+			        System.out.println("Enter quantity of product");
+				itemQuantity=sc.nextInt();
+				product.addProduct(itemId, itemQuantity);
+				break;
 			case 2: System.out.println("Enter Id of product");
-					id=sc.nextInt();
-					prod.removeProduct(id);
-					break;
+			        itemId=sc.nextInt();
+				product.removeProduct(itemId);
+				break;
 			case 3: System.out.println("Enter Id of product");
-					id=sc.nextInt();
-					System.out.println("Enter new quantity of product");
-					quantity=sc.nextInt();
-					prod.updateQuantity(id,quantity);
-					break;
+			        itemId=sc.nextInt();
+				System.out.println("Enter new quantity of product");
+				itemQuantity=sc.nextInt();
+				product.updateQuantity(itemId,itemQuantity);
+				break;
 			case 4: System.out.println("Enter Id of product");
-					id=sc.nextInt();
-					System.out.println(" Total price of product is ");
-					int price_prod=prod.priceOfProduct(id);
-					System.out.println(price_prod);
-					break;
+			        itemId=sc.nextInt();
+				System.out.println(" Total price of product is ");
+				int priceProduct=product.priceOfProduct(itemId);
+				System.out.println(priceProduct);
+				break;
 			case 5: System.out.print("Total billing price of product is ");
-					int sum=prod.totalPrice();
-					System.out.println(sum);
-					break;
+				int sumProduct=product.totalPrice();
+				System.out.println(sumProduct);
+				break;
 			case 6: System.out.print("list of products is : \n");
-					prod.displayItems();
-					break;	
+				product.displayItems();
+				break;	
 			case 7: System.exit(0);
 			}
 			System.out.println("\n Choose option again: \n");
