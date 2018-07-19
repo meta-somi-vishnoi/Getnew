@@ -13,7 +13,7 @@ interface Calculator{
     public String decimalToHexadecimal(String decimal);
 }
 
-class HexadecimalCalculator implements Calculator
+class HexadecimalOperations implements Calculator
 {
     private final char TEN='A';
     private final char ELEVEN='B';
@@ -29,7 +29,7 @@ class HexadecimalCalculator implements Calculator
     public int hexadecimalToDecimal(String hexadecimal)
     {
         int value;
-        int decimalValue=0,exponent=0;
+        int decimalValue=0, exponent=0;
         for(int i=hexadecimal.length()-1;i>=0;i--)
         {
             if(hexadecimal.charAt(i)==TEN) {
@@ -53,7 +53,7 @@ class HexadecimalCalculator implements Calculator
             else {
             	value=Integer.parseInt(String.valueOf(hexadecimal.charAt(i)));
             }
-            decimalValue=decimalValue+value*(int)Math.pow(16,exponent);
+            decimalValue = decimalValue+value*(int)Math.pow(16,exponent);
             exponent++;
         }
         return decimalValue;
@@ -66,8 +66,8 @@ class HexadecimalCalculator implements Calculator
     public String decimalToHexadecimal(String decimal)
     {
         int hexadecimalValue;
-        int decimalValue=Integer.parseInt(decimal);
-        StringBuilder hexadecimalString=new StringBuilder();
+        int decimalValue = Integer.parseInt(decimal);
+        StringBuilder hexadecimalString = new StringBuilder();
         char character;
         hexadecimalValue=decimalValue%16;
         while(hexadecimalValue>0)
@@ -92,9 +92,9 @@ class HexadecimalCalculator implements Calculator
    	*/ 
     public String addition(String hexadecimal1,String hexadecimal2)
     {
-        int decimalValue1=hexadecimalToDecimal(hexadecimal1);
-        int decimalValue2=hexadecimalToDecimal(hexadecimal2);
-        int sumValue=decimalValue1+decimalValue2;
+        int decimalValue1 = hexadecimalToDecimal(hexadecimal1);
+        int decimalValue2 = hexadecimalToDecimal(hexadecimal2);
+        int sumValue = decimalValue1+decimalValue2;
         return decimalToHexadecimal(Integer.toString(sumValue));
     }
     /**
@@ -104,14 +104,14 @@ class HexadecimalCalculator implements Calculator
    	*/ 
     public String subtraction(String hexadecimal1,String hexadecimal2)
     {
-        int decimalValue1=hexadecimalToDecimal(hexadecimal1);
-        int decimalValue2=hexadecimalToDecimal(hexadecimal2);
+        int decimalValue1 = hexadecimalToDecimal(hexadecimal1);
+        int decimalValue2 = hexadecimalToDecimal(hexadecimal2);
         int sumValue;
         if(decimalValue1>decimalValue2) {
-            sumValue=decimalValue1-decimalValue2;
+            sumValue = decimalValue1-decimalValue2;
         }
         else {
-            sumValue=decimalValue2-decimalValue1;
+            sumValue = decimalValue2-decimalValue1;
         }
         return decimalToHexadecimal(Integer.toString(sumValue));
     }
@@ -122,9 +122,9 @@ class HexadecimalCalculator implements Calculator
    	*/ 
     public String multiplication(String hexadecimal1,String hexadecimal2)
     {
-        int decimalValue1=hexadecimalToDecimal(hexadecimal1);
-        int decimalValue2=hexadecimalToDecimal(hexadecimal2);
-        int sumValue=decimalValue1*decimalValue2;
+        int decimalValue1 = hexadecimalToDecimal(hexadecimal1);
+        int decimalValue2 = hexadecimalToDecimal(hexadecimal2);
+        int sumValue = decimalValue1*decimalValue2;
         return decimalToHexadecimal(Integer.toString(sumValue));
     }
     /**
@@ -134,14 +134,14 @@ class HexadecimalCalculator implements Calculator
    	*/ 
     public String division(String hexadecimal1,String hexadecimal2)
     {
-        int decimalValue1=hexadecimalToDecimal(hexadecimal1);
-        int decimalValue2=hexadecimalToDecimal(hexadecimal2);
+        int decimalValue1 = hexadecimalToDecimal(hexadecimal1);
+        int decimalValue2 = hexadecimalToDecimal(hexadecimal2);
         if(decimalValue2==0)
         {
         	System.out.println("Invalid denominator");
         	return "invalid";
         }
-        int sumValue=decimalValue1/decimalValue2;
+        int sumValue = decimalValue1/decimalValue2;
         return decimalToHexadecimal(Integer.toString(sumValue));
     }
     /**
@@ -249,11 +249,11 @@ class HexadecimalCalculator implements Calculator
 public class HexaDecimalCalculator {
     public static void main(String[] args) {
         // TODO code application logic here
-        HexadecimalCalculator calculator=new HexadecimalCalculator();
-        Scanner sc=new Scanner(System.in);
+        HexadecimalOperations calculator = new HexadecimalOperations();
+        Scanner sc = new Scanner(System.in);
         do
         {
-        	System.out.println("Enter first hexadecimal no");
+            System.out.println("Enter first hexadecimal no");
             String hexadecimal1=sc.next();
             if(calculator.isValid(hexadecimal1)) {
 	            System.out.println("Enter second hexadecimal no");
@@ -308,4 +308,5 @@ public class HexaDecimalCalculator {
     }
     
 }
+
 
