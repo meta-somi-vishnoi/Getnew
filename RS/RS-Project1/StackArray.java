@@ -1,7 +1,7 @@
 class Stack{
-    private int stackArray[]=new int[50];
+    private int stackArray[] = new int[50];
     private int top;
-    stack()
+    public Stack()
     {
         top=-1;
     }
