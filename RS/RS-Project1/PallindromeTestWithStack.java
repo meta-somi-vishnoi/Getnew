@@ -1,6 +1,6 @@
 import java.util.*;
 class Stack{
-    private char characterArray[]=new char[50];
+    private char characterArray[] = new char[50];
     private int top;
     Stack()
     {
@@ -15,25 +15,25 @@ class Stack{
         else
         {
             top++;
-            characterArray[top]=pushValue;
+            characterArray[top] = pushValue;
         }
     }
     public char pop()
     {
         char poppedValue;
-            poppedValue=characterArray[top];
+            poppedValue  =characterArray[top];
             top--;
           return poppedValue;
     }
 }
-public class PallindromeTestStack {
+public class PallindromeTestWithStack {
     public static void main(String[] args) {
         // TODO code application logic here
-        Stack stack=new Stack();
+        Stack stack = new Stack();
         System.out.println("Enter the string");
-        Scanner sc=new Scanner(System.in);
-        String input=sc.nextLine();
-        int length=input.length();
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        int length = input.length();
         if(length%2==0)
         {
             for(int i=0;i<length/2;i++)
