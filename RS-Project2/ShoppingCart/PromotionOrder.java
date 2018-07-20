@@ -120,7 +120,6 @@ class fixedOrderPromotion implements PromotionOrder {
 	}
 
 	public boolean isPromotionApplicable(String code) {
-
 		Date date = new Date();
 		for (PromotionEnum enumValue : PromotionEnum.values()) {
 			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
