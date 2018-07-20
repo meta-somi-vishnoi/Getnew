@@ -1,46 +1,40 @@
-
 import java.util.*;
-class ListStack
-{
-    private LinkedList<Integer> stack=new LinkedList<Integer>();
-    public void push(Integer pushValue)
-    {
+class ListStack {
+    private LinkedList<Integer> stack = new LinkedList<Integer>();
+    
+    public void push(Integer pushValue) {
         stack.add(pushValue);
     }
-    public void pop()
-    {
-        if(stack.isEmpty())
-        {
+    
+    public void pop() {
+        if (stack.isEmpty()) {
             System.out.println("Stack is Empty");
         }
-        else
-        {
+        else {
             stack.removeLast();
         }
     }
-    public void top()
-    {
+    
+    public void top() {
         System.out.println(stack.getLast());
     }
-    public void isEmpty()
-    {
-        if(stack.isEmpty())
-        {
+    
+    public void isEmpty() {
+        if (stack.isEmpty()) {
             System.out.println("Stack is Empty");
         }
-        else
-        {
+        else {
             System.out.println("Stack is not Empty");
         }
     }
-    public void print()
-    {
-        for(int i=0;i<stack.size();i++)
-        {
+    
+    public void print() {
+        for (int i = 0; i < stack.size(); i++) {
             System.out.println(stack.get(i));
         }
     }
 }
+
 public class StackLinkList {
     public static void main(String[] args) {
         // TODO code application logic here
@@ -56,8 +50,5 @@ public class StackLinkList {
         stack.pop();
         stack.pop();
         stack.isEmpty();
-    }
-    
+    } 
 }
-
-
