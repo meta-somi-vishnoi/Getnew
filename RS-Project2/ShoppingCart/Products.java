@@ -26,15 +26,13 @@ class Products {
 		int price;
 		String name;
 		for (int j = 0; j < existingProducts.size(); j++) {
-			if (itemId == existingProducts.get(j).getId()
-					&& quantity <= existingProducts.get(j).getQuantity()) {
+			if (itemId == existingProducts.get(j).getId() && quantity <= existingProducts.get(j).getQuantity()) {
 				price = existingProducts.get(j).getPrice();
 				name = existingProducts.get(j).getName();
 				Items item = new Items(itemId, name, price, quantity);
 				listOfCustomer.add(item);
 				flag = 1;
-				existingProducts.get(j).updateQuantity(
-						existingProducts.get(j).getQuantity() - quantity);
+				existingProducts.get(j).updateQuantity(existingProducts.get(j).getQuantity() - quantity);
 			}
 		}
 		if (flag == 0) {
@@ -48,9 +46,7 @@ class Products {
 			if (listOfCustomer.get(i).getId() == itemId) {
 				for (int j = 0; j < existingProducts.size(); j++) {
 					if (existingProducts.get(j).getId() == itemId) {
-						existingProducts.get(j).updateQuantity(
-								existingProducts.get(j).getQuantity()
-										+ listOfCustomer.get(i).getQuantity());
+						existingProducts.get(j).updateQuantity(existingProducts.get(j).getQuantity() + listOfCustomer.get(i).getQuantity());
 					}
 				}
 				listOfCustomer.remove(i);
@@ -67,15 +63,12 @@ class Products {
 	public void updateQuantity(int itemId, int newQuantity) {
 		int flag = 0;
 		for (int j = 0; j < existingProducts.size(); j++) {
-			if (existingProducts.get(j).getId() == itemId
-					&& existingProducts.get(j).getQuantity() >= newQuantity) {
+			if (existingProducts.get(j).getId() == itemId && existingProducts.get(j).getQuantity() >= newQuantity) {
 				for (int i = 0; i < listOfCustomer.size(); i++) {
 					if (listOfCustomer.get(i).getId() == itemId) {
 						flag = 1;
 						listOfCustomer.get(i).updateQuantity(newQuantity);
-						existingProducts.get(j).updateQuantity(
-								existingProducts.get(j).getQuantity()
-										- newQuantity);
+						existingProducts.get(j).updateQuantity(existingProducts.get(j).getQuantity() - newQuantity);
 					}
 				}
 			}
@@ -88,13 +81,11 @@ class Products {
 	public int piceOfProduct(int itemId) {
 		for (int i = 0; i < listOfCustomer.size(); i++) {
 			if (listOfCustomer.get(i).getId() == itemId) {
-				return ((listOfCustomer.get(i).getQuantity()) * (listOfCustomer
-						.get(i).getPrice()));
+				return ((listOfCustomer.get(i).getQuantity()) * (listOfCustomer.get(i).getPrice()));
 			} else {
 				System.out.println("Enter valid product Id");
 				return 0;
 			}
-
 		}
 		return 0;
 	}
@@ -102,8 +93,7 @@ class Products {
 	public int totalPrice() {
 		int sum = 0;
 		for (int i = 0; i < listOfCustomer.size(); i++) {
-			sum = sum + (listOfCustomer.get(i).getQuantity())
-					* (listOfCustomer.get(i).getPrice());
+			sum = sum + (listOfCustomer.get(i).getQuantity()) * (listOfCustomer.get(i).getPrice());
 		}
 		return sum;
 	}
@@ -132,9 +122,7 @@ class Products {
 		int sumOfProducts = 0;
 		for (int i = 0; i < listOfCustomer.size(); i++) {
 			if (listOfCustomer.get(i).getPrice() >= minimumPrice) {
-				sumOfProducts = sumOfProducts
-						+ ((listOfCustomer.get(i).getQuantity()) * (listOfCustomer
-								.get(i).getPrice()));
+				sumOfProducts = sumOfProducts + ((listOfCustomer.get(i).getQuantity()) * (listOfCustomer.get(i).getPrice()));
 			}
 		}
 		return sumOfProducts;
