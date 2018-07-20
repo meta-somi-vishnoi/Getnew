@@ -1,73 +1,61 @@
 import java.util.*;
-class Stack{
+class Stack {
     private char characterArray[] = new char[50];
     private int top;
-    Stack()
-    {
-        top=-1;
+    
+    Stack() {
+        top =- 1;
     }
-    public void push(char pushValue)
-    {
-        if(top==50)
-        {
+    
+    public void push(char pushValue) {
+        if (top == 50) {
             System.out.println("Stack is full");
         }
-        else
-        {
+        else {
             top++;
             characterArray[top] = pushValue;
         }
     }
-    public char pop()
-    {
+    
+    public char pop() {
         char poppedValue;
-            poppedValue  =characterArray[top];
-            top--;
-          return poppedValue;
+        poppedValue  = characterArray[top];
+        top--;
+        return poppedValue;
     }
 }
+
 public class PallindromeTestWithStack {
     public static void main(String[] args) {
-        // TODO code application logic here
         Stack stack = new Stack();
         System.out.println("Enter the string");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         int length = input.length();
-        if(length%2==0)
-        {
-            for(int i=0;i<length/2;i++)
-            {
+        if (length % 2 == 0) {
+            for (int i=0;i<length/2;i++) {
                 stack.push(input.charAt(i));
             }
-            for(int i=length/2;i<length;i++)
-            {
-                if(input.charAt(i)==stack.pop())
-                {
+            for (int i=length/2;i<length;i++) {
+                if (input.charAt(i) == stack.pop()) {
                     continue;
                 }
-                else
-                {
+                else {
                     System.out.println("String is not pallindrome");
                     return ;
                 }
             }
             System.out.println("String is pallindrome");
         }
-        else
-        {
-             for(int i=0;i<length/2;i++)
-             {
+        else {
+            for (int i = 0;i < length / 2; i++) {
                 stack.push(input.charAt(i));
-             }
-            for(int i=((length/2)+1);i<length;i++)
-            {
-                if(input.charAt(i)==stack.pop())
-                {
+            }
+            for (int i = ((length / 2) + 1); i < length; i++) {
+                if (input.charAt(i) == stack.pop()) {
                     continue;
                 }
-                else
-                {
+                else {
                     System.out.println("string is not pallindrome");
                     return ;
                 }
@@ -75,8 +63,5 @@ public class PallindromeTestWithStack {
             System.out.println("String is pallindrome");
         }
         return ;
-    }
-    
+    }   
 }
-
-
