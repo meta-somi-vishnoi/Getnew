@@ -1,56 +1,49 @@
-class Stack{
+class Stack {
     private int stackArray[] = new int[50];
     private int top;
-    public Stack()
-    {
+    
+    public Stack() {
         top=-1;
     }
-    public void push(int pushValue)
-    {
-        if(top==50)
-        {
+    
+    public void push(int pushValue) {
+        if (top == 50) {
             System.out.println("Stack is full");
         }
-        else
-        {
+        else {
             top++;
-            stackArray[top]=pushValue;
+            stackArray[top] = pushValue;
         }
     }
-    public int pop()
-    {
+    
+    public int pop() {
         int poppedValue;
-        if(top==-1)
-        {
+        if (top == -1) {
             System.out.println("Stack is empty");
             return 0;
         }
-        else
-        {
-            poppedValue=stackArray[top];
+        else {
+            poppedValue = stackArray[top];
             top--;
         }
         return poppedValue;
     }
-    public void isEmpty()
-    {
-        if(top==-1)
-        {
+    
+    public void isEmpty() {
+        if (top == -1) {
             System.out.println("Stack is empty");
         }
-        else
-        {
+        else {
             System.out.println("Stack is not empty");
         }
     }
-    public void topValue()
-    {
+    
+    public void topValue() {
         System.out.println(stackArray[top]);
     }
-    public void printStack()
-    {
-        for(int i=top;i>-1;i--)
-        {
+    
+    public void printStack() {
+        for(int i = top; i > -1; i--) {
             System.out.println(stackArray[i]);
         }
     }
@@ -72,6 +65,5 @@ public class StackArray {
         stack.printStack();
         stack.pop();
         stack.isEmpty();
-    }
-    
+    } 
 }
