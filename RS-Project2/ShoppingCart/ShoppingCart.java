@@ -10,9 +10,11 @@ public class ShoppingCart {
 		int itemId, price, itemQuantity;
 		float totalDiscount;
 		String name, code;
-		System.out.println("Select options: \n press 1 to add product to cart \n press 2 to remove product from cart \n " + "press 3 to update quantity of product \n press 4 to get price of particular product"
-		+ "\n press 5 to get billing price \n press 6 to display list of products \n"
-		+ "press 7 to enter promocode \n press 8 to exit \n");
+		System.out
+				.println("Select options: \n press 1 to add product to cart \n press 2 to remove product from cart \n "
+						+ "press 3 to update quantity of product \n press 4 to get price of particular product"
+						+ "\n press 5 to get billing price \n press 6 to display list of products \n"
+						+ "press 7 to enter promocode \n press 8 to exit \n");
 		do {
 			System.out.println("The existing products are:");
 			customerProducts.displayExistingItems();
@@ -48,7 +50,9 @@ public class ShoppingCart {
 				break;
 			case 5:
 				System.out.print("Total billing price of product is ");
-				int sumOfProducts = customerProducts.totalPrice() + product.getFixedDiscount(customerProducts) + order.getFixedDiscount(customerProducts);
+				int sumOfProducts = customerProducts.totalPrice()
+						+ product.getFixedDiscount(customerProducts)
+						+ order.getFixedDiscount(customerProducts);
 				System.out.println(sumOfProducts);
 				break;
 			case 6:
@@ -69,29 +73,36 @@ public class ShoppingCart {
 					if (order.getMinimumPrice(customerProducts) >= minimumAmount) {
 						order.setFixedDiscount(discount);
 					}
-					totalDiscount = discount * order.getMinimumPrice(customerProducts) / 100;
+					totalDiscount = discount
+							* order.getMinimumPrice(customerProducts) / 100;
 					System.out.println(discount + "%");
 					System.out.println("Discount availed:" + totalDiscount);
 				} else {
 					System.out.println("No discount available on fixed order");
 					if (product.isPromotionApplicable(code)) {
-						System.out.println("Discount available on fixed product is:");
+						System.out
+								.println("Discount available on fixed product is:");
 						int discount, minimumAmount;
 						minimumAmount = 2000;
 						discount = 20;
 						product.setMinimumPrice(minimumAmount);
-						int sumPrice = product.getMinimumPrice(customerProducts);
+						int sumPrice = product
+								.getMinimumPrice(customerProducts);
 						product.setFixedDiscount(discount);
 						totalDiscount = discount * sumPrice / 100;
 						System.out.println(discount + "%");
 						System.out.println("Discount availed:" + totalDiscount);
 					} else {
-						System.out.println("No discount available on fixed product");
+						System.out
+								.println("No discount available on fixed product");
 					}
 				}
 				break;
 			}
 			System.out.println("\n Choose option again: \n");
 		} while (true);
+
 	}
+
 }
+
