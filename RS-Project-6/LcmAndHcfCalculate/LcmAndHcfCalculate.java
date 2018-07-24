@@ -1,7 +1,7 @@
-public class LcmAndHcfCalculate {
+public class LcmAndHcfCalculator {
     private static int multiple = 0;
 
-    LcmAndHcfCalculate() {
+    LcmAndHcfCalculator() {
         multiple = 0;
     }
 
