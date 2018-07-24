@@ -2,12 +2,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class LcmAndHcfCalculateTest {
-    LcmAndHcfCalculate calculator = new LcmAndHcfCalculate();
-    LcmAndHcfCalculate calculator1 = new LcmAndHcfCalculate();
-    LcmAndHcfCalculate calculator2 = new LcmAndHcfCalculate();
-    LcmAndHcfCalculate calculator3 = new LcmAndHcfCalculate();
-    LcmAndHcfCalculate calculator4 = new LcmAndHcfCalculate();
+public class LcmAndHcfCalculatorTest {
+    LcmAndHcfCalculator calculator = new LcmAndHcfCalculator();
+    LcmAndHcfCalculator calculator1 = new LcmAndHcfCalculator();
+    LcmAndHcfCalculator calculator2 = new LcmAndHcfCalculator();
+    LcmAndHcfCalculator calculator3 = new LcmAndHcfCalculator();
+    LcmAndHcfCalculator calculator4 = new LcmAndHcfCalculator();
 
     @Test
     public void testLcm1() {
