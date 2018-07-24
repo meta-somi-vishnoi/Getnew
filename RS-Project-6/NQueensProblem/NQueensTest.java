@@ -5,7 +5,7 @@ import org.junit.Test;
 public class NQueensTest {
 
     @Test
-    public void test1() {
+    public void NQueensTest1() {
         NQueensSolution findSolution = new NQueensSolution();
         int[][] array = new int[4][4];
         for (int i = 0; i < 4; i++) {
@@ -17,7 +17,7 @@ public class NQueensTest {
     }
     
     @Test
-    public void test2() {
+    public void NQueensTest2() {
         NQueensSolution findSolution = new NQueensSolution();
         int[][] array = new int[8][8];
         for (int i = 0; i < 8; i++) {
@@ -26,5 +26,17 @@ public class NQueensTest {
             }
         }
         assertEquals(findSolution.solution(array, 0, 8), true);
+    }
+    
+    @Test
+    public void NQueensTest3() {
+        NQueensSolution findSolution = new NQueensSolution();
+        int[][] array = new int[3][3];
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                array[i][j] = 0;
+            }
+        }
+        assertNotEquals(findSolution.solution(array, 0, 3), true);
     }
 }
