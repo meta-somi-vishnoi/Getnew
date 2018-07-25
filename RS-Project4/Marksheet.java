@@ -110,5 +110,4 @@ public class Marksheet {
         studentMarksheet.minimumGrade(gradesOfStudents);
         studentMarksheet.passStudents(gradesOfStudents, averageGradeList);
     }
-
 }
