@@ -1,4 +1,4 @@
-package ShoppingCart;
+package OnlineShopping;
 
 import java.util.ArrayList;
 
