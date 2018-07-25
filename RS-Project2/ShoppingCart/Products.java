@@ -101,21 +101,17 @@ class Products {
 
     public void displayItems() {
         for (int i = 0; i < listOfCustomer.size(); i++) {
-            System.out.print("\n The " + (i + 1) + " item is: \n"
-                    + listOfCustomer.get(i).getId() + "\t"
-                    + listOfCustomer.get(i).getName() + "\t"
-                    + listOfCustomer.get(i).getPrice() + "\t"
-                    + listOfCustomer.get(i).getQuantity() + "\n");
+            System.out.print("\n The " + (i + 1) + " item is: \n + listOfCustomer.get(i).getId() + "\t"
+                + listOfCustomer.get(i).getName() + "\t" + listOfCustomer.get(i).getPrice() + "\t"
+                + listOfCustomer.get(i).getQuantity() + "\n");
         }
     }
 
     public void displayExistingItems() {
         for (int i = 0; i < existingProducts.size(); i++) {
-            System.out.print(" The " + (i + 1) + " item is: \n"
-                    + existingProducts.get(i).getId() + "\t"
-                    + existingProducts.get(i).getName() + "\t"
-                    + existingProducts.get(i).getPrice() + "\t"
-                    + existingProducts.get(i).getQuantity() + "\n");
+            System.out.print(" The " + (i + 1) + " item is: \n" + existingProducts.get(i).getId() + "\t"
+                + existingProducts.get(i).getName() + "\t" + existingProducts.get(i).getPrice() + "\t"
+                + existingProducts.get(i).getQuantity() + "\n");
         }
     }
 
