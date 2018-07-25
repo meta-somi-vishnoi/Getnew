@@ -1,4 +1,4 @@
-package ShoppingCart;
+package OnlineShopping;
 
 class Items {
     private int itemId;
