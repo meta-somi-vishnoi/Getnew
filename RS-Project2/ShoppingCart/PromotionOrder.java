@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 enum PromotionEnum {
-    PromoCode1("FAAVC", "22/05/2017", "22/12/2018"), PromoCode2("FAAVD", "22/06/2018", "22/12/2018"), PromoCode3("FAAVE", "01/06/2018",
-        "01/12/2018");
+    PromoCodeMonthly("FAAVC", "22/07/2017", "22/08/2018"), PromoCodeHalfYearly("FAAVD", "22/06/2018", "22/12/2018"), 
+        PromoCodeYearly("FAAVE", "01/06/2018", "01/12/2018");
     String code;
     String startDate;
     String endDate;
