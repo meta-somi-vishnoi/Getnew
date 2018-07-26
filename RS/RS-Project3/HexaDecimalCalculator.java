@@ -143,7 +143,12 @@ class HexadecimalOperations implements Calculator {
             System.out.println("Invalid denominator");
             return "invalid";
         }
-        int sumValue = firstDecimalValue / secondDecimalValue;
+        int sumValue;
+        if (firstDecimalValue > secondDecimalValue) {
+            sumValue = firstDecimalValue / secondDecimalValue;
+        } else {
+            sumValue = secondDecimalValue / firstDecimalValue;
+        }
         return decimalToHexadecimal(Integer.toString(sumValue));
     }
 
@@ -163,7 +168,6 @@ class HexadecimalOperations implements Calculator {
         } else {
             int i = 0;
             while (i < lengthOfFirstHexadecimalValue) {
-
                 if (firstHexadecimalValue.charAt(i) > secondHexadecimalValue.charAt(i)) {
                     result = false;
                     break;
@@ -197,7 +201,6 @@ class HexadecimalOperations implements Calculator {
         } else {
             int i = 0;
             while (i < lengthOfFirstHexadecimalValue) {
-
                 if (firstHexadecimalValue.charAt(i) < secondHexadecimalValue.charAt(i)) {
                     result = false;
                     break;
@@ -257,8 +260,8 @@ public class HexaDecimalCalculator {
                 String secondHexadecimalValue = sc.next();
                 if (calculator.isValid(secondHexadecimalValue)) {
                     System.out.println("Press:\n 1 for addition hexadecimal no \n 2 for subtraction hexadecimal no\n 3 to multiply 
-			hexadecimal no \n 4 to divide hexadecimal no \n 5 to check greater than hexadecimal no + "\n 6 to check less 
-			than hexadecimal no \n 7 to check equal to hexadecimal no \n press 8 to exit");
+			hexadecimal no \n 4 to divide hexadecimal no \n 5 to check greater than hexadecimal no"
+                        + "\n 6 to check less than hexadecimal no \n 7 to check equal to hexadecimal no \n press 8 to exit");
                     int option = sc.nextInt();
                     String result;
                     switch (option) {
