@@ -13,7 +13,6 @@ final public class Poly {
     Poly(int[] degreeArray, int[] coefficientArray) {
         int countZeroCoefficient = 0;
         sortArray(degreeArray, coefficientArray);
-
         for (int i = 0; i < coefficientArray.length; i++) {
             if (coefficientArray[i] == 0) {
                 countZeroCoefficient++;
@@ -105,7 +104,7 @@ final public class Poly {
             if (firstPolynomial.arrayOfDegree[firstPolynomialIndex] == secondPolynomial.arrayOfDegree[secondPolynomialIndex]) {
                 addPolynomialDegree[p3Index] = firstPolynomial.arrayOfDegree[firstPolynomialIndex];
                 addPolynomialCoefficient[p3Index] = firstPolynomial.arrayOfCoefficient[firstPolynomialIndex]
-                        + secondPolynomial.arrayOfCoefficient[secondPolynomialIndex];
+                    + secondPolynomial.arrayOfCoefficient[secondPolynomialIndex];
                 firstPolynomialIndex--;
                 secondPolynomialIndex--;
                 p3Index--;
