@@ -2,7 +2,6 @@ final public class IntSet {
     private int[] array;
 
     IntSet() {
-
     }
 
     IntSet(int[] newArray) {
