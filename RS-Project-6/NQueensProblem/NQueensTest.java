@@ -5,7 +5,7 @@ import org.junit.Test;
 public class NQueensTest {
 
     @Test
-    public void NQueensTest1() {
+    public void testNQueensWithValue4() {
         NQueensSolution findSolution = new NQueensSolution();
         int[][] array = new int[4][4];
         for (int i = 0; i < 4; i++) {
@@ -17,7 +17,7 @@ public class NQueensTest {
     }
     
     @Test
-    public void NQueensTest2() {
+    public void testNQueensTestWithValue8() {
         NQueensSolution findSolution = new NQueensSolution();
         int[][] array = new int[8][8];
         for (int i = 0; i < 8; i++) {
@@ -29,7 +29,7 @@ public class NQueensTest {
     }
     
     @Test
-    public void NQueensTest3() {
+    public void testNQueensTestWithValue3() {
         NQueensSolution findSolution = new NQueensSolution();
         int[][] array = new int[3][3];
         for (int i = 0; i < 3; i++) {
