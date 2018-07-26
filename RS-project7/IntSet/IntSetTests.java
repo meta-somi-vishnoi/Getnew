@@ -1,7 +1,8 @@
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import java.util.Arrays;
 
+import org.junit.Test;
 
 public class IntSetTests {
 
@@ -24,9 +25,9 @@ public class IntSetTests {
     }
     
     @Test
-    public void testSizeShouldNotReturn7() {
+    public void testSizeShouldNotReturn3() {
         IntSet setSize = new IntSet(new int[] {2,4,7,1,8,3,5,10,22,16});
-        assertNotEquals(setSize.size(),7);
+        assertNotEquals(setSize.size(),3);
     }
 
     @Test
@@ -54,18 +55,16 @@ public class IntSetTests {
     public void testComplementSetTrue() {
         IntSet set = new IntSet(new int[] {1,4,7});
         int[] actualComplement = {2,3,5,6,8,9,10};
-        int[] exComplement=set.getComplement();
-        assertArrayEquals(exComplement,actualComplement);
+        int[] expectedComplement=set.getComplement();
+        assertArrayEquals(expectedComplement,actualComplement);
     }
     
     @Test
     public void testComplementSetFalse() {
         IntSet set = new IntSet(new int[] {1,4,8,3,7});
         int[] actualComplement = {2,3,5,6,8,9,10};
-        int[] exComplement=set.getComplement();
-        for(int i=0;i<actualComplement.length;i++) {
-            assertNotEquals(exComplement[i],actualComplement[i]);
-        }
+        int[] expectedComplement=set.getComplement();
+        assertFalse(Arrays.equals(expectedComplement, actualComplement));
     }
     
     @Test
@@ -83,6 +82,6 @@ public class IntSetTests {
         IntSet setS2 = new IntSet(new int[] {23,6,89,96,10,57});
         IntSet setUnion = new IntSet();
         int[] actualUnion = new int[] {1,2,4,5,6,7,8,9,10};
-        assertArrayEquals(setUnion.unionSet(setS1,setS2),actualUnion);
+        assertFalse(Arrays.equals(setUnion.unionSet(setS1,setS2),actualUnion));
     }
 }
