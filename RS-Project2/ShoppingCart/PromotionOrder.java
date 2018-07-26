@@ -44,6 +44,29 @@ interface PromotionOrder {
     public boolean isPromotionApplicable(String code);
 }
 
+public boolean isPromotionApplicableCheck(String code) {
+    Date date = new Date();
+    for (PromotionEnum enumValue : PromotionEnum.values()) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        long start = 0;
+        long end = 0;
+        long current = 0;
+        try {
+            Date startDate = (Date) formatter.parse(enumValue.getStartDate());
+            Date endDate = (Date) formatter.parse(enumValue.getEndDate());
+            start = startDate.getTime();
+            end = endDate.getTime();
+            current = date.getTime();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (enumValue.getCode().equals(code) && current >= start && current <= end) {
+            return true;
+        }
+    }
+    return false;
+}
+
 class fixedProductPromotion implements PromotionOrder {
     private int discount;
     private int minimumPrice;
@@ -69,26 +92,8 @@ class fixedProductPromotion implements PromotionOrder {
     }
 
     public boolean isPromotionApplicable(String code) {
-        Date date = new Date();
-        for (PromotionEnum enumValue : PromotionEnum.values()) {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            long start = 0;
-            long end = 0;
-            long current = 0;
-            try {
-                Date startDate = (Date) formatter.parse(enumValue.getStartDate());
-                Date endDate = (Date) formatter.parse(enumValue.getEndDate());
-                start = startDate.getTime();
-                end = endDate.getTime();
-                current = date.getTime();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (enumValue.getCode().equals(code) && current >= start && current <= end) {
-                return true;
-            }
-        }
-        return false;
+        boolean result = isPromotionApplicableCheck(code);
+        return result;
     }
 }
 
@@ -117,26 +122,7 @@ class fixedOrderPromotion implements PromotionOrder {
     }
 
     public boolean isPromotionApplicable(String code) {
-
-        Date date = new Date();
-        for (PromotionEnum enumValue : PromotionEnum.values()) {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            long start = 0;
-            long end = 0;
-            long current = 0;
-            try {
-                Date startDate = (Date) formatter.parse(enumValue.getStartDate());
-                Date endDate = (Date) formatter.parse(enumValue.getEndDate());
-                start = startDate.getTime();
-                end = endDate.getTime();
-                current = date.getTime();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (enumValue.getCode().equals(code) && current >= start && current <= end) {
-                return true;
-            }
-        }
-        return false;
+        boolean result = isPromotionApplicableCheck(code);
+        return result;
     }
 }
