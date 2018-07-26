@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-public class polynomialTest {
+public class PolynomialTest {
 
     @Test
     public void testPolynomialDegreeWithReturnValue4() {
