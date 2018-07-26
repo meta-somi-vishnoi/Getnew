@@ -5,7 +5,7 @@ import org.junit.Test;
 public class LcmAndHcfCalculateTest {
   
     @Test
-    public void LcmCalculateTesting1() {
+    public void testLcmCalculateWithReturnValue40() {
         int result;
         LcmAndHcfCalculator calculator1 = new LcmAndHcfCalculator();
         result = calculator1.lcmCalculator(20, 40);
@@ -13,7 +13,7 @@ public class LcmAndHcfCalculateTest {
     }
 
     @Test
-    public void LcmCalculateTesting2() {
+    public void testLcmCalculateWithReturnValue360() {
         int result;
         LcmAndHcfCalculator calculator2 = new LcmAndHcfCalculator();
         result = calculator2.lcmCalculator(120, 90);
@@ -21,7 +21,7 @@ public class LcmAndHcfCalculateTest {
     }
 
     @Test
-    public void LcmCalculateTesting3() {
+    public void testLcmCalculateWithReturnValue150() {
         int result;
         LcmAndHcfCalculator calculator3 = new LcmAndHcfCalculator();
         result = calculator3.lcmCalculator(25, 30);
@@ -29,7 +29,7 @@ public class LcmAndHcfCalculateTest {
     }
 
     @Test
-    public void LcmCalculateTesting4() {
+    public void testLcmCalculateFalseCase() {
         int result;
         LcmAndHcfCalculator calculator4 = new LcmAndHcfCalculator();
         result = calculator4.lcmCalculator(125, 30);
@@ -37,7 +37,7 @@ public class LcmAndHcfCalculateTest {
     }
 
     @Test
-    public void HcfCalculateTesting1() {
+    public void testHcfCalculateWithReturnValue20() {
         int result;
         LcmAndHcfCalculator calculator = new LcmAndHcfCalculator();
         result = calculator.hcfCalculator(20, 40);
@@ -45,7 +45,7 @@ public class LcmAndHcfCalculateTest {
     }
 
     @Test
-    public void HcfCalculateTesting2() {
+    public void testHcfCalculateWithReturnValue1() {
         int result;
         LcmAndHcfCalculator calculator = new LcmAndHcfCalculator();
         result = calculator.hcfCalculator(5, 2);
@@ -53,7 +53,7 @@ public class LcmAndHcfCalculateTest {
     }
 
     @Test
-    public void HcfCalculateTesting3() {
+    public void testHcfCalculateWithReturnValue30() {
         int result;
         LcmAndHcfCalculator calculator = new LcmAndHcfCalculator();
         result = calculator.hcfCalculator(120, 90);
@@ -61,7 +61,7 @@ public class LcmAndHcfCalculateTest {
     }
 
     @Test
-    public void HcfCalculateTesting4() {
+    public void testHcfCalculateFalseCase() {
         int result;
         LcmAndHcfCalculator calculator = new LcmAndHcfCalculator();
         result = calculator.hcfCalculator(120, 45);
