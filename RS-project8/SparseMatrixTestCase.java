@@ -84,7 +84,7 @@ public class SparseMatrixTestCase {
         SparseMatrix firstMatrix = new SparseMatrix(new int[][] { { 1, 2, 0, 0 }, { 5, 0, 0, 1 }, { 2, 0, 0, 0 } });
         SparseMatrix secondMatrix = new SparseMatrix(new int[][] { { 0, 0, 5 }, { 1, 2, 0 }, { 1, 0, 3 }, { 0, 0, 0 } });
         SparseMatrix sparseMatrix = new SparseMatrix();
-        int[][] multiplyMatrixActual = new int[][] { { 2, 4, 5 }, { 5, 0, 25 }, { 0, 0, 10 } };
+        int[][] multiplyMatrixActual = new int[][] { { 2, 4, 5 }, { 0, 0, 25 }, { 0, 0, 10 } };
         assertArrayEquals(sparseMatrix.multiplyMatrix(firstMatrix, secondMatrix), multiplyMatrixActual);
     }
 
@@ -99,10 +99,10 @@ public class SparseMatrixTestCase {
 
     @Test
     public void testMultiplyMatrixWithMatrixThree() {
-        SparseMatrix firstMatrix = new SparseMatrix(new int[][] { { 3, 0, 0 }, { 0, 0, 1 } });
-        SparseMatrix secondMatrix = new SparseMatrix(new int[][] { { 0, 5 }, { 1, 2 }, { 1, 0 } });
+        SparseMatrix firstMatrix = new SparseMatrix(new int[][] { { 2, 1, 0 }, { 1, 0, 3 } });
+        SparseMatrix secondMatrix = new SparseMatrix(new int[][] { { 0, 1 }, { 1, 3 }, { 2, 0 } });
         SparseMatrix sparseMatrix = new SparseMatrix();
-        int[][] multiplyMatrixActual = new int[][] { { 0, 15 }, { 1, 0 } };
+        int[][] multiplyMatrixActual = new int[][] { { 1, 5 }, { 6, 1 } };
         assertArrayEquals(sparseMatrix.multiplyMatrix(firstMatrix, secondMatrix), multiplyMatrixActual);
     }
 }
