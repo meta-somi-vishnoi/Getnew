@@ -10,9 +10,9 @@ public class ShoppingCart {
         int itemId, price, itemQuantity;
         float totalDiscount;
         String name, code;
-        System.out.println("Select options: \n press 1 to add product to cart \n press 2 to remove product from cart \n + "press 3 to 
-            update quantity of product \n press 4 to get price of particular product" + "\n press 5 to get billing price \n press 6 to
-            display list of products \n" + "press 7 to enter promocode \n press 8 to exit \n");
+        System.out.println("Select options: \n press 1 to add product to cart \n press 2 to remove product from cart \n + 
+            "press 3 to update quantity of product \n press 4 to get price of particular product" + "\n press 5 to get 
+            billing price \n press 6 to display list of products \n" + "press 7 to enter promocode \n press 8 to exit \n");
         do {
             System.out.println("The existing products are:");
             customerProducts.displayExistingItems();
