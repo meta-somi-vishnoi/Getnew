@@ -33,6 +33,12 @@ final public class SparseMatrix {
         }
     }
 
+    /**
+     * calculates transpose of a given matrix
+     * 
+     * @param matrix
+     * @return transposeMatrix
+     */
     public int[][] transposeOfMatrix(SparseMatrix matrix) {
         int[][] transposeRepresentation = new int[3][matrix.noOfNonZeroElements];
         for (int i = 0; i < matrix.noOfNonZeroElements; i++) {
@@ -40,9 +46,23 @@ final public class SparseMatrix {
             transposeRepresentation[1][i] = matrix.sparseRepresentation[0][i];
             transposeRepresentation[2][i] = matrix.sparseRepresentation[2][i];
         }
-        return transposeRepresentation;
+        int[][] transposeMatrix = new int[matrix.noOfColumns][matrix.noOfRows];
+        for (int i = 0; i < matrix.noOfColumns; i++) {
+            for (int j = 0; j < matrix.noOfRows; j++) {
+                transposeMatrix[i][j] = 0;
+            }
+        }
+        for (int i = 0; i < matrix.noOfNonZeroElements; i++) {
+            transposeMatrix[transposeRepresentation[0][i]][transposeRepresentation[1][i]] = transposeRepresentation[2][i];
+        }
+        return transposeMatrix;
     }
 
+    /**
+     * calculates whether matrix is symmetric or not
+     * 
+     * @param matrix
+     */
     public boolean symmetricMatrix(SparseMatrix matrix) {
         if (matrix.noOfRows != matrix.noOfColumns) {
             return false;
@@ -51,9 +71,9 @@ final public class SparseMatrix {
         for (int i = 0; i < matrix.noOfNonZeroElements; i++) {
             int found = 0;
             for (int j = 0; j < matrix.noOfNonZeroElements; j++) {
-                if (matrix.sparseRepresentation[0][i] == transposeRepresentationOfMatrix[0][j]
-                        && matrix.sparseRepresentation[1][i] == transposeRepresentationOfMatrix[1][j]
-                        && matrix.sparseRepresentation[2][i] == transposeRepresentationOfMatrix[2][j]) {
+                if (matrix.sparseRepresentation[0][i] == matrix.sparseRepresentation[1][j]
+                        && matrix.sparseRepresentation[1][i] == matrix.sparseRepresentation[0][j]
+                        && matrix.sparseRepresentation[2][i] == matrix.sparseRepresentation[2][j]) {
                     found = 1;
                     break;
                 }
@@ -67,6 +87,13 @@ final public class SparseMatrix {
         return true;
     }
 
+    /**
+     * calculates addition of two given matrix
+     * 
+     * @param firstMatrix
+     *            , secondMatrix
+     * @return addedMatrix
+     */
     public int[][] addMatrix(SparseMatrix firstMatrix, SparseMatrix secondMatrix) {
         if (firstMatrix.noOfRows == secondMatrix.noOfRows && firstMatrix.noOfColumns == secondMatrix.noOfColumns) {
             int[][] addCount = new int[3][firstMatrix.sparseRepresentation[0].length
@@ -109,18 +136,30 @@ final public class SparseMatrix {
         }
     }
 
+    /**
+     * calculates multiplication of two given matrix
+     * 
+     * @param firstMatrix
+     *            , secondMatrix
+     * @return multiplyMatrix
+     */
     public int[][] multiplyMatrix(SparseMatrix firstMatrix, SparseMatrix secondMatrix) {
         if (firstMatrix.noOfRows == secondMatrix.noOfColumns && firstMatrix.noOfColumns == secondMatrix.noOfRows) {
-            int[][] multiplyCount = new int[3][firstMatrix.sparseRepresentation[0].length];
-            for (int i = 0; i < firstMatrix.sparseRepresentation[0].length; i++) {
-                int j = 0;
-                for (j = 0; j < secondMatrix.sparseRepresentation[0].length; j++) {
-                    multiplyCount[0][i] = firstMatrix.sparseRepresentation[0][i];
-                    multiplyCount[1][i] = firstMatrix.sparseRepresentation[1][i];
-                    multiplyCount[2][i] += firstMatrix.sparseRepresentation[2][i] * secondMatrix.sparseRepresentation[2][j];
+            int[][] multiplyMatrix = new int[firstMatrix.noOfRows][secondMatrix.noOfColumns];
+            for (int i = 0; i < firstMatrix.noOfRows; i++) {
+                for (int j = 0; j < noOfColumns; j++) {
+                    multiplyMatrix[i][j] = 0;
                 }
             }
-            return multiplyCount;
+            for (int i = 0; i < firstMatrix.sparseRepresentation.length; i++) {
+                for (int j = 0; j < secondMatrix.sparseRepresentation[0].length; j++) {
+                    if (firstMatrix.sparseRepresentation[i][1] == secondMatrix.sparseRepresentation[j][0]) {
+                        multiplyMatrix[firstMatrix.sparseRepresentation[i][0]][secondMatrix.sparseRepresentation[j][1]] 
+                        += firstMatrix.sparseRepresentation[i][2] * secondMatrix.sparseRepresentation[j][2];
+                    }
+                }
+            }
+            return multiplyMatrix;
         } else {
             throw new AssertionError();
         }
