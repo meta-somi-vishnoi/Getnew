@@ -23,14 +23,10 @@ class Products {
 
     public void addProduct(int itemId, int quantity) {
         int flag = 0;
-        int price;
-        String name;
         for (int j = 0; j < existingProducts.size(); j++) {
             if (itemId == existingProducts.get(j).getId() && quantity <= existingProducts.get(j).getQuantity()) {
-                price = existingProducts.get(j).getPrice();
-                name = existingProducts.get(j).getName();
-                Items item = new Items(itemId, name, price, quantity);
-                listOfCustomer.add(item);
+                listOfCustomer.add(
+                    new Items(itemId, existingProducts.get(j).getName(), existingProducts.get(j).getPrice(), quantity);
                 flag = 1;
                 existingProducts.get(j).updateQuantity(existingProducts.get(j).getQuantity() - quantity);
             }
