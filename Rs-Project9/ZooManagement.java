@@ -108,6 +108,9 @@ public class ZooManagement {
                 System.out.println("1. To add Lion to zoo");
                 System.out.println("2. To add Snake to zoo");
                 System.out.println("3. To add Pigeon to zoo");
+                System.out.println("4. To add Tiger to zoo");
+                System.out.println("5. To add Crocodile to zoo");
+                System.out.println("6. To add Ostrich to zoo");
                 int chooseAnimal = sc.nextInt();
                 System.out.println("Enter animal name to add to Zoo");
                 animalName = string.next();
@@ -137,6 +140,18 @@ public class ZooManagement {
                     break;
                 case 3:
                     animal = new Pigeon(animalName, age, weight, numberOfLegs, language);
+                    zooList.animalsList.add(animal);
+                    break;
+                case 4:
+                    animal = new Elephant(animalName, age, weight, numberOfLegs, language);
+                    zooList.animalsList.add(animal);
+                    break;
+                case 5:
+                    animal = new Crocodile(animalName, age, weight, numberOfLegs, language);
+                    zooList.animalsList.add(animal);
+                    break;
+                case 6:
+                    animal = new Ostrich(animalName, age, weight, numberOfLegs, language);
                     zooList.animalsList.add(animal);
                     break;
                 default:
