@@ -42,6 +42,10 @@ class Animal {
     public String getType() {
         return type;
     }
+    
+    public String getSound() {
+        return language;
+    }
 }
 
 class Mammal extends Animal {
@@ -127,7 +131,7 @@ class Snake extends Reptiles {
 }
 
 class Crocodile extends Reptiles {
-    public Crocodile(String name, String category, int age, int weight, int numberOfLegs, String language) {
+    public Crocodile(String name, int age, int weight, int numberOfLegs, String language) {
         super(name, age, weight, numberOfLegs, language);
         type = "Crocodile";
     }
