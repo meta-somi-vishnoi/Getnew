@@ -3,8 +3,8 @@ package ZooManagementSystem;
 import java.util.*;
 
 enum AnimalEnum {
-    OneAnimal("Lion", "Mammal"), TwoAnimal("Tiger", "Mammal"), ThreeAnimal("Pigeon", "Bird"), 
-        FourAnimal("Ostrich", "Bird"), FiveAnimal("Snake", "Reptile"), SixAnimal("Crocodile", "Reptile");
+    AnimalLion("Lion", "Mammal"), AnimalTiger("Tiger", "Mammal"), AnimalPigeon("Pigeon", "Bird"), 
+        AnimalOstrich("Ostrich", "Bird"), AnimalSnake("Snake", "Reptile"), AnimalCrocodile("Crocodile", "Reptile");
     String category;
     String name;
 
