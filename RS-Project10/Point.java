@@ -1,4 +1,4 @@
-package Graphics;
+package graphics;
 
 /**
  * create point of coordinate system
