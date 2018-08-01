@@ -4,13 +4,25 @@ import java.util.*;
 
 public class Screen {
     static Scanner sc = new Scanner(System.in);
+    
+    public static int checkValidInteger() {
+        int input=0;
+        // Loop until user inputs non integer values or negative values
+        while (!sc.hasNextInt()|| (sc.hasNextInt() && ( input = sc.nextInt()) <= 0)) {
+        System.out.print("Enter Positive Integer !");
+        if (!sc.hasNextInt())
+        sc.next();
+        }
+        return input;
+    }
+    
     public Point getCoordinates() {
         Point origin;
         int xCoordinate, yCoordinate;
         System.out.println("Enter origin x coordinate");
-        xCoordinate = sc.nextInt();
+        xCoordinate= checkValidInteger();
         System.out.println("Enter origin y coordinate");
-        yCoordinate = sc.nextInt();
+        yCoordinate = checkValidInteger();
         origin = new Point(xCoordinate, yCoordinate);
         return origin;
     }
@@ -23,9 +35,9 @@ public class Screen {
         ArrayList<Integer> listOfParameters = new ArrayList<Integer>();
         Point origin = getCoordinates();
         System.out.println("Enter length of rectangle");
-        length = sc.nextInt();
+        length = checkValidInteger();
         System.out.println("Enter breadth of rectangle");
-        breadth = sc.nextInt();
+        breadth = checkValidInteger();
         if (!operation.checkCoordinates(origin.getXCoordinate() + length, origin.getYCoordinate() + breadth) && 
             !operation.checkCoordinates(origin.getXCoordinate(), origin.getYCoordinate())) {
             System.out.println("coordinates are wrong");
@@ -45,7 +57,7 @@ public class Screen {
         ArrayList<Integer> listOfParameters = new ArrayList<Integer>();
         Point origin = getCoordinates();
         System.out.println("Enter length of square");
-        length = sc.nextInt();
+        length = checkValidInteger();
         listOfParameters.add(length);
         if (!operation.checkCoordinates(origin.getXCoordinate() + length, origin.getYCoordinate() + length) && 
             !operation.checkCoordinates(origin.getXCoordinate(), origin.getYCoordinate())) {
@@ -66,12 +78,12 @@ public class Screen {
         ArrayList<Integer> listOfParameters = new ArrayList<Integer>();
         Point origin = getCoordinates();
         System.out.println("Enter point Opposite To Base x coordinate");
-        pointXCoordinate = sc.nextInt();
+        pointXCoordinate = checkValidInteger();
         System.out.println("Enter point Opposite To Base y coordinate");
-        pointYCoordinate = sc.nextInt();
+        pointYCoordinate = checkValidInteger();
         pointOppositeToBase = new Point(pointXCoordinate, pointYCoordinate);
         System.out.println("Enter length of triangle");
-        length = sc.nextInt();
+        length = checkValidInteger();
         listOfParameters.add(length);
         if (!operation.checkCoordinates(origin.getXCoordinate() + length, origin.getYCoordinate() + length) && 
             !operation.checkCoordinates(origin.getXCoordinate(), origin.getYCoordinate())) {
@@ -95,7 +107,7 @@ public class Screen {
         ArrayList<Integer> listOfParameters = new ArrayList<Integer>();
         Point origin = getCoordinates();
         System.out.println("Enter radius of circle");
-        radius = sc.nextInt();
+        radius = checkValidInteger();
         if (!operation.checkCoordinates(origin.getXCoordinate() + radius, origin.getYCoordinate() + radius) && 
             !operation.checkCoordinates(origin.getXCoordinate() - radius, origin.getYCoordinate() - radius)) {
             System.out.println("coordinates are wrong");
@@ -113,6 +125,7 @@ public class Screen {
         ArrayList<Shape> listOfShapes = new ArrayList<Shape>();
         ShapesOperations operation = new ShapesOperations();
         do {
+        
             try {
                 System.out.println("Graphics library");
                 System.out.println("Choose option");
@@ -124,14 +137,14 @@ public class Screen {
                 System.out.println("Press 6 To get shapes enclosing specific point");
                 System.out.println("Press 7 To get all shapes above given shape");
                 System.out.println("Press 8 To get origin of shape");
-                option = sc.nextInt();
+                option = checkValidInteger();
                 switch (option) {
                 case 1:
                     System.out.println("Press 1 To create Rectangle");
                     System.out.println("Press 2 To create Square");
                     System.out.println("Press 3 To create Triangle");
                     System.out.println("Press 4 To create Circle");
-                    choice = sc.nextInt();
+                    choice = checkValidInteger();
                     switch (choice) {
                     case 1:
                         screen.addRectangle(listOfShapes, operation);
@@ -154,7 +167,7 @@ public class Screen {
                 case 2:
                     operation.displayShapes(listOfShapes);
                     System.out.println("Enter index of shape to remove");
-                    int index = sc.nextInt();
+                    int index = checkValidInteger();
                     listOfShapes.remove(index - 1);
                     System.out.println("Shape removed successfully");
                     break;
@@ -162,7 +175,7 @@ public class Screen {
                     System.out.println("Enter shape type to remove");
                     String shapeType = string.next();
                     for (int i = 0; i < listOfShapes.size(); i++) {
-                        if (listOfShapes.get(i).getShapeType().equals(shapeType)) {
+                        if (listOfShapes.get(i).getShapeType().equalsIgnoreCase(shapeType)) {
                             listOfShapes.remove(i);
                         }
                     }
@@ -176,7 +189,7 @@ public class Screen {
                     System.out.println("Press 2 Sort using perimeter");
                     System.out.println("Press 3 Sort using timestamp");
                     System.out.println("Press 4 Sort using distance from origin");
-                    int sortChoice = sc.nextInt();
+                    int sortChoice = checkValidInteger();
                     if (sortChoice == 1) {
                         operation.sortUsingArea(listOfShapes);
                     } else if (sortChoice == 2) {
@@ -186,7 +199,7 @@ public class Screen {
                     } else if (sortChoice == 4) {
                         operation.sortUsingOriginDistance(listOfShapes);
                     } else {
-                        System.out.println("Invalis operation");
+                        System.out.println("Invalid operation");
                         System.exit(0);
                     }
                     break;
@@ -194,9 +207,9 @@ public class Screen {
                     int xCoordinate,
                     yCoordinate;
                     System.out.println("Enter x coordinate of point");
-                    xCoordinate = sc.nextInt();
+                    xCoordinate = checkValidInteger();
                     System.out.println("Enter y coordinate of point");
-                    yCoordinate = sc.nextInt();
+                    yCoordinate = checkValidInteger();
                     if (!operation.checkCoordinates(xCoordinate, yCoordinate)) {
                         System.out.println("coordinates are wrong");
                         System.exit(0);
@@ -209,7 +222,7 @@ public class Screen {
                 case 7:
                     operation.displayShapes(listOfShapes);
                     System.out.println("Enter index of shape");
-                    int indexOfList = sc.nextInt();
+                    int indexOfList = checkValidInteger();
                     ArrayList<Shape> listOfShapesAbove;
                     listOfShapesAbove = operation.getAboveShapes(listOfShapes, indexOfList - 1);
                     operation.displayShapes(listOfShapesAbove);
@@ -217,7 +230,7 @@ public class Screen {
                 case 8:
                     operation.displayShapes(listOfShapes);
                     System.out.println("Enter index of shape");
-                    int indexList = sc.nextInt();
+                    int indexList = checkValidInteger();
                     Point origin = listOfShapes.get((indexList-1)).getOrigin();
                     System.out.println("X coordinate is " + origin.getXCoordinate());
                     System.out.println("Y coordinate is " + origin.getYCoordinate());
