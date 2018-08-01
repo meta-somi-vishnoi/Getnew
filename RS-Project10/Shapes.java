@@ -53,12 +53,12 @@ class Rectangle implements Shapes {
     }
 
     public boolean isPointEnclosed(Point location) {
-        int xCoordinateOfLocation = location.getXCoordinate();
-        int yCoordinateOfLocation = location.getYCoordinate();
-        int leftLimit = origin.getXCoordinate();
-        int rightLimit = origin.getXCoordinate() + length;
-        int bottomLimit = origin.getYCoordinate();
-        int topLimit = origin.getYCoordinate() + breadth;
+        double xCoordinateOfLocation = location.getXCoordinate();
+        double yCoordinateOfLocation = location.getYCoordinate();
+        double leftLimit = origin.getXCoordinate();
+        double rightLimit = origin.getXCoordinate() + length;
+        double bottomLimit = origin.getYCoordinate();
+        double topLimit = origin.getYCoordinate() + breadth;
         if (xCoordinateOfLocation > leftLimit && xCoordinateOfLocation < rightLimit && 
             yCoordinateOfLocation > bottomLimit && yCoordinateOfLocation < topLimit) {
             return true;
@@ -106,12 +106,12 @@ class Square implements Shapes {
     }
 
     public boolean isPointEnclosed(Point location) {
-        int xCoordinateOfLocation = location.getXCoordinate();
-        int yCoordinateOfLocation = location.getYCoordinate();
-        int leftLimit = origin.getXCoordinate();
-        int rightLimit = origin.getXCoordinate() + length;
-        int bottomLimit = origin.getYCoordinate();
-        int topLimit = origin.getYCoordinate() + length;
+        double xCoordinateOfLocation = location.getXCoordinate();
+        double yCoordinateOfLocation = location.getYCoordinate();
+        double leftLimit = origin.getXCoordinate();
+        double rightLimit = origin.getXCoordinate() + length;
+        double bottomLimit = origin.getYCoordinate();
+        double topLimit = origin.getYCoordinate() + length;
         if (xCoordinateOfLocation > leftLimit && xCoordinateOfLocation < rightLimit && 
             yCoordinateOfLocation > bottomLimit && yCoordinateOfLocation < topLimit) {
             return true;
@@ -157,7 +157,7 @@ class Triangle implements Shapes {
             origin.getXCoordinate()), 2)) + (Math.pow(pointOppositeToBase.getYCoordinate() - 
             origin.getYCoordinate(), 2)));
         double otherSideLength = Math.sqrt((Math.pow((pointOppositeToBase.getXCoordinate() - 
-            (origin.getXCoordinate() + length)),2)) + (Math.pow(pointOppositeToBase.getYCoordinate() - 
+            (origin.getXCoordinate() + length)), 2)) + (Math.pow(pointOppositeToBase.getYCoordinate() - 
             origin.getYCoordinate(), 2)));
         return (length + firstSideLength + otherSideLength);
     }
@@ -167,21 +167,21 @@ class Triangle implements Shapes {
     }
 
     public boolean isPointEnclosed(Point location) {
-        int xCoordinateOfLocation = location.getXCoordinate();
-        int yCoordinateOfLocation = location.getYCoordinate();
-        int firstPointXCoordinate = origin.getXCoordinate();
-        int secondPointXCoordinate = origin.getXCoordinate() + length;
-        int firstPointYCoordinate = origin.getYCoordinate();
-        int secondPointYCoordinate = origin.getYCoordinate();
-        int thirdPointXCoordinate = pointOppositeToBase.getXCoordinate();
-        int thirdPointYCoordinate = pointOppositeToBase.getYCoordinate();
-        int firstSideCompare = ((yCoordinateOfLocation - firstPointYCoordinate) / 
-            (thirdPointYCoordinate - firstPointYCoordinate)) - ((xCoordinateOfLocation - firstPointXCoordinate) /
-            (thirdPointXCoordinate-firstPointXCoordinate));
-        int secondSideCompare = ((yCoordinateOfLocation - firstPointYCoordinate) / 
-            (thirdPointYCoordinate - firstPointYCoordinate)) - ((xCoordinateOfLocation - secondPointXCoordinate) /  
-            (thirdPointXCoordinate - secondPointXCoordinate));
-        if(firstSideCompare < 0 && secondSideCompare < 0 && yCoordinateOfLocation > firstPointYCoordinate) {
+        double xCoordinateOfLocation = location.getXCoordinate();
+        double yCoordinateOfLocation = location.getYCoordinate();
+        double firstPointXCoordinate = origin.getXCoordinate();
+        double secondPointXCoordinate = origin.getXCoordinate() + length;
+        double firstPointYCoordinate = origin.getYCoordinate();
+        double secondPointYCoordinate = origin.getYCoordinate();
+        double thirdPointXCoordinate = pointOppositeToBase.getXCoordinate();
+        double thirdPointYCoordinate = pointOppositeToBase.getYCoordinate();
+        double firstSideCompare = ((yCoordinateOfLocation - firstPointYCoordinate) / 
+            (thirdPointYCoordinate - firstPointYCoordinate)) - ((xCoordinateOfLocation - 
+            firstPointXCoordinate) / (thirdPointXCoordinate - firstPointXCoordinate));
+        double secondSideCompare = ((yCoordinateOfLocation - firstPointYCoordinate) / 
+            (thirdPointYCoordinate - firstPointYCoordinate)) - ((xCoordinateOfLocation - 
+            secondPointXCoordinate) / (thirdPointXCoordinate - secondPointXCoordinate));
+        if (firstSideCompare < 0 && secondSideCompare < 0 && yCoordinateOfLocation > firstPointYCoordinate) {
             return true;
         }
         return false;
@@ -222,16 +222,35 @@ class Circle implements Shapes {
     }
 
     public Point getOrigin() {
-        int xCenter = center.getXCoordinate();
-        int yCenter = center.getYCoordinate();
-        return center;
+        double xCenter = center.getXCoordinate();
+        double yCenter = center.getYCoordinate();
+        double quadraticEquationAValue = Math.pow(xCenter, 2) + Math.pow(yCenter, 2);
+        double quadraticEquationBValue = (-2) * (Math.pow(xCenter, 3)) + (-2) * 
+            (Math.pow(yCenter, 2)) * xCenter;
+        double quadraticEquationCValue = Math.pow(xCenter, 4) + (2) * (Math.pow(yCenter, 2)) * 
+            (Math.pow(xCenter, 2)) - (Math.pow(radius, 2)) * (Math.pow(xCenter, 2));
+        double firstXSolution = ((-1 * quadraticEquationBValue) + (Math.sqrt((Math.pow(quadraticEquationBValue, 2)) -
+            (4 * quadraticEquationAValue * quadraticEquationCValue))) /
+            (2 * quadraticEquationAValue));
+        double secondXSolution = ((-1 * quadraticEquationBValue) - (Math.sqrt((Math.pow(quadraticEquationBValue, 2)) -
+            (4 * quadraticEquationAValue * quadraticEquationCValue))) /
+            (2 * quadraticEquationAValue));
+        double xSolution, ySolution;
+        if (firstXSolution < secondXSolution && firstXSolution > 0) {
+            xSolution = firstXSolution;
+        } else {
+            xSolution = secondXSolution;
+        }
+        ySolution = yCenter * xSolution / xCenter;
+        Point origin = new Point(xSolution, ySolution);
+        return origin;
     }
 
     public boolean isPointEnclosed(Point location) {
-        int xCoordinateOfLocation = location.getXCoordinate();
-        int yCoordinateOfLocation = location.getYCoordinate();
-        double distance = Math.sqrt((Math.pow((xCoordinateOfLocation - center.getXCoordinate()), 2))
-                + (Math.pow((yCoordinateOfLocation - center.getYCoordinate()), 2)));
+        double xCoordinateOfLocation = location.getXCoordinate();
+        double yCoordinateOfLocation = location.getYCoordinate();
+        double distance = Math.sqrt((Math.pow((xCoordinateOfLocation - center.getXCoordinate()), 2)) +
+            (Math.pow((yCoordinateOfLocation - center.getYCoordinate()), 2)));
         if (distance < radius) {
             return true;
         } else {
@@ -240,7 +259,7 @@ class Circle implements Shapes {
     }
 
     public void getInformation() {
-        System.out.println("Shape Type:" + shapeType + "\t Center:(" + center.getXCoordinate() + "," +
+        System.out.println("Shape Type:" + shapeType + "\t Center:(" + center.getXCoordinate() + "," + 
             center.getXCoordinate() + ") \t radius:" + radius);
     }
 
