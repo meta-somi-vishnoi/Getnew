@@ -169,16 +169,22 @@ class Triangle implements Shapes {
     public boolean isPointEnclosed(Point location) {
         int xCoordinateOfLocation = location.getXCoordinate();
         int yCoordinateOfLocation = location.getYCoordinate();
-        int leftLimit = origin.getXCoordinate();
-        int rightLimit = origin.getXCoordinate() + length;
-        int bottomLimit = origin.getYCoordinate();
-        int topLimit = origin.getYCoordinate() + length;
-        if (xCoordinateOfLocation > leftLimit && xCoordinateOfLocation < rightLimit && 
-            yCoordinateOfLocation > bottomLimit && yCoordinateOfLocation < topLimit) {
+        int firstPointXCoordinate = origin.getXCoordinate();
+        int secondPointXCoordinate = origin.getXCoordinate() + length;
+        int firstPointYCoordinate = origin.getYCoordinate();
+        int secondPointYCoordinate = origin.getYCoordinate();
+        int thirdPointXCoordinate = pointOppositeToBase.getXCoordinate();
+        int thirdPointYCoordinate = pointOppositeToBase.getYCoordinate();
+        int firstSideCompare = ((yCoordinateOfLocation - firstPointYCoordinate) / 
+            (thirdPointYCoordinate - firstPointYCoordinate)) - ((xCoordinateOfLocation - firstPointXCoordinate) /
+            (thirdPointXCoordinate-firstPointXCoordinate));
+        int secondSideCompare = ((yCoordinateOfLocation - firstPointYCoordinate) / 
+            (thirdPointYCoordinate - firstPointYCoordinate)) - ((xCoordinateOfLocation - secondPointXCoordinate) /  
+            (thirdPointXCoordinate - secondPointXCoordinate));
+        if(firstSideCompare < 0 && secondSideCompare < 0 && yCoordinateOfLocation > firstPointYCoordinate) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public void getInformation() {
