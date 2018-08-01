@@ -1,4 +1,4 @@
-package Graphics;
+package graphics;
 
 import java.util.*;
 
@@ -12,13 +12,13 @@ public class ShapesFactory {
      * @param shape type, point coordinates as origin, list of parameters
      * @return shape
      */
-    public static Shapes createShape(String shapeType, Point point, ArrayList<Integer> list) {
-        Shapes shape = null;
-        if (Shapes.ShapesType.Rectangle.toString().equals(shapeType)) {
+    public static Shape createShape(String shapeType, Point point, ArrayList<Integer> list) {
+        Shape shape = null;
+        if (Shape.ShapesType.Rectangle.toString().equals(shapeType)) {
             shape = new Rectangle(point, list.get(0), list.get(1));
-        } else if (Shapes.ShapesType.Square.toString().equals(shapeType)) {
+        } else if (Shape.ShapesType.Square.toString().equals(shapeType)) {
             shape = new Square(point, list.get(0));
-        } else if (Shapes.ShapesType.Circle.toString().equals(shapeType)) {
+        } else if (Shape.ShapesType.Circle.toString().equals(shapeType)) {
             shape = new Circle(point, list.get(0));
         } else {
             System.out.println("Shape is inavlid");
@@ -32,10 +32,10 @@ public class ShapesFactory {
      * @param shape type, point coordinates as origin and point opposite to base , list of parameters
      * @return shape
      */
-    public static Shapes createTriangle
+    public static Shape createTriangle
         (String shapeType, Point point, Point pointOppositeToBase, ArrayList<Integer> list) {
-        Shapes shape = null;
-        if (Shapes.ShapesType.Triangle.toString().equals(shapeType)) {
+        Shape shape = null;
+        if (Shape.ShapesType.Triangle.toString().equals(shapeType)) {
             shape = new Triangle(point, pointOppositeToBase, list.get(0));
         } else {
             System.out.println("Shape is inavlid");
