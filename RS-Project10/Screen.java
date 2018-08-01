@@ -172,14 +172,25 @@ public class Screen {
                     System.out.println("Shape removed successfully");
                     break;
                 case 3:
+                    String shapeType=null;
                     System.out.println("Enter shape type to remove");
-                    String shapeType = string.next();
+                    try {
+                        shapeType = string.nextLine();
+                    } catch(InputMismatchException e) {
+                        System.out.println("Input string is invalid");
+                    }
+                    int flag = 0;
                     for (int i = 0; i < listOfShapes.size(); i++) {
                         if (listOfShapes.get(i).getShapeType().equalsIgnoreCase(shapeType)) {
+                            flag = 1;
                             listOfShapes.remove(i);
                         }
                     }
-                    System.out.println("Shapes removed successfully");
+                    if (flag == 0) {
+                        System.out.println("Shape is not present");
+                    } else {
+                        System.out.println("Shapes removed successfully");
+                    }
                     break;
                 case 4:
                     operation.displayShapes(listOfShapes);
