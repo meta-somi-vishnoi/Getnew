@@ -224,7 +224,6 @@ class Circle implements Shapes {
     public Point getOrigin() {
         int xCenter = center.getXCoordinate();
         int yCenter = center.getYCoordinate();
-
         return center;
     }
 
