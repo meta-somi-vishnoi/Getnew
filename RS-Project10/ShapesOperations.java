@@ -7,7 +7,9 @@ public class ShapesOperations {
 
     /**
      * checks point is within defined range
-     * @param x coordinate of point, y coordinate of point
+     * 
+     * @param x
+     *            coordinate of point, y coordinate of point
      */
     public boolean checkCoordinates(int xCoordinate, int yCoordinate) {
         if (xCoordinate >= 0 && xCoordinate <= Shapes.XMAX && yCoordinate >= 0 && 
@@ -92,10 +94,10 @@ public class ShapesOperations {
             for (int j = 0; j < listOfSortedShapes.size() - i - 1; j++) {
                 Point firstShapeOrigin = listOfSortedShapes.get(j).getOrigin();
                 Point secondShapeOrigin = listOfSortedShapes.get(j + 1).getOrigin();
-                int xCoordinateFirstShape = firstShapeOrigin.getXCoordinate();
-                int yCoordinateFirstShape = firstShapeOrigin.getYCoordinate();
-                int xCoordinateSecondShape = secondShapeOrigin.getXCoordinate();
-                int yCoordinateSecondShape = secondShapeOrigin.getYCoordinate();
+                double xCoordinateFirstShape = firstShapeOrigin.getXCoordinate();
+                double yCoordinateFirstShape = firstShapeOrigin.getYCoordinate();
+                double xCoordinateSecondShape = secondShapeOrigin.getXCoordinate();
+                double yCoordinateSecondShape = secondShapeOrigin.getYCoordinate();
                 double distanceOfFirstShape = Math.sqrt(Math.pow(xCoordinateFirstShape, 2) + 
                     Math.pow(yCoordinateFirstShape, 2));
                 double distanceOfSecondShape = Math.sqrt(Math.pow(xCoordinateSecondShape, 2) +
