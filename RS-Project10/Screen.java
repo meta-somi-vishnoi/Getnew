@@ -142,6 +142,7 @@ public class Screen {
             System.out.println("5. To sort shapes in ascending order");
             System.out.println("6. To get shapes enclosing specific point");
             System.out.println("7. To get all shapes above given shape");
+            System.out.println("8. To get origin of shape");
             Scanner sc = new Scanner(System.in);
             option = sc.nextInt();
             switch (option) {
@@ -232,6 +233,14 @@ public class Screen {
                 ArrayList<Shapes> listOfShapesAbove;
                 listOfShapesAbove = operation.getAboveShapes(listOfShapes, indexOfList - 1);
                 operation.displayShapes(listOfShapesAbove);
+                break;
+            case 8:
+                operation.displayShapes(listOfShapes);
+                System.out.println("Enter index of shape");
+                int indexList = sc.nextInt();
+                Point origin = listOfShapes.get(indexList).getOrigin();
+                System.out.println("X coordinate is " + origin.getXCoordinate());
+                System.out.println("Y coordinate is " + origin.getYCoordinate());
                 break;
             }
         } while (true);
