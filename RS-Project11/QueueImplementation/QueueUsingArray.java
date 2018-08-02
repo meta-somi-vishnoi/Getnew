@@ -1,15 +1,15 @@
 package queueImplementation;
 
-public class QueueUsingArray implements QueueInterface{
-    private int front;
-    private int rear;
-    private int[] queue;
+public class QueueUsingArray implements QueueInterface<Integer>{
+    private Integer front;
+    private Integer rear;
+    private Integer[] queue;
     QueueUsingArray() {
-        queue=new int[5];
+        queue=new Integer[5];
         front=-1;
         rear=-1;
     }
-    public int addItemToQueue(int item) {
+    public Integer addItemToQueue(Integer item) {
         if(isQueueFull()) {
             return -1;
         }
@@ -26,13 +26,13 @@ public class QueueUsingArray implements QueueInterface{
             return queue[front];
         }
     }
-    public int deleteItemFromQueue() {
+    public Integer deleteItemFromQueue() {
         if(isQueueEmpty()) {
             System.out.println("Queue is empty");
             return -1;
         }
         else {
-            int deletedItem=queue[rear];
+            Integer deletedItem=queue[rear];
             rear++;
             return deletedItem;
         }
