@@ -1,16 +1,16 @@
 package queueImplementation;
 class Node {
-    int data;
+    Integer data;
     Node next;
 }
-public class QueueUsingLinkList implements QueueInterface{
+public class QueueUsingLinkList implements QueueInterface<Integer>{
     Node front;
     Node rear;
     QueueUsingLinkList() {
         front=null;
         rear=null;
     }
-    public int addItemToQueue(int item) {
+    public Integer addItemToQueue(Integer item) {
         Node newNode = new Node();
         newNode.data=item;
         newNode.next=null;
@@ -24,7 +24,7 @@ public class QueueUsingLinkList implements QueueInterface{
         }
         return front.data;
     } 
-    public int deleteItemFromQueue() {
+    public Integer deleteItemFromQueue() {
         Node delete = null;
         delete=rear;
         rear=rear.next;
