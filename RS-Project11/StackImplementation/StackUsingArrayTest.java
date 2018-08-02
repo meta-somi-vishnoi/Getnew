@@ -1,4 +1,4 @@
-package stackImplementation;
+package stackAndQueueImplementation;
 
 import static org.junit.Assert.*;
 
