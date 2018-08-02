@@ -1,8 +1,7 @@
 package queueImplementation;
 
-interface QueueInterface {
-    public int addItemToQueue(int item);
-    public int deleteItemFromQueue();
+interface QueueInterface<T> {
+    public T addItemToQueue(T item);
+    public T deleteItemFromQueue();
     public boolean isQueueEmpty();
 }
-
