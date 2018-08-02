@@ -1,4 +1,4 @@
-package stackImplementation;
+package stackAndQueueImplementation;
 
 class StackUsingArray implements StackInterface {
     private int stackArray[] = new int[10];
