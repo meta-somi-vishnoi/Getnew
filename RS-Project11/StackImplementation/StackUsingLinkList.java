@@ -1,11 +1,6 @@
-package stackImplementation;
+package stackAndQueueImplementation;
 
 import java.util.*;
-
-class Node {
-    int data;
-    Node next;
-}
 
 class StackUsingLinkList {
 
@@ -16,9 +11,7 @@ class StackUsingLinkList {
     }
 
     public int pushInStack(int pushValue) {
-        Node newNode = new Node();
-        newNode.data = pushValue;
-        newNode.next = top;
+        Node newNode = new Node(pushValue,top);
         top = newNode;
         return topOfStack();
     }
