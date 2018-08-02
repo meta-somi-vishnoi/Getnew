@@ -1,7 +1,6 @@
 package queueImplementation;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +17,7 @@ public class QueueUsingLinkListTest {
 
     @Test
     public void testQueueAddItem3() {
-        assertEquals(queue.addItemToQueue(3), 3);
+        assertEquals((int)queue.addItemToQueue(3), 3);
     }
 
     @Test
@@ -28,31 +27,31 @@ public class QueueUsingLinkListTest {
 
     @Test
     public void testQueueAddItem9() {
-        assertEquals(queue.addItemToQueue(9), 9);
+        assertEquals((int)queue.addItemToQueue(9), 9);
     }
 
     @Test
     public void testQueueAddItem10() {
-        assertNotEquals(queue.addItemToQueue(10), 17);
+        assertNotEquals((int)queue.addItemToQueue(10), 17);
     }
 
     @Test
     public void testQueueDeleteItem4() {
-        assertEquals(queue.deleteItemFromQueue(), 4);
+        assertEquals((int)queue.deleteItemFromQueue(), 4);
     }
 
     @Test
     public void testQueueDeleteItem7() {
-        assertEquals(queue.deleteItemFromQueue(), 4);
-        assertEquals(queue.deleteItemFromQueue(), 7);
+        assertEquals((int)queue.deleteItemFromQueue(), 4);
+        assertEquals((int)queue.deleteItemFromQueue(), 7);
     }
 
     @Test
     public void testIsQueueEmptyTrue() {
-        assertEquals(queue.deleteItemFromQueue(), 4);
-        assertEquals(queue.deleteItemFromQueue(), 7);
+        assertEquals((int)queue.deleteItemFromQueue(), 4);
+        assertEquals((int)queue.deleteItemFromQueue(), 7);
         assertEquals(queue.isQueueEmpty(), false);
-        assertEquals(queue.deleteItemFromQueue(), 8);
+        assertEquals((int)queue.deleteItemFromQueue(), 8);
         assertEquals(queue.isQueueEmpty(), true);
     }
 }
