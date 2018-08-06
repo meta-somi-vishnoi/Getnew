@@ -20,19 +20,7 @@ class TraverseNestedList implements NestedListInterface {
         }
         return sum;
     }
-
-   /* @SuppressWarnings("unchecked")
-    public boolean isValuePresent(List list, Integer value) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) instanceof Integer && list.get(i) == value) {
-                result = true;
-            }
-            if (list.get(i) instanceof List) {
-                isValuePresent((List) list.get(i), value);
-            }
-        }
-        return result;
-    }*/
+    
     public boolean isValuePresent(List<Object> list, Integer elementToSearch) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) instanceof Integer) {
