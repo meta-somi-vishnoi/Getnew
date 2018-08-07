@@ -51,11 +51,9 @@ class Node {
 class CommandPromptOperations {
     public Node root;
     public Node current;
-    public Node parent;
 
     public void beginning() {
         root = new Node("\\", null, "\\");
-        parent = root;
         current = root;
     }
 
@@ -161,22 +159,16 @@ class CommandPromptOperations {
         }
     }
 
-    public void back(StringBuilder path) {
+    public StringBuilder back(StringBuilder path) {
         if (current.getData().length() == 1) {
             System.out.println("Its root directory. no parent exist");
         } else {
-            current = current.getParentNode();
             if (current.getParentNode() != null) {
-                parent = current.getParentNode();
-            } else {
-                parent = null;
+                current = current.getParentNode();
             }
-            String[] arrayPath = new StringBuilder(path).toString().split("\\");
-            for (int i = 0; i < arrayPath.length - 1; i++) {
-                path.append("\\");
-                path.append(arrayPath[i]);
-            }
+            path = new StringBuilder(current.getPath());
         }
+        return path;
     }
 
     public void findFolder(String folder, Node current) {
@@ -225,8 +217,8 @@ public class VirtualCommandPrompt {
                 operations.createFolder(array[1], path);
             } else if (array[0].equals("cd")) {
                 operations.changeDirectory(array[1], path);
-            } else if (array[0].equals("bk")) {
-                operations.back(path);
+            } else if (command.equals("bk")) {
+                path = operations.back(path);
             } else if (array[0].equals("ls")) {
                 operations.lsCommand();
             } else if (array[0].equals("find")) {
