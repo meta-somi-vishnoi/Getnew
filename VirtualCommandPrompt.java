@@ -51,12 +51,17 @@ class Node {
 class CommandPromptOperations {
     public Node root;
     public Node current;
-
+    
+    /** set root node and current node
+    */
     public CommandPromptOperations() {
         root = new Node("\\", null, "\\");
         current = root;
     }
 
+    /** add child to current node
+    @param current node, folder to add, path of child node
+    */
     public void addChild(Node current, String folder, StringBuilder pathChild) {
         int flag = 0;
         for (int i = 0; i < current.getChildren().size(); i++) {
@@ -72,6 +77,10 @@ class CommandPromptOperations {
         }
     }
 
+    /** checks whether such folder exist inside start node
+    @param start node, splitted array
+    @return index array
+    */
     public int checkExistence(int indexArray, Node start, String[] arraySplitted) {
         if (start == null) {
             return -1;
@@ -84,6 +93,9 @@ class CommandPromptOperations {
         return indexArray;
     }
 
+     /** creates new folder
+    @param folder to add, current path
+    */
     public void createFolder(String folder, StringBuilder path) {
         String[] arraySplit = folder.split("\\\\");
         StringBuilder pathChild;
@@ -121,6 +133,9 @@ class CommandPromptOperations {
         }
     }
 
+    /** change directory to given directory
+    @param directory to change, current path
+    */
     public void changeDirectory(String folder, StringBuilder path) {
         String[] arraySplit = folder.split("\\\\");
         int flag = 0;
@@ -143,6 +158,8 @@ class CommandPromptOperations {
         }
     }
 
+    /** displays list of current folder and its subfolders and count of sub sub folder
+    */
     public void lsCommand() {
         int count = 0;
         if (current.getChildren().size() == 0) {
@@ -159,6 +176,9 @@ class CommandPromptOperations {
         }
     }
 
+    /** moves to previous directory
+    @param current path
+    */
     public StringBuilder back(StringBuilder path) {
         if (current.getData().length() == 1) {
             System.out.println("Its root directory. no parent exist");
@@ -171,6 +191,9 @@ class CommandPromptOperations {
         return path;
     }
 
+    /** finds given folder inside current folder
+    @param folder to add, current node
+    */
     public void findFolder(String folder, Node current) {
         Node startNode = current;
         if (startNode == null) {
@@ -188,6 +211,9 @@ class CommandPromptOperations {
         return;
     }
 
+    /** display complete tree
+    @param root node, level of node in tree
+    */
      public void displayTree(Node startNode,int level) {
         if (startNode == null) {
             return;
