@@ -63,7 +63,6 @@ public class EmployeeUsingMapTest {
         Map<Integer, NewEmployee> mapList = employeeList.sortOnBasisOfName();
         int i = 0;
         for (Map.Entry<Integer, NewEmployee> entry : mapList.entrySet()) {
-            System.out.println(entry.getValue().getName());
             assertEquals(entry.getValue().getName(), array[i]);
             i++;
         }
