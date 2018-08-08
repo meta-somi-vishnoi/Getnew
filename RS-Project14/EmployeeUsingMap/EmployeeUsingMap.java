@@ -20,14 +20,6 @@ class EmployeeUsingMap {
         }
     }
 
-    Comparator<NewEmployee> compareName = new Comparator<NewEmployee>() {
-        public int compare(NewEmployee firstPerson, NewEmployee secondPerson) {
-            String firstPersonName = firstPerson.getName();
-            String secondPersonName = secondPerson.getName();
-            return (int) (firstPersonName.compareTo(secondPersonName));
-        }
-    };
-
     public Map<Integer, NewEmployee> sortOnBasisOfId() {
         Set<Entry<Integer, NewEmployee>> set = employeeMap.entrySet();
         List<Entry<Integer, NewEmployee>> list = new ArrayList<Entry<Integer, NewEmployee>>(set);
