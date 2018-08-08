@@ -188,14 +188,18 @@ class CommandPromptOperations {
         return;
     }
 
-    public void displayTree(Node current) {
-        Node startNode = current;
+     public void displayTree(Node startNode,int level) {
         if (startNode == null) {
             return;
         }
+        if (startNode != root) {
+            System.out.println("|_" + startNode.getData()); 
+        }
+        for(int k=0;k<level;k++) {
+            System.out.print("__");   
+        }
         for (int j = 0; j < startNode.getChildren().size(); j++) {
-            System.out.print("-> " + startNode.getChildren().get(j).getData());
-            displayTree(startNode.getChildren().get(j));
+            displayTree(startNode.getChildren().get(j),level + 1);
         }
         return;
     }
@@ -223,7 +227,7 @@ public class VirtualCommandPrompt {
             } else if (array[0].equals("find")) {
                 operations.findFolder(array[1], operations.current);
             } else if (array[0].equals("tree")) {
-                operations.displayTree(operations.root);
+                operations.displayTree(operations.root,0);
             } else if (array[0].equals("exit")) {
                 System.exit(0);
             } else {
