@@ -153,7 +153,6 @@ class CommandPromptOperations {
                     path.append("\\");
                 }
                 path.append(folder);
-
             }
         }
     }
