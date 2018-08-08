@@ -52,7 +52,7 @@ class CommandPromptOperations {
     public Node root;
     public Node current;
 
-    public void beginning() {
+    public CommandPromptOperations() {
         root = new Node("\\", null, "\\");
         current = root;
     }
@@ -206,7 +206,6 @@ public class VirtualCommandPrompt {
         Scanner sc = new Scanner(System.in);
         CommandPromptOperations operations = new CommandPromptOperations();
         String command;
-        operations.beginning();
         StringBuilder path = new StringBuilder("\\");
         String data;
         do {
