@@ -1,27 +1,35 @@
 package priorityqueue;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author vishn_000
  */
 public class ViratBowlingSequence {
-    PriorityQueueImplementation queue= new PriorityQueueImplementation();
+    PriorityQueueImplementation operation = new PriorityQueueImplementation();
+    public ArrayList<PriorityQueue> queue = new ArrayList<PriorityQueue>();
+
     public void addPlayer(Integer bowls, String name) {
-        queue.addToQueue(bowls,name);
+        operation.addToQueue(queue, bowls, name);
     }
-    public StringBuilder playBowls(Integer totalBowls) {
+
+    public String playBowls(Integer totalBowls) {
         StringBuilder order = new StringBuilder();
-        for(int i=0;i<totalBowls;i++) {
-            if(queue.isQueueEmpty()) {
+        for (int i = 0; i < totalBowls; i++) {
+            if (operation.isQueueEmpty(queue)) {
                 throw new AssertionError("not enough bowlers");
             }
-            queue.peek().setPriority(queue.peek().getPriority()-1);
-            order.append(queue.peek().getData());
-            if(queue.peek().getPriority()==0) {
-                queue.deleteFromQueue();
+            queue.get(0).setPriority();
+            order.append(operation.peek(queue).getData());
+            if (operation.peek(queue).getPriority() == 0) {
+                operation.deleteFromQueue(queue);
             }
-            order.append("->");
-            queue.maxHeapify();
+            if (i != totalBowls - 1) {
+                order.append("->");
+            }
+            operation.maxHeapify(queue);
         }
-        return order;
+        return order.toString();
     }
 }
