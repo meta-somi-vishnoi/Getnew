@@ -1,4 +1,4 @@
-package dictionary;
+package dictionarymanagement;
 
 import java.util.ArrayList;
 import java.util.Map;
