@@ -1,4 +1,4 @@
-package employee;
+package employeemanagement;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +17,23 @@ public class EmployeeUsingMapTest {
         assertEquals(true, employeeList.addEmployee(2, "Jaya", "UP"));
     }
 
+    @Test(expected = NullPointerException.class)
+    public void testSortOnNameNullPointer() {
+        EmployeeUsingMap employeeList = new EmployeeUsingMap();
+        employeeList.addEmployee(2, "Somi", "Jaipur");
+        employeeList.addEmployee(4, null , "Punjab");
+        employeeList.addEmployee(8, "Ojasvi", "Gujarat");
+        employeeList.addEmployee(5, "Mansi", "Harayana");
+        employeeList.addEmployee(1, "Jaya", "Jaipur");
+        String[] array = new String[] { "Jaya", "Jaya", "Mansi", "Ojasvi", "Somi" };
+        Map<Integer, Employee> mapList = employeeList.sortOnBasisOfName();
+        int i = 0;
+        for (Map.Entry<Integer, Employee> entry : mapList.entrySet()) {
+            assertEquals(entry.getValue().getName(), array[i]);
+            i++;
+        }
+    }
+    
     @Test
     public void testAddEmployee() {
         EmployeeUsingMap employeeList = new EmployeeUsingMap();
@@ -43,9 +60,9 @@ public class EmployeeUsingMapTest {
         employeeList.addEmployee(5, "Mansi", "Harayana");
         employeeList.addEmployee(1, "Jaya", "Jaipur");
         int[] array = new int[] { 1, 2, 4, 5, 8, 11 };
-        Map<Integer, NewEmployee> mapList = employeeList.sortOnBasisOfId();
+        Map<Integer, Employee> mapList = employeeList.sortOnBasisOfId();
         int i = 0;
-        for (Map.Entry<Integer, NewEmployee> entry : mapList.entrySet()) {
+        for (Map.Entry<Integer, Employee> entry : mapList.entrySet()) {
             assertEquals(entry.getValue().getId(), array[i]);
             i++;
         }
@@ -60,9 +77,9 @@ public class EmployeeUsingMapTest {
         employeeList.addEmployee(5, "Mansi", "Harayana");
         employeeList.addEmployee(1, "Jaya", "Jaipur");
         String[] array = new String[] { "Jaya", "Jaya", "Mansi", "Ojasvi", "Somi" };
-        Map<Integer, NewEmployee> mapList = employeeList.sortOnBasisOfName();
+        Map<Integer, Employee> mapList = employeeList.sortOnBasisOfName();
         int i = 0;
-        for (Map.Entry<Integer, NewEmployee> entry : mapList.entrySet()) {
+        for (Map.Entry<Integer, Employee> entry : mapList.entrySet()) {
             assertEquals(entry.getValue().getName(), array[i]);
             i++;
         }
