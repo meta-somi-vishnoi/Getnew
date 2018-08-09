@@ -1,9 +1,9 @@
-package employee;
+package employeemanagement;
 
 import java.util.*;
 
 public class EmployeeUsingArray {
-    public ArrayList<NewEmployee> listOfEmployee = new ArrayList<NewEmployee>();
+    public ArrayList<Employee> listOfEmployee = new ArrayList<Employee>();
 
     public void addEmployee(int empId, String name, String address) {
         int flag = 0;
@@ -14,35 +14,38 @@ public class EmployeeUsingArray {
             }
         }
         if (flag == 0) {
-            NewEmployee person = new NewEmployee(empId, name, address);
-            listOfEmployee.add(person);
+            listOfEmployee.add(new Employee(empId, name, address));
         } else {
             throw new AssertionError("Employee id already exists");
         }
     }
 
-    public ArrayList<NewEmployee> sortOnBasisOfId() {
+    public ArrayList<Employee> sortOnBasisOfId() {
         Collections.sort(listOfEmployee, compareId);
         return listOfEmployee;
     }
 
-    public ArrayList<NewEmployee> sortOnBasisOfName() {
+    public ArrayList<Employee> sortOnBasisOfName() {
         Collections.sort(listOfEmployee, compareName);
         return listOfEmployee;
     }
 
-    Comparator<NewEmployee> compareId = new Comparator<NewEmployee>() {
-        public int compare(NewEmployee firstPerson, NewEmployee secondPerson) {
-            int firstPersonId = firstPerson.getId();
-            int secondPersonId = secondPerson.getId();
-            return (int) (firstPersonId - secondPersonId);
+    Comparator<Employee> compareId = new Comparator<Employee>() {
+        public int compare(Employee firstEmployee, Employee secondEmployee) {
+            int firstEmployeeId = firstEmployee.getId();
+            int secondEmployeeId = secondEmployee.getId();
+            return (firstEmployeeId - secondEmployeeId);
         }
     };
-    Comparator<NewEmployee> compareName = new Comparator<NewEmployee>() {
-        public int compare(NewEmployee firstPerson, NewEmployee secondPerson) {
-            String firstPersonName = firstPerson.getName();
-            String secondPersonName = secondPerson.getName();
-            return (int) (firstPersonName.compareTo(secondPersonName));
+    Comparator<Employee> compareName = new Comparator<Employee>() {
+        public int compare(Employee firstEmployee, Employee secondEmployee) {
+            String firstEmployeeName = firstEmployee.getName();
+            String secondEmployeeName = secondEmployee.getName();
+            if (secondEmployeeName != null && firstEmployeeName != null) {
+                return (firstEmployeeName.compareTo(secondEmployeeName));
+            } else {
+                throw new NullPointerException("Name is null");
+            }
         }
     };
 }
