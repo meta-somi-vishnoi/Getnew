@@ -10,7 +10,7 @@ interface Dictionary {
 
     public String getValueOfKey(String key);
 
-    public Map<String, String> sortKeyValue();
+    public Map<String, String> sortDictionaryByKey();
 
-    public ArrayList<String> sortWithKeyValueSpecified(String smallerKey, String largerKey);
+    public ArrayList<String> sortDictionaryWithKeyValueSpecified(String smallerKey, String largerKey);
 }
