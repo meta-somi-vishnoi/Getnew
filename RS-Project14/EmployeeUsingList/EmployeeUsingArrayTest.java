@@ -1,79 +1,87 @@
-package employee;
-
-import java.util.*;
+package employeemanagement;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.junit.Test;
 
-public class EmployeeUsingArrayTest {
+public class EmployeeUsingMapTest {
+
     @Test(expected = AssertionError.class)
-    public void testAddEmployee() {
-        EmployeeUsingArray employeeList = new EmployeeUsingArray();
+    public void testAddEmployeeAssertionError() {
+        EmployeeUsingMap employeeList = new EmployeeUsingMap();
+        assertEquals(true, employeeList.addEmployee(2, "Somi", "Jaipur"));
+        assertEquals(true, employeeList.addEmployee(2, "Jaya", "UP"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testSortOnNameNullPointer() {
+        EmployeeUsingMap employeeList = new EmployeeUsingMap();
         employeeList.addEmployee(2, "Somi", "Jaipur");
-        employeeList.addEmployee(2, "Jaya", "UP");
+        employeeList.addEmployee(4, null , "Punjab");
+        employeeList.addEmployee(8, "Ojasvi", "Gujarat");
+        employeeList.addEmployee(5, "Mansi", "Harayana");
+        employeeList.addEmployee(1, "Jaya", "Jaipur");
+        String[] array = new String[] { "Jaya", "Jaya", "Mansi", "Ojasvi", "Somi" };
+        Map<Integer, Employee> mapList = employeeList.sortOnBasisOfName();
+        int i = 0;
+        for (Map.Entry<Integer, Employee> entry : mapList.entrySet()) {
+            assertEquals(entry.getValue().getName(), array[i]);
+            i++;
+        }
+    }
+    
+    @Test
+    public void testAddEmployee() {
+        EmployeeUsingMap employeeList = new EmployeeUsingMap();
+        assertEquals(true, employeeList.addEmployee(8, "Somi", "Jaipur"));
+        assertEquals(true, employeeList.addEmployee(4, "Jaya", "Punjab"));
+    }
+
+    @Test
+    public void testAddEmployeeAgain() {
+        EmployeeUsingMap employeeList = new EmployeeUsingMap();
+        assertEquals(true, employeeList.addEmployee(8, "Somi", "Jaipur"));
+        assertEquals(true, employeeList.addEmployee(4, "Jaya", "Punjab"));
+        assertEquals(true, employeeList.addEmployee(5, "Mansi", "Harayana"));
+        assertEquals(true, employeeList.addEmployee(1, "Jaya", "Jaipur"));
     }
 
     @Test
     public void testSortOnId() {
-        EmployeeUsingArray employeeList = new EmployeeUsingArray();
+        EmployeeUsingMap employeeList = new EmployeeUsingMap();
         employeeList.addEmployee(2, "Somi", "Jaipur");
         employeeList.addEmployee(4, "Jaya", "Punjab");
         employeeList.addEmployee(8, "Ojasvi", "Gujarat");
-        employeeList.addEmployee(5, "Mansi", "Harayana");
-        employeeList.addEmployee(1, "Jaya", "Jaipur");
-        int[] array = new int[] { 1, 2, 4, 5, 8 };
-        ArrayList<NewEmployee> list = employeeList.sortOnBasisOfId();
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(list.get(i).getId(), array[i]);
-        }
-    }
-
-    @Test
-    public void testSortOnIdNew() {
-        EmployeeUsingArray employeeList = new EmployeeUsingArray();
-        employeeList.addEmployee(20, "Shivi", "Udaipur");
-        employeeList.addEmployee(2, "Somi", "Jaipur");
         employeeList.addEmployee(11, "Somi", "Mumbai");
-        employeeList.addEmployee(4, "Jaya", "Punjab");
-        employeeList.addEmployee(8, "Ojasvi", "Gujarat");
         employeeList.addEmployee(5, "Mansi", "Harayana");
         employeeList.addEmployee(1, "Jaya", "Jaipur");
-        int[] array = new int[] { 1, 2, 4, 5, 8, 11, 20 };
-        ArrayList<NewEmployee> list = employeeList.sortOnBasisOfId();
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(list.get(i).getId(), array[i]);
+        int[] array = new int[] { 1, 2, 4, 5, 8, 11 };
+        Map<Integer, Employee> mapList = employeeList.sortOnBasisOfId();
+        int i = 0;
+        for (Map.Entry<Integer, Employee> entry : mapList.entrySet()) {
+            assertEquals(entry.getValue().getId(), array[i]);
+            i++;
         }
     }
 
     @Test
     public void testSortOnName() {
-        EmployeeUsingArray employeeList = new EmployeeUsingArray();
+        EmployeeUsingMap employeeList = new EmployeeUsingMap();
         employeeList.addEmployee(2, "Somi", "Jaipur");
         employeeList.addEmployee(4, "Jaya", "Punjab");
         employeeList.addEmployee(8, "Ojasvi", "Gujarat");
         employeeList.addEmployee(5, "Mansi", "Harayana");
         employeeList.addEmployee(1, "Jaya", "Jaipur");
         String[] array = new String[] { "Jaya", "Jaya", "Mansi", "Ojasvi", "Somi" };
-        ArrayList<NewEmployee> list = employeeList.sortOnBasisOfName();
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(list.get(i).getName(), array[i]);
-        }
-    }
-
-    @Test
-    public void testSortOnNameNew() {
-        EmployeeUsingArray employeeList = new EmployeeUsingArray();
-        employeeList.addEmployee(20, "Shivi", "Udaipur");
-        employeeList.addEmployee(2, "Somi", "Jaipur");
-        employeeList.addEmployee(4, "Jaya", "Punjab");
-        employeeList.addEmployee(11, "Somi", "Mumbai");
-        employeeList.addEmployee(8, "Ojasvi", "Gujarat");
-        employeeList.addEmployee(5, "Mansi", "Harayana");
-        String[] array = new String[] { "Jaya", "Mansi", "Ojasvi", "Shivi", "Somi", "Somi" };
-        ArrayList<NewEmployee> list = employeeList.sortOnBasisOfName();
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(list.get(i).getName(), array[i]);
+        Map<Integer, Employee> mapList = employeeList.sortOnBasisOfName();
+        int i = 0;
+        for (Map.Entry<Integer, Employee> entry : mapList.entrySet()) {
+            assertEquals(entry.getValue().getName(), array[i]);
+            i++;
         }
     }
 }
