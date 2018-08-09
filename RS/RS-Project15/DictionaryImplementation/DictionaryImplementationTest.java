@@ -1,4 +1,4 @@
-package dictionary;
+package dictionarymanagement;
 
 import static org.junit.Assert.*;
 
@@ -63,7 +63,7 @@ public class DictionaryImplementationTest {
     @Test
     public void testSortKeyValue() {
         operation = new DictionaryImplementation();
-        Map<String, String> tree = operation.sortKeyValue();
+        Map<String, String> tree = operation.sortDictionaryByKey();
         ArrayList<String> keyArray = new ArrayList<String>(Arrays.asList("Frown", "Panache", "Peace", "Uncanny"));
         ArrayList<String> dataArray = new ArrayList<String>(Arrays.asList("Anger", "Approved", "Quiet", "Normal"));
         int index = 0;
@@ -77,7 +77,7 @@ public class DictionaryImplementationTest {
     @Test
     public void testSortKeyValueWithSpecifiedKey() {
         operation = new DictionaryImplementation();
-        ArrayList<String> tree = operation.sortWithKeyValueSpecified("Panache", "Unacnny");
+        ArrayList<String> tree = operation.sortDictionaryWithKeyValueSpecified("Panache", "Unacnny");
         ArrayList<String> keyArray = new ArrayList<String>(Arrays.asList("Panache", "Peace", "Uncanny"));
         int index = 0;
         for (String key : tree) {
