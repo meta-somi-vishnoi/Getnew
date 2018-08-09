@@ -1,15 +1,15 @@
-package employee;
+package employeemanagement;
 
 /**
  *
  * @author vishn_000
  */
-class NewEmployee {
+class Employee {
     private int empId;
     private String name;
     private String address;
 
-    NewEmployee(int empId, String name, String address) {
+    Employee(int empId, String name, String address) {
         this.empId = empId;
         this.name = name;
         this.address = address;
