@@ -77,7 +77,8 @@ public class DictionaryImplementation implements Dictionary {
         }
         ArrayList<String> listOfValues = new ArrayList<String>();
         for (Map.Entry<String, String> entry : tree.entrySet()) {
-            if (entry.getKey().compareTo(smallerKey) >= 0 && entry.getKey().compareTo(largerKey) <= 0 && entry.getKey() != null) {
+            if (entry.getKey().compareTo(smallerKey) >= 0 && entry.getKey().compareTo(largerKey) <= 0 && 
+                entry.getKey() != null) {
                 listOfValues.add(entry.getKey());
             } else {
                 throw new NullPointerException("Value is null for some key");
