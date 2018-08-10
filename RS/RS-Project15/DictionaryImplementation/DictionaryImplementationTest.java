@@ -21,7 +21,7 @@ public class DictionaryImplementationTest {
     @Test(expected = AssertionError.class)
     public void testGetValueOfKey() {
         operation = new DictionaryImplementation();
-        assertEquals("Anger", operation.deleteDictionaryEntry("Fright"));
+        assertEquals("Anger", operation.getValueOfKey("Fright"));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class DictionaryImplementationTest {
     }
 
     @Test
-    public void testSortKeyValueWithSpecifiedKey() {
+    public void testValueWithSpecificKey() {
         operation = new DictionaryImplementation();
         ArrayList<String> tree = operation.sortDictionaryWithKeyValueSpecified("Panache", "Unacnny");
         ArrayList<String> keyArray = new ArrayList<String>(Arrays.asList("Panache", "Peace", "Uncanny"));
