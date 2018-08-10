@@ -22,38 +22,48 @@ public class DictionaryImplementation implements Dictionary {
     public void addDictionaryEntry(String fileName) {
         try {
             if (fileName == null) {
-                System.out.println("File not Found");
+                throw new NullPointerException("Filename null is not allowed");
             }
             File jsonInputFile = new File(fileName);
             InputStream input = new FileInputStream(jsonInputFile);
             JsonReader reader = Json.createReader(input);
             JsonObject jsonObj = reader.readObject();
             reader.close();
-            Set<String> keys = jsonObj.keySet();
-            Iterator<String> i = keys.iterator();
-            while (i.hasNext()) {
-                String key = (String) i.next();
-                tree.put(key, jsonObj.get(key).toString());
+
+            for (String key : jsonObj.keySet()) {
+                tree.put(key.toString(), jsonObj.get(key).toString());
             }
         } catch (FileNotFoundException ex) {
             System.out.println("File not Found in addList");
+        } catch (Exception e) {
+            System.out.println("Exception occured");
         }
     }
 
     public String deleteDictionaryEntry(String key) {
-        if (key != null) {
-            tree.remove(key);
-            return key;
+        if (tree.containsKey(key)) {
+            if (key != null) {
+                tree.remove(key);
+                return key;
+            } else {
+                return null;
+            }
         } else {
-            throw new NullPointerException("Key is null");
+            throw new AssertionError("Key does not exist in tree");
         }
     }
 
     public String getValueOfKey(String key) {
-        if (key != null) {
-            return tree.get(key);
+        String meaning;
+        if (tree.containsKey(key)) {
+            if (key != null) {
+                meaning = tree.get(key);
+            } else {
+                throw new NullPointerException("Key is null");
+            }
+            return meaning;
         } else {
-            throw new NullPointerException("Key is null");
+            throw new AssertionError("Key does not exist in tree");
         }
     }
 
