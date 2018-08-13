@@ -50,7 +50,6 @@ public class GraphEdgeListOperations {
             minimumWeight = 10000;
             for (int i = 0; i < visitedNode.length; i++) {
                 if (visitedNode[i] == 1) {
-                    // for(int j=0;j<graphEdgeList.get(i).size();j++) {
                     GraphNode current = graphEdgeList.get(i);
                     while (current != null) {
                         if (current.weight < minimumWeight && visitedNode[current.nodeNumber] == 0) {
