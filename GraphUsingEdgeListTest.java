@@ -1,4 +1,4 @@
-package undirectedweightedgraphimplementation;
+package graphoperations;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class GraphUsingEdgeListImplementationTest {
     }
 
     @Test
-    public void testMinimumSpanningTree() {
+    public void testMinimumSpanningTreeReturningTree() {
         ArrayList<ArrayList<Integer>> expectedlistOfPath = new ArrayList<ArrayList<Integer>>();
         expectedlistOfPath.add(new ArrayList<Integer>(Arrays.asList(0, 1)));
         expectedlistOfPath.add(new ArrayList<Integer>(Arrays.asList(1, 3)));
@@ -87,7 +87,7 @@ public class GraphUsingEdgeListImplementationTest {
     }
 
     @Test
-    public void testShortestPath() {
+    public void testShortestPathReturningShortestPath() {
         ArrayList<ArrayList<Integer>> expectedlistOfPath = new ArrayList<ArrayList<Integer>>();
         expectedlistOfPath.add(new ArrayList<Integer>(Arrays.asList(0, 1)));
         expectedlistOfPath.add(new ArrayList<Integer>(Arrays.asList(0, 4)));
