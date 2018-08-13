@@ -1,4 +1,4 @@
-package undirectedweightedgraphimplementation;
+package graphoperations;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,34 +39,18 @@ public class GraphOperations {
         int node = 0;
         int nodeWithMinimumWeight = 0;
         int minimumWeight = 10000;
-        int index = -1;
         ArrayList<ArrayList<Integer>> path = new ArrayList<ArrayList<Integer>>();
         int[] visitedNode = new int[graphMatrix.length];
         for (int i = 0; i < graphMatrix.length; i++) {
+            visitedNode[i] = 0;
             for (int j = 0; j < graphMatrix.length; j++) {
                 if (graphMatrix[i][j] == 0) {
                     graphMatrix[i][j] = 11000;
                 }
             }
         }
-        for (int i = 0; i < visitedNode.length; i++) {
-            visitedNode[i] = 0;
-        }
-        for (int i = 0; i < graphMatrix.length; i++) {
-            for (int j = 0; j < graphMatrix.length; j++) {
-                if (graphMatrix[i][j] < minimumWeight) {
-                    minimumWeight = graphMatrix[i][j];
-                    index = i;
-                    nodeWithMinimumWeight = j;
-                }
-            }
-        }
-        System.out.println(index);
-        System.out.println(nodeWithMinimumWeight);
-        visitedNode[index] = 1;
-        visitedNode[nodeWithMinimumWeight] = 1;
-        int edges = 1;
-        path.add(new ArrayList<Integer>(Arrays.asList(index, nodeWithMinimumWeight)));
+        visitedNode[0] = 1;
+        int edges = 0;
         int vertex = graphMatrix.length;
         while (edges != vertex - 1) {
             nodeWithMinimumWeight = -1;
@@ -95,11 +79,9 @@ public class GraphOperations {
         ArrayList<ArrayList<Integer>> path = new ArrayList<ArrayList<Integer>>();
         int[] visitedNode = new int[graphMatrix.length];
         int[] distanceNode = new int[graphMatrix.length];
-        for (int i = 0; i < visitedNode.length; i++) {
+        for (int i = 0; i < graphMatrix.length; i++) {
             visitedNode[i] = 0;
             distanceNode[i] = 100000;
-        }
-        for (int i = 0; i < graphMatrix.length; i++) {
             for (int j = 0; j < graphMatrix.length; j++) {
                 if (graphMatrix[i][j] == 0) {
                     graphMatrix[i][j] = 11000;
