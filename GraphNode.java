@@ -1,4 +1,4 @@
-package undirectedweightedgraphimplementation;
+package graphoperations;
 
 class GraphNode {
 
