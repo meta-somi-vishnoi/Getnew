@@ -1,4 +1,4 @@
-package undirectedweightedgraphimplementation;
+package graphoperations;
 
 interface StackInterface<T> {
     public void pushInStack(T value);
