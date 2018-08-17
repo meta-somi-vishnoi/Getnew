@@ -29,7 +29,7 @@ ON b.ParentId = l.CategoryId
 WHERE b.CategoryId NOT IN(
                           SELECT s.CategoryId
                           FROM Categories s INNER JOIN Categories c
-                          ON s.ParentId = c.CategoryId
+                          ON s.CategoryId = c.ParentId
                           );
 
 #Part 6
@@ -45,23 +45,26 @@ WHERE b.CategoryId NOT IN(
  
  #Part 8
  UPDATE Product
- SET Product.Quantity = Quantity + 100;
+ SET Quantity = (Quantity + 100)
+ WHERE ProductId > 0;
  
  
 #Question 3 
 
 #Part 1
-SELECT o.OrderId, o.OrderDate, SUM(i.TotalPrice) AS Total
+SELECT i.OrderId, o.OrderDate, SUM(i.TotalPrice) AS Total
 FROM OrderedItems o, Items i
+WHERE i.OrderId = o.OrderId
 GROUP BY i.OrderId
-ORDER BY OrderDate DESC
+ORDER BY o.OrderDate DESC
 LIMIT 50;
  
  #Part 2
- SELECT o.OrderId, o.UserId, o.OrderDate, o.Quantity, SUM(i.TotalPrice) AS Total
+ SELECT i.OrderId, o.UserId, o.OrderDate, o.Quantity, SUM(i.TotalPrice) AS Total
  FROM OrderedItems o, Items i
+ WHERE i.OrderId = o.OrderId
  GROUP BY i.OrderId
- ORDER BY Total
+ ORDER BY Total DESC
  LIMIT 10;
  
  #Part 3
@@ -69,13 +72,13 @@ LIMIT 50;
  FROM OrderedItems o
  WHERE OrderDate < (DATE_SUB(NOW(), INTERVAL 10 DAY)) AND
  (SELECT COUNT(i.OrderStatus)
- FROM Items i
+ FROM Items i,  OrderedItems v
  WHERE i.OrderStatus = "Not Shipped" AND
- i.OrderId = o.OrderId
+ i.OrderId = v.OrderId
  )>1;
  
  #Part 4
- SELECT * 
+ SELECT u.UserId, u.FirstName, u.LastName
  FROM Users u
  WHERE u.UserId NOT IN (
                         SELECT UserId 
@@ -90,7 +93,7 @@ CREATE VIEW UserOrder
     FROM Users INNER JOIN OrderedItems
     ON Users.UserId = OrderedItems.UserId
     WHERE OrderDate >= (DATE_SUB(NOW(), INTERVAL 15 DAY));
-SELECT s.UserId, s.FirstName, s.LastName , s.OrderDate, i.ProductId, i.TotalPrice
+SELECT s.UserId, s.FirstName, s.LastName , s.OrderDate, s.OrderId, i.ProductId, i.TotalPrice
 FROM Items i, UserOrder s
 WHERE i.OrderId = s.OrderId    
 ;
@@ -102,14 +105,20 @@ WHERE OrderId = 1 AND
 OrderStatus = "Shipped";
 
 #Part 7
-SELECT OrderedItems.OrderId, SUM(Items.TotalPrice)  
-FROM Items INNER JOIN OrderedItems 
-WHERE SUM(TotalPrice) BETWEEN 10 AND 5000;
-GROUP BY Items.OrderId;
+SELECT Items.OrderId, Items.ProductId, OrderedItems.OrderDate, Product.Price
+FROM Items 
+INNER JOIN OrderedItems 
+ON Items.OrderId = OrderedItems.OrderId
+INNER JOIN Product
+ON Items.ProductId = Product.ProductId
+WHERE Product.Price BETWEEN 10 AND 5000;
 
 #Part 8
-UPDATE Items INNER JOIN OrderedItems
-SET OrderStatus = "Shipped"
-WHERE OrderDate = DATE(NOW()) 
-ORDER BY OrderDate DESC
+UPDATE Items
+SET Items.OrderStatus = "Shipped"
+WHERE OrderId IN(
+                              SELECT OrderId
+                              FROM OrderedItems
+                              WHERE OrderDate = CURDATE() 
+                              )
 LIMIT 20;
