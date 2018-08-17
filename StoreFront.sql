@@ -10,14 +10,19 @@ CREATE TABLE Categories(
 
 CREATE TABLE Product(
     ProductId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    CategoryId INT,
     Price INT,
     Description VARCHAR(100),
     Quantity INT,
-    Name VARCHAR(100),
-    FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId)
+    Name VARCHAR(100)
     );
 
+CREATE TABLE ProductCategory(
+    ProductId INT,
+    CategoryId INT,
+    FOREIGN KEY (ProductId) REFERENCES Product(ProductId),
+    FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId)
+    );
+    
 CREATE TABLE ProductImages(
     ProductId INT,
     Image VARCHAR(100),
@@ -40,15 +45,21 @@ CREATE TABLE UserContactDetails(
     FOREIGN KEY (UserId) REFERENCES Users(UserId)
     );
 
-CREATE TABLE UserAddress(
-    UserId INT,
+CREATE TABLE Address(
     AddressId INT AUTO_INCREMENT PRIMARY KEY,
     StreetNumber VARCHAR(50),
     StreetName VARCHAR(100),
     CityName VARCHAR(100),
     State VARCHAR(50),
-    PostalZip INT,
-    FOREIGN KEY (UserId) REFERENCES Users(UserId)
+    PostalZip INT
+    );
+    
+CREATE TABLE UserAddress(
+    UserAddressId INT PRIMARY KEY AUTO_INCREMENT,
+    UserId INT,
+    AddressId INT,
+    FOREIGN KEY (UserId) REFERENCES Users(UserId),
+    FOREIGN KEY (AddressId) REFERENCES Address(AddressId)
     );
 
 CREATE TABLE Cart(
@@ -67,7 +78,7 @@ CREATE TABLE OrderedItems(
     ShippingAddressId INT,
     Quantity INT,
     FOREIGN KEY (UserId) REFERENCES Users(UserId),
-    FOREIGN KEY (ShippingAddressId) REFERENCES UserAddress(AddressId)
+    FOREIGN KEY (ShippingAddressId) REFERENCES UserAddress(UserAddressId)
     );
 
 
@@ -77,7 +88,8 @@ CREATE TABLE Items(
     Quantity INT,
     TotalPrice INT,
     OrderStatus VARCHAR(100),
-    FOREIGN KEY (ProductId) REFERENCES Product(ProductId)
+    FOREIGN KEY (ProductId) REFERENCES Product(ProductId),
+    FOREIGN KEY (OrderId) REFERENCES OrderedItems(OrderId),
     );
 
 SHOW TABLES;
@@ -86,6 +98,7 @@ SHOW TABLES;
 DROP TABLE Items;
 DROP TABLE Cart;
 DROP TABLE ProductImages;
+DROP TABLE ProductCategory;
 DROP TABLE Product;
 CREATE TABLE Product(
     ProductId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -94,6 +107,12 @@ CREATE TABLE Product(
     Description VARCHAR(100),
     Quantity INT,
     Name VARCHAR(100),
+    FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId)
+    );
+CREATE TABLE ProductCategory(
+    ProductId INT,
+    CategoryId INT,
+    FOREIGN KEY (ProductId) REFERENCES Product(ProductId),
     FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId)
     );
 CREATE TABLE ProductImages(
