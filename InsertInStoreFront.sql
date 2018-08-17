@@ -26,32 +26,67 @@ VALUES
 (9, "Dresses");
 
 INSERT INTO Product
-(CategoryId, Price, Description, Quantity, Name)
+(Price, Description, Quantity, Name)
 VALUES
-(11, 3000,"Comfortable, Smart", 20, "SportShoes"),
-(11, 2000,"Flat Sole, Shimmering", 500, "SneakersShoes"),
-(10, 50,"1 year warranty, Daily wear", 10, "FlatsSlippers"),
-(12, 2000,"Blue Color, Denim", 30, "LevisJeans"),
-(12, 4000,"Black color, Ankle", 200, "WoodlandJeans"),
-(13, 100,"White color, Round neck", 3000, "AdidasShirt"),
-(13, 1500,"Black color, Party wear", 20, "ReebokShirt"),
-(14, 5000,"Beautiful, Red color, Limited stock", 150, "SilkSaree"),
-(14, 7000,"Green color, Party wear, Light weight", 40, "CheffonSaree"),
-(14, 200,"Free length, Blue color", 0, "CottonSaree"),
-(15, 2500,"Purple color, Off shoulder", 30, "PeopleTop"),
-(15, 1500,"Black color, Striped", 120, "MaxTop"),
-(16, 2000,"Floor length", 600, "AnarkaliKurti"),
-(16, 130,"Parrot green color", 0, "ShortKurtis"),
-(17, 500,"Woollen, Red black color", 1100, "LittleJackets"),
-(17, 3000,"Half sleeves, comfortable, woollen", 70, "JiniJackets"),
-(18, 2000,"Beautiful, Dress, pink color", 200, "GirlsDress"),
-(18, 150,"Smart shirt and pant pair, Tie", 10, "BoysDress"),
-(4, 47000,"15Inch display, Black", 1700, "LenovoLaptop"),
-(4, 70000,"I7 processor, Graphic card", 20, "DellLaptop"),
-(4, 50000,"Red color, 8GB RAM", 40, "SamsungLaptop"),
-(5, 65000,"HD Quality", 70, "CanonCamera"),
-(6, 1700,"Slim, Light weight, Rose gold color", 220, "LenovoMobile"),
-(6, 25000,"40 MP front caera, 4GB RAM", 410, "MIMobile");
+(3000,"Comfortable, Smart", 20, "SportShoes"),
+(2000,"Flat Sole, Shimmering", 500, "SneakersShoes"),
+(50,"1 year warranty, Daily wear", 10, "FlatsSlippers"),
+(2000,"Blue Color, Denim", 30, "LevisJeans"),
+(4000,"Black color, Ankle", 200, "WoodlandJeans"),
+(100,"White color, Round neck", 3000, "AdidasShirt"),
+(1500,"Black color, Party wear", 20, "ReebokShirt"),
+(5000,"Beautiful, Red color, Limited stock", 150, "SilkSaree"),
+(7000,"Green color, Party wear, Light weight", 40, "CheffonSaree"),
+(200,"Free length, Blue color", 0, "CottonSaree"),
+(2500,"Purple color, Off shoulder", 30, "PeopleTop"),
+(1500,"Black color, Striped", 120, "MaxTop"),
+(2000,"Floor length", 600, "AnarkaliKurti"),
+(130,"Parrot green color", 0, "ShortKurtis"),
+(500,"Woollen, Red black color", 1100, "LittleJackets"),
+(3000,"Half sleeves, comfortable, woollen", 70, "JiniJackets"),
+(2000,"Beautiful, Dress, pink color", 200, "GirlsDress"),
+(150,"Smart shirt and pant pair, Tie", 10, "BoysDress"),
+(47000,"15Inch display, Black", 1700, "LenovoLaptop"),
+(70000,"I7 processor, Graphic card", 20, "DellLaptop"),
+(50000,"Red color, 8GB RAM", 40, "SamsungLaptop"),
+(65000,"HD Quality", 70, "CanonCamera"),
+(1700,"Slim, Light weight, Rose gold color", 220, "LenovoMobile"),
+(25000,"40 MP front caera, 4GB RAM", 410, "MIMobile");
+
+INSERT INTO ProductCategory
+(ProductId, CategoryId) 
+VALUES
+(1, 11),
+(2, 11),
+(3, 10),
+(4, 12),
+(5, 12),
+(6, 13),
+(7, 13),
+(8, 14),
+(9, 14),
+(10, 14),
+(11, 15),
+(12, 15),
+(13, 16),
+(14, 16),
+(15, 17),
+(16, 17),
+(17, 18),
+(18, 18),
+(19, 4),
+(20, 4),
+(21, 4),
+(22, 5),
+(23, 6),
+(24, 6),
+(18, 7),
+(18, 9),
+(14, 18),
+(13, 18),
+(3, 7),
+(3, 8),
+(3, 9);
 
 INSERT INTO ProductImages 
 (ProductId, Image) 
@@ -111,17 +146,30 @@ VALUES
 (6, "3478677433"),
 (5, "9376736784");
 
+INSERT INTO Address
+(StreetNumber, StreetName, CityName, State, PostalZip)
+VALUES
+("A-13", "Nehru Marg", "Jaipur", "Rajasthan", 372488),
+("D-14", "Bapu Nagar", "Delhi", "UP", 348548),
+("F/123", "Mansarovar", "Jaipur", "Rajasthan", 337718),
+("U-144", "JLN Marg", "Jaipur", "Rajasthan", 672485),
+("P/34", "Gopal Marg", "Jaipur", "Rajasthan", 272486),
+("A-122", "Patel Nagar", "Vadodara", "Gujarat", 756999),
+("C-76", "Shastri Circle", "Jodhpur", "Rajasthan", 420118),
+("H-67", "Lajpat Marg", "Mumbai", "Maharashtra", 322487);
+
 INSERT INTO UserAddress
-(UserId, StreetNumber, StreetName, CityName, State, PostalZip)
+(UserId, AddressId)
 VALUES 
-(1, "A-13", "Nehru Marg", "Jaipur", "Rajasthan", 372488),
-(2, "D-14", "Bapu Nagar", "Delhi", "UP", 348548),
-(1, "F/123", "Mansarovar", "Jaipur", "Rajasthan", 337718),
-(3, "U-144", "JLN Marg", "Jaipur", "Rajasthan", 672485),
-(4, "P/34", "Gopal Marg", "Jaipur", "Rajasthan", 272486),
-(4, "A-122", "Patel Nagar", "Vadodara", "Gujarat", 756999),
-(5, "C-76", "Shastri Circle", "Jodhpur", "Rajasthan", 420118),
-(6, "H-67", "Lajpat Marg", "Mumbai", "Maharashtra", 322487);
+(1, 1),
+(2, 2),
+(1, 3),
+(3, 4),
+(4, 5),
+(4, 6),
+(5, 7),
+(6, 8),
+(6, 4);
 
 INSERT INTO Cart
 (UserId, ProductId, Quantity, TotalPrice)
