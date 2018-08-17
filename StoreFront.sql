@@ -31,7 +31,7 @@ CREATE TABLE Users(
     EmailId VARCHAR(100) UNIQUE,
     Password VARCHAR(100),
     DateOfBirth DATE,
-    Gender VARCHAR(10)
+    Gender VARCHAR(10) CHECK (Gender IN ("Male","Female"))
     );
 
 CREATE TABLE UserContactDetails(
