@@ -216,10 +216,12 @@ VALUES
 (2, 16),
 (4, 11);
 
-SELECT 
+SELECT ZipCityMapping.ZipId, PostalZip.ZipCode, City.CityName, State.State
 FROM ZipCityMapping
 INNER JOIN PostalZip
 ON ZipCityMapping.ZipId = PostalZip.ZipId
 INNER JOIN City
 ON ZipCityMapping.CityId = City.Cityid
+INNER JOIN State
+ON State.StateId = City.StateId
 WHERE ZipCode = 785898;
