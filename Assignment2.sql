@@ -4,8 +4,9 @@ USE StoreFront;
 
 #Part 2
 SELECT p.ProductId, p.Name, c.CategoryName, p.Price
-FROM Product p, Categories c
-WHERE p.CategoryId = c.CategoryId AND 
+FROM Product p, Categories c, ProductCategory a
+WHERE a.CategoryId = c.CategoryId AND 
+p.ProductId = a.ProductId AND
 p.Quantity > 0
 ORDER BY p.ProductId DESC;
 
@@ -34,9 +35,10 @@ WHERE b.CategoryId NOT IN(
 
 #Part 6
  SELECT p.Name, p.Price, p.Description
- FROM Product p , Categories a
+ FROM Product p , Categories a, ProductCategory c
  WHERE a.CategoryName = "Mobiles" AND
- p.CategoryId = a.CategoryId;
+ c.CategoryId = a.CategoryId AND
+ c.ProductId = p.ProductId;
  
  #Part 7
  SELECT * 
@@ -67,16 +69,15 @@ LIMIT 50;
  ORDER BY Total DESC
  LIMIT 10;
  
- #Part 3
- SELECT o.OrderId, o.UserId, o.OrderDate
- FROM OrderedItems o
- WHERE OrderDate < (DATE_SUB(NOW(), INTERVAL 10 DAY)) AND
- (SELECT COUNT(i.OrderStatus)
- FROM Items i,  OrderedItems v
- WHERE i.OrderStatus = "Not Shipped" AND
- i.OrderId = v.OrderId
- )>1;
- 
+#Part 3
+SELECT * 
+FROM OrderedItems
+WHERE OrderDate NOT BETWEEN DATE_SUB(NOW(), INTERVAL 10 DAY) AND NOW()
+AND OrderId IN (SELECT OrderId
+                FROM Items
+                WHERE OrderStatus = 'Not Shipped'
+                );
+                 
  #Part 4
  SELECT u.UserId, u.FirstName, u.LastName
  FROM Users u
@@ -117,8 +118,8 @@ WHERE Product.Price BETWEEN 10 AND 5000;
 UPDATE Items
 SET Items.OrderStatus = "Shipped"
 WHERE OrderId IN(
-                              SELECT OrderId
-                              FROM OrderedItems
-                              WHERE OrderDate = CURDATE() 
-                              )
+                 SELECT OrderId
+                 FROM OrderedItems
+                 WHERE OrderDate = CURDATE() 
+                 )
 LIMIT 20;
