@@ -45,7 +45,7 @@ SELECT MaximumOrdersInMonth(2018);
 DELIMITER $$
 CREATE PROCEDURE AveargeSalesInMonth(monthValue INT, yearValue INT) 
     BEGIN
-        SELECT p.ProductId, p.Name, AVG(i.Totalprice) AS AverageSales
+        SELECT p.ProductId, p.Name, AVG(i.Quantity) AS AverageSales
         FROM Items i
         INNER JOIN OrderedItems o
         ON i.OrderId = o.OrderId
