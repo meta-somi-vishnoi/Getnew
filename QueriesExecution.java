@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class QueriesExecution {
+
     private Connection connection;
+    private static int count = 0;
     private PreparedStatement statement = null;
     MysqlQueries runQuery = new MysqlQueries();
 
@@ -46,7 +48,7 @@ public class QueriesExecution {
         return listOfResult;
     }
 
-    public int insertQuery(ArrayList<Image> listOfData) {
+    public int insertQuery(ArrayList<Node> listOfData) {
         int[] result = {};
         try {
             connection.setAutoCommit(false);
@@ -81,21 +83,21 @@ public class QueriesExecution {
         }
     }
 
-    public int countChild(int id, int count, ArrayList<ResultSetDisplayQuery> listOfResult) {
+    public int countChild(int id, ArrayList<ResultSetDisplayQuery> listOfResult) {
         for (int i = 0; i < listOfResult.size(); i++) {
-            if (listOfResult.get(i).getParentId() == id) {
+            if (listOfResult.get(i).getParentId() != 0 && listOfResult.get(i).getParentId() == id) {
                 count++;
-                countChild(id, count, listOfResult);
+                countChild(listOfResult.get(i).getCategoryId(), listOfResult);
             }
         }
         return count;
     }
 
-    public ArrayList<Image> displayQuery() {
+    public ArrayList<Node> displayQuery() {
         ArrayList<ResultSetDisplayQuery> listOfResult = new ArrayList<ResultSetDisplayQuery>();
-        ArrayList<Image> list = new ArrayList<Image>();
+        ArrayList<Node> list = new ArrayList<Node>();
         try {
-            statement = connection.prepareStatement(runQuery.getQueryForUser());
+            statement = connection.prepareStatement(runQuery.getQueryDisplay());
             ResultSet rs = statement.executeQuery();
             ResultSetDisplayQuery query;
             while (rs.next()) {
@@ -104,8 +106,9 @@ public class QueriesExecution {
             }
             for (int i = 0; i < listOfResult.size(); i++) {
                 if (listOfResult.get(i).getParentId() == 0) {
-                    int count = countChild(listOfResult.get(i).getCategoryId(), 0, listOfResult);
-                    list.add(new Image(count, listOfResult.get(i).getCategoryName()));
+                    count = 0;
+                    count = countChild(listOfResult.get(i).getCategoryId(), listOfResult);
+                    list.add(new Node(count, listOfResult.get(i).getCategoryName()));
                 }
             }
         } catch (SQLException ex) {
