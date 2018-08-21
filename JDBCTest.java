@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 public class JDBCTest {
+
     QueriesExecution database = new QueriesExecution();
 
     @Test
@@ -24,13 +25,13 @@ public class JDBCTest {
 
     @Test
     public void testInsertQuery() {
-        ArrayList<Image> listOfData = new ArrayList<Image>();
-        listOfData.add(new Image(1, "image1insert.jpg"));
-        listOfData.add(new Image(2, "image2insert.jpg"));
-        listOfData.add(new Image(3, "image3insert.jpg"));
-        listOfData.add(new Image(1, "image11insert.jpg"));
-        listOfData.add(new Image(5, "image5insert.jpg"));
-        listOfData.add(new Image(3, "image33insert.jpg"));
+        ArrayList<Node> listOfData = new ArrayList<Node>();
+        listOfData.add(new Node(1, "image1insert.jpg"));
+        listOfData.add(new Node(2, "image2insert.jpg"));
+        listOfData.add(new Node(3, "image3insert.jpg"));
+        listOfData.add(new Node(1, "image11insert.jpg"));
+        listOfData.add(new Node(5, "image5insert.jpg"));
+        listOfData.add(new Node(3, "image33insert.jpg"));
         assertEquals(6, database.insertQuery(listOfData));
     }
 
@@ -41,11 +42,11 @@ public class JDBCTest {
 
     @Test
     public void testDisplayQuery() {
-        ArrayList<Image> expectedList = database.displayQuery();
-        ArrayList<Image> list = new ArrayList<Image>();
-        list.add(new Image(4, "Electronic_Gadgets"));
-        list.add(new Image(8, "Clothing"));
-        list.add(new Image(3, "Footwear"));
+        ArrayList<Node> expectedList = database.displayQuery();
+        ArrayList<Node> list = new ArrayList<Node>();
+        list.add(new Node(3, "Electronic_Gadgets"));
+        list.add(new Node(10, "Clothing"));
+        list.add(new Node(2, "Footwear"));
         for (int i = 0; i < list.size(); i++) {
             assertEquals(list.get(i).getId(), expectedList.get(i).getId());
             assertEquals(list.get(i).getName(), expectedList.get(i).getName());
