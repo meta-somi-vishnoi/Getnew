@@ -1,10 +1,11 @@
 package javamysqlconnectivity;
 
-class Image {
+class Node {
+
     private int productId;
     private String imageName;
 
-    Image(int productId, String imageName) {
+    Node(int productId, String imageName) {
         this.productId = productId;
         this.imageName = imageName;
     }
