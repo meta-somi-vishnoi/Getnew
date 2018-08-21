@@ -7,6 +7,7 @@ public class ResultSetDisplayQuery {
 
     ResultSetDisplayQuery(int categoryId, int parentId, String categoryName) {
         this.categoryId = categoryId;
+        this.parentId = parentId;
         this.categoryName = categoryName;
     }
 
