@@ -3,6 +3,7 @@ package javamysqlconnectivity;
 import java.util.Date;
 
 public class ResultSetSelectQuery {
+
     private int orderId;
     private Date orderDate;
     private int totalPrice;
