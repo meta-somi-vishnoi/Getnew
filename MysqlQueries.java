@@ -31,4 +31,8 @@ class MysqlQueries {
         return "SELECT CategoryId,  ParentId, CategoryName "
             + "FROM Categories";
     }
+    
+    public String getValidateUser() {
+        return "SELECT UserId  FROM Users WHERE UserId = ?";
+    }
 }
