@@ -30,17 +30,39 @@ public class QueriesExecution {
         }
     }
 
+     public boolean validateUser(int userId) throws SQLException {
+        if (userId < 0) {
+            return false;
+        } else {
+            statement = connection.prepareStatement(runQuery.getValidateUser());
+            statement.setInt(1, userId);
+            ResultSet rs = statement.executeQuery();
+            rs.last();
+            int rows = rs.getRow();
+            if (rows == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     public ArrayList<ResultSetSelectQuery> selectQuery(int userId) {
         ArrayList<ResultSetSelectQuery> listOfResult = new ArrayList<ResultSetSelectQuery>();
         try {
-            statement = connection.prepareStatement(runQuery.getQueryForUser());
-            statement.setInt(1, userId);
-            statement.setString(2, "Shipped");
-            ResultSet rs = statement.executeQuery();
-            ResultSetSelectQuery query;
-            while (rs.next()) {
-                query = new ResultSetSelectQuery(rs.getInt("OrderId"), rs.getDate("OrderDate"), rs.getInt("TotalPrice"));
-                listOfResult.add(query);
+            if (validateUser(userId)) {
+                statement = connection.prepareStatement(runQuery.getQueryForUser());
+                statement.setInt(1, userId);
+                statement.setString(2, "Shipped");
+                ResultSet rs = statement.executeQuery();
+                ResultSetSelectQuery query;
+                while (rs.next()) {
+                    System.out.println(rs.getDate("OrderDate"));
+                    query = new ResultSetSelectQuery(rs.getInt("OrderId"), rs.getDate("OrderDate"), rs.getInt("TotalPrice"));
+                    listOfResult.add(query);
+                }
+            } else {
+                throw new AssertionError("Invalid User");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
