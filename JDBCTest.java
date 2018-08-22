@@ -10,6 +10,11 @@ public class JDBCTest {
 
     QueriesExecution database = new QueriesExecution();
 
+    @Test(expected = AssertionError.class)
+    public void testAssertionsEnabled() {
+        database.selectQuery(50);
+    }
+    
     @Test
     public void testSelectQuery() throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
