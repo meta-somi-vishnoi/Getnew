@@ -11,11 +11,11 @@ public class JDBCTest {
     QueriesExecution database = new QueriesExecution();
 
     @Test
-    public void testSelectQuery() {
+    public void testSelectQuery() throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         ArrayList<ResultSetSelectQuery> list = database.selectQuery(4);
         ArrayList<ResultSetSelectQuery> actualList = new ArrayList<ResultSetSelectQuery>();
-        actualList.add(new ResultSetSelectQuery(5, new Date(2018 - 07 - 17), 4000));
-        actualList.add(new ResultSetSelectQuery(6, new Date(2018 - 07 - 17), 1000));
+        actualList.add(new ResultSetSelectQuery(5, formatter.parse("2018-06-10"), 4000));
         for (int i = 0; i < list.size(); i++) {
             assertEquals(list.get(i).getOrderId(), actualList.get(i).getOrderId());
             assertEquals(list.get(i).getOrderDate(), actualList.get(i).getOrderDate());
