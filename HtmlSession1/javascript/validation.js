@@ -1,5 +1,5 @@
 function validate() {
-	if(validateFirstName() && validateLastName() && validateContactNumber() && validatePassword() && validateEmail()){
+	if(validateFirstName() && validateLastName() && validateContactNumber() && validateStrength() && validateEmail()){
 		document.getElementById("signupForm").submit();
 		return true;
 	}
@@ -86,13 +86,12 @@ function validateStrength() {
     if(letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=10 && countLower>=1 && countUpper>=1) {
         document.getElementById('strength').innerHTML = "StrongPassword";
         document.getElementById('strength').style.color = "green";
-    } else if(letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=8 && countLower>=1 && countUpper>=1) {
-        document.getElementById('strength').innerHTML = "NormalPassword";
-        document.getElementById('strength').style.color = "blue";
+        return true;
     } else {
-        document.getElementById('strength').innerHTML = "WeakPassword";
+        document.getElementById('strength').innerHTML = "WeakPassword.";
         document.getElementById('strength').style.color = "red";
         alert('Please input password should contains Uppercase, Lowercase, Numeric, Alphanumeric, and length minimum 8');
+        return false;
     } 
 }
 
@@ -100,6 +99,7 @@ function validateConfirmPassword() {
     if(document.getElementById('confirmPassword').value!=document.getElementById('password').value) {
         document.getElementById('checkMark').innerHTML = "&#10006";
         document.getElementById('checkMark').style.color = "red";
+        document.getElementById('confirmPassword').focus();
     } else {
         document.getElementById('checkMark').innerHTML = "&#10004";
         document.getElementById('checkMark').style.color = "green";
@@ -107,7 +107,7 @@ function validateConfirmPassword() {
 }
 
 function validateEmail() {
-    var regex = /^\w+([\.-]?\w+)*@[a-zA-Z]+(\.[a-zA-Z]{2,3})+$/;
+    var regex = /^\w+([\.-]?\w+)*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,3})+$/;
     if(document.getElementById('email').value.match(regex)) {
         return true;
     }
