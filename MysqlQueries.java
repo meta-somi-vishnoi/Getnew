@@ -28,8 +28,7 @@ class MysqlQueries {
     }
     
     public String getQueryDisplay() {
-        return "SELECT CategoryId,  ParentId, CategoryName "
-            + "FROM Categories";
+        return "SELECT CategoryId,  ParentId, CategoryName FROM Categories";
     }
     
     public String getValidateUser() {
