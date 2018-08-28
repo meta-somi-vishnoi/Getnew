@@ -40,32 +40,6 @@ function validateContactNumber() {
 	}
 }
 
-function validatePassword() {
-    var strings = document.getElementById('password').value;
-    var i=0;
-    var countUpper=0,countLower=0;
-    var character='';
-    while (i < strings.length){
-        if(strings[i].match(/[a-zA-Z]/)) {
-            if(strings[i]===strings[i].toUpperCase()) {
-                countUpper++;
-            }
-            if(strings[i]===strings[i].toLowerCase()) {
-                countLower++;
-            }
-        }
-        i++;
-    }
-	var letters = /^[0-9A-Za-z]/;
-    if(	letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=8 && countLower>=1 && countUpper>=1) {
-		return true;
-	} else {
-		alert('Please input password should contains Uppercase, Lowercase, Numeric, Alphanumeric, and length minimum 8');
-		document.getElementById('password').focus();
-		return false;
-	}
-}
-
 function validateStrength() {
     var strings = document.getElementById('password').value;
     var i=0;
@@ -82,8 +56,13 @@ function validateStrength() {
         }
         i++;
     }
-	var letters = /^[0-9A-Za-z]/;
-    if(letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=10 && countLower>=1 && countUpper>=1) {
+    var letters = /^[0-9A-Za-z]/;
+    if(letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=8 && countLower>=1 && countUpper>=1) {
+        document.getElementById('strength').innerHTML = "NormalPassword";
+        document.getElementById('strength').style.color = "Blue";
+        return true;
+    }
+    else if(/^\S/.test(document.getElementById('password').value) && document.getElementById('password').value.length>=8 && countLower>=1 && countUpper>=1) {
         document.getElementById('strength').innerHTML = "StrongPassword";
         document.getElementById('strength').style.color = "green";
         return true;
