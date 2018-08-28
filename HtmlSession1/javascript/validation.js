@@ -1,5 +1,5 @@
 function validate() {
-	if(validateFirstName() && validateLastName() && validateContactNumber ()){
+	if(validateFirstName() && validateLastName() && validateContactNumber() && validatePassword() && validateEmail()){
 		document.getElementById("signupForm").submit();
 		return true;
 	}
@@ -34,28 +34,30 @@ function validateContactNumber() {
 	if(document.getElementById('contactNo').value.match(letters) && document.getElementById('contactNo').value.length>8 && document.getElementById('contactNo').value.length<=10) {
 		return true;
 	} else {
-		alert('Please input contact number as numeric characters and length between 8 to 10');
+		alert('Please input valid contact number');
 		document.getElementById('contactNo').focus();
 		return false;
 	}
 }
 
 function validatePassword() {
-    var strings = document.getElementById('password');
+    var strings = document.getElementById('password').value;
     var i=0;
     var countUpper=0,countLower=0;
     var character='';
-    while (i <= strings.length){
-        if(strings.charAtIsUpper(i)) {
-            countUpper++;
-        }
-        if(strings.charAtIsLower(i)) {
-            countLower++;
+    while (i < strings.length){
+        if(strings[i].match(/[a-zA-Z]/)) {
+            if(strings[i]===strings[i].toUpperCase()) {
+                countUpper++;
+            }
+            if(strings[i]===strings[i].toLowerCase()) {
+                countLower++;
+            }
         }
         i++;
     }
-	var letters = /^[0-9][A-Z][a-z]/;
-    if(	document.getElementById('password').value.match(letters) && document.getElementById('password').value.length>=8 ) {
+	var letters = /^[0-9A-Za-z]/;
+    if(	letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=8 && countLower>=1 && countUpper>=1) {
 		return true;
 	} else {
 		alert('Please input password should contains Uppercase, Lowercase, Numeric, Alphanumeric, and length minimum 8');
@@ -64,12 +66,54 @@ function validatePassword() {
 	}
 }
 
+function validateStrength() {
+    var strings = document.getElementById('password').value;
+    var i=0;
+    var countUpper=0,countLower=0;
+    var character='';
+    while (i < strings.length){
+        if(strings[i].match(/[a-zA-Z]/)) {
+            if(strings[i]===strings[i].toUpperCase()) {
+                countUpper++;
+            }
+            if(strings[i]===strings[i].toLowerCase()) {
+                countLower++;
+            }
+        }
+        i++;
+    }
+	var letters = /^[0-9A-Za-z]/;
+    if(letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=10 && countLower>=1 && countUpper>=1) {
+        document.getElementById('strength').innerHTML = "StrongPassword";
+        document.getElementById('strength').style.color = "green";
+    } else if(letters.test(document.getElementById('password').value) && document.getElementById('password').value.length>=8 && countLower>=1 && countUpper>=1) {
+        document.getElementById('strength').innerHTML = "NormalPassword";
+        document.getElementById('strength').style.color = "blue";
+    } else {
+        document.getElementById('strength').innerHTML = "WeakPassword";
+        document.getElementById('strength').style.color = "red";
+        alert('Please input password should contains Uppercase, Lowercase, Numeric, Alphanumeric, and length minimum 8');
+    } 
+}
+
+function validateConfirmPassword() {
+    if(document.getElementById('confirmPassword').value!=document.getElementById('password').value) {
+        document.getElementById('checkMark').innerHTML = "&#10006";
+        document.getElementById('checkMark').style.color = "red";
+    } else {
+        document.getElementById('checkMark').innerHTML = "&#10004";
+        document.getElementById('checkMark').style.color = "green";
+    }
+}
+
 function validateEmail() {
-    if(	document.getElementById('email').indexOf('@')!=-1 && document.getElementById('email').indexOf('.')!=-1) {
-		return true;
-	} else {
-		alert('Please input valid email id');
+    var regex = /^\w+([\.-]?\w+)*@[a-zA-Z]+(\.[a-zA-Z]{2,3})+$/;
+    if(document.getElementById('email').value.match(regex)) {
+        return true;
+    }
+    else {
+        alert('Please input valid email id');
 		document.getElementById('email').focus();
 		return false;
-	}
+    }
 }
