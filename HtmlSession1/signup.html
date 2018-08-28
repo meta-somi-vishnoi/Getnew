@@ -47,11 +47,11 @@
 					</tr>
 					<tr>
 						<td>Password: </td>
-						<td><input type="password" id="password" placeholder = "Enter password" /></td>
+						<td><input type="password" id="password" placeholder = "Enter password" onblur="validateStrength()"/><span id="strength"></span></td>
 					</tr>
 					<tr>
 						<td>Confirm Password: </td>
-						<td><input type="password" id="confirmPassword" placeholder = "Re-enter password" /></td>
+						<td><input type="password" id="confirmPassword" placeholder = "Re-enter password"  onkeyup="validateConfirmPassword()" /><span id="checkMark"></span></td>
 					</tr>
 					<tr>
 						<td>Contact number: </td>
@@ -60,7 +60,7 @@
 					<tr>
 						<td>Organization/Company: </td>
 						<td><select name="company">
-							<option>Metacube</option>
+							<option>Metacube</option>   
 							<option>Infosys</option>
 							<option>TCS</option>
 							<option>Mahindra</option>
@@ -75,4 +75,3 @@
 		</div>
 	</body>
 </html>
- 
