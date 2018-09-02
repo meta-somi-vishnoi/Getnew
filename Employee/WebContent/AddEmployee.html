@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="validation.js"></script>
+</head>
+<body align = "center">
+	<div>
+		<form action="AddEmployee" method="get" name="addDetailsForm"
+			onsubmit="return validate()">
+			<div class="addEmployee">
+				<span>First Name</span> <input type="text" name="firstName"
+					required />
+			</div>
+			<div class="addEmployee">
+				<span>Last Name</span> <input type="text" name="lastName" required />
+			</div>
+			<div class="addEmployee">
+				<span>Email</span> <input type="text" name="email" required />
+			</div>
+			<div class="addEmployee">
+				<span>Age</span> <input type="number" name="age" required />
+			</div>
+			<div class="addEmployee">
+				<input type="submit" name="addEmployee" value="AddEmployee" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>
