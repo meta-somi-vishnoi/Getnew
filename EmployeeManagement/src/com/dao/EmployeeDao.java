@@ -42,7 +42,7 @@ public class EmployeeDao {
     }
 
     public ArrayList<Employee> searchEmployee(SearchEmployeeByName employee) {
-        ArrayList<Employee> listOfEmployee = null;
+        ArrayList<Employee> listOfEmployee = new ArrayList<Employee>();
         try {
             Connection connection = ConnectionToDatabase.getConnection();
             String query = Queries.getSearchEmployee();
@@ -64,7 +64,7 @@ public class EmployeeDao {
     }
 
     public ArrayList<Employee> showEmployee() {
-        ArrayList<Employee> listOfEmployee = null;
+        ArrayList<Employee> listOfEmployee = new ArrayList<Employee>();
         try {
             Connection connection = ConnectionToDatabase.getConnection();
             String query = Queries.getShowEmployee();
