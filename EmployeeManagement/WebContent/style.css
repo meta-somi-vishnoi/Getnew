@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+a {
+	text-decoration: none;
+	font-size: 25px;
+	padding-left: 25px;
+	color: purple;
+}
+ .button-link {
+	border: black;
+}
+ .addEmployee {
+	padding-top: 20px;
+}
+ .header {
+	color: purple;
+	font-size: 10px;;
+}
+ .home {
+	color: purple;
+	font-size: 30px;
+} 
