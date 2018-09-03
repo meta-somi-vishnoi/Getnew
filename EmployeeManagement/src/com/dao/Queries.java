@@ -3,7 +3,7 @@ package com.dao;
 public class Queries {
     
     public static String getInsertEmployee() {
-        return "INSERT INTO EmployeeDetails "
+        return "INSERT INTO EmployeeDetails (FirstName, LastName, Email, Age) "
                 + "VALUES(?, ?, ?, ?)";
     }
     
