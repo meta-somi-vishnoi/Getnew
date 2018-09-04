@@ -18,25 +18,24 @@ import com.models.Employee;
  */
 @WebServlet("/UpdateEmployee")
 public class UpdateEmployee extends HttpServlet {
+    
     EmployeeFacade employeeFacade = EmployeeFacade.getInstance();
     
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-	IOException {
-		// TODO Auto-generated method stub
-	    response.setContentType("text/html");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+	// TODO Auto-generated method stub
+	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         int id = Integer.parseInt(request.getParameter("id"));
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
         int age = Integer.parseInt(request.getParameter("age"));
-        Employee employee = new Employee(firstName, lastName, email, age);
+        Employee employee = new Employee(0,firstName, lastName, email, age);
         Status status = employeeFacade.updateEmployeeDetails(employee,id);
         if(status.equals(Status.UPDATED)) {
             out.println("Employee updated successfully");
         } else {
             out.println("Employee not updated");
         }
-	}
-
+    }
 }
