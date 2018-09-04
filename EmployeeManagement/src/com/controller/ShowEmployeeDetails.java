@@ -33,10 +33,10 @@ public class ShowEmployeeDetails extends HttpServlet {
         ArrayList<Employee> list = employeeFacade.showEmployee();
         out.println("<html><head> <title>Search Employee</title> </head><body>");
         out.println("<table align = 'center' width = '70%'><tr><td align='left'><img src='images/emp.png' width='10%' /></td>"
-                + "<td align='right'><a href='index.html'>Home</a>  ");
+            + "<td align='right'><a href='index.html'>Home</a>  ");
         out.println("<a href='AddEmployee.html'>Add Employee</a> <a href='ShowEmployee'>Show Employee</a> "
-                + "<a href='SearchEmployee.html'>Search Employee</a></td></tr> "
-                + "<tr> <td colspan='2'><hr /></td> </tr> </table><br />");
+            + "<a href='SearchEmployee.html'>Search Employee</a></td></tr> "
+            + "<tr> <td colspan='2'><hr /></td> </tr> </table><br />");
         if (list.size() == 0) {
             out.println("No users exist");
         } else {
@@ -45,9 +45,10 @@ public class ShowEmployeeDetails extends HttpServlet {
             out.println("<tr><td>First Name</td><td>Last Name</td><td>Email</td><td>Age</td><td>Update</td></tr>");
             for (Employee person : list) {
                 out.println("<tr><td>" + person.getFirstName() + "</td><td>" + person.getLastName() + "</td><td>"
-                        + person.getEmail() + "</td><td>" + person.getAge()
-                        + "</td><td> <form action = 'Update' method='get'><input type = 'submit' name = 'submit' value = '" + person.getId()
-                        + "' /></form></tr>");
+                    + person.getEmail() + "</td><td>" + person.getAge()
+                    + "</td><td> <form action = 'Update' method='get'>"
+                    + "<input type='hidden' name='id' value=" + person.getId() + " />" 
+                    + "<input type = 'submit' name = 'submit' /></form></tr>");
             }
             out.println("</table></body></html>");
         }
