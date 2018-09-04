@@ -27,6 +27,7 @@ public class EmployeeFacade {
     public ArrayList<Employee> searchEmployee(SearchEmployeeByName employee) {
         EmployeeDao employeeDao = EmployeeDao.getInstance();
         ArrayList<Employee> list = new ArrayList<Employee>();
+        System.out.println("facadee"+employee.getFirstName());
         list = employeeDao.searchEmployee(employee);
         return list;
     }
@@ -46,6 +47,7 @@ public class EmployeeFacade {
 
     public Status updateEmployeeDetails(Employee employee, int id) {
         EmployeeDao employeeDao = EmployeeDao.getInstance();
+        System.out.print("In facade" + id);
         Status status = employeeDao.updateEmployeeDetails(employee,id);
         if (status.equals(Status.UPDATED)) {
             return Status.UPDATED;
