@@ -31,16 +31,17 @@ public class SearchEmployee extends HttpServlet {
         // TODO Auto-generated method stub
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        String firstName = request.getParameter("FirstName");
-        String lastName = request.getParameter("LastName");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
         SearchEmployeeByName employee = new SearchEmployeeByName(firstName, lastName);
+        System.out.println("servlet"+employee.getFirstName());
         ArrayList<Employee> list = employeeFacade.searchEmployee(employee);
         out.println("<html><head> <title>Search Employee</title> </head><body>");
         out.println("<table align = 'center' width = '70%'><tr><td align='left'><img src='images/emp.png' width='10%' /></td>"
-                + "<td align='right'><a href='index.html'>Home</a>  ");
+            + "<td align='right'><a href='index.html'>Home</a>  ");
         out.println("<a href='AddEmployee.html'>Add Employee</a> <a href='ShowEmployee'>Show Employee</a> "
-                + "<a href='SearchEmployee.html'>Search Employee</a></td></tr> "
-                + "<tr> <td colspan='2'><hr /></td> </tr> </table><br />");
+            + "<a href='SearchEmployee.html'>Search Employee</a></td></tr> "
+            + "<tr> <td colspan='2'><hr /></td> </tr> </table><br />");
         if (list.size() == 0) {
             out.println("No users exist");
         } else {
@@ -49,7 +50,7 @@ public class SearchEmployee extends HttpServlet {
             out.println("<tr><td>First Name</td><td>Last Name</td><td>Email</td><td>Age</td></tr>");
             for (Employee person : list) {
                 out.println("<tr><td>" + person.getFirstName() + "</td><td>" + person.getLastName() + "</td><td>"
-                        + person.getEmail() + "</td><td>" + person.getAge() + "</td></tr>");
+                    + person.getEmail() + "</td><td>" + person.getAge() + "</td></tr>");
             }
             out.println("</table></body></html>");
         }
