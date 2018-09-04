@@ -3,6 +3,7 @@ package com.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,10 +34,12 @@ public class AddEmployee extends HttpServlet {
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
         int age = Integer.parseInt(request.getParameter("age"));
-        Employee employee = new Employee(firstName, lastName, email, age);
+        Employee employee = new Employee(0, firstName, lastName, email, age);
         Status status = employeeFacade.addEmployee(employee);
         if (status.equals(Status.INSERTED)) {
             out.println("Employee inserted successfully");
+            RequestDispatcher requestdispatch = request.getRequestDispatcher("/index.html");
+            requestdispatch.include(request, response);
         } else {
             out.println("Employee not Inserted");
         }
