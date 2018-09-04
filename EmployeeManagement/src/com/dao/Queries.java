@@ -15,7 +15,7 @@ public class Queries {
     
     public static String getShowEmployee() {
         return "SELECT * "
-                + "FROM EmployeeDetails "; 
+                + "FROM EmployeeDetails"; 
     }
     
     public static String getUpdateEmployee() {
@@ -25,7 +25,7 @@ public class Queries {
     
     public static String getUpdateEmployeeDetails() {
         return "UPDATE EmployeeDetails "
-                + "SET FirtstName = ? AND LastName = ? AND Email = ? AND Age = ? "
-                + "WHERE Id = ?";
+                + "SET FirstName = ?, LastName = ?, Email = ?, Age = ? "
+                + "WHERE id = ?";
     }
 }
