@@ -51,9 +51,9 @@ public class EmployeeDao {
             statement.setString(2, employee.getLastName());
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                listOfEmployee.add(new Employee(rs.getString("FirstName"), rs.getString("LastName"), 
-                        rs.getString("Email"), rs
-                        .getInt("Age")));
+                System.out.println(rs.getString("FirstName"));
+                listOfEmployee.add(new Employee(rs.getInt("id"), rs.getString("FirstName"), rs.getString("LastName"), 
+                    rs.getString("Email"), rs.getInt("Age")));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -71,8 +71,9 @@ public class EmployeeDao {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                listOfEmployee.add(new Employee(rs.getString("FirstName"), rs.getString("LastName"), rs.getString("Email"), rs
-                        .getInt("Age")));
+                System.out.print(rs.getString("Firstname"));
+                listOfEmployee.add(new Employee(rs.getInt("id"),rs.getString("FirstName"), rs.getString("LastName"), 
+                    rs.getString("Email"), rs.getInt("Age")));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -91,8 +92,8 @@ public class EmployeeDao {
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                employee = new Employee(rs.getString("FirstName"), rs.getString("LastName"), rs.getString("Email"),
-                        rs.getInt("Age"));
+                employee = new Employee(rs.getInt("id"),rs.getString("FirstName"), rs.getString("LastName"), 
+                    rs.getString("Email"), rs.getInt("Age"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -113,6 +114,7 @@ public class EmployeeDao {
             statement.setInt(4, employee.getAge());
             statement.setInt(5, id);
             int result = statement.executeUpdate();
+            System.out.print("In dao" + result);
             if (result > 0) {
                 return Status.UPDATED;
             }
