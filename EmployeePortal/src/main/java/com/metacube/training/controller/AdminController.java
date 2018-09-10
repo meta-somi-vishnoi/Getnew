@@ -56,7 +56,7 @@ public class AdminController {
     public String logout() {
         System.out.print(session.getAttribute("email"));
         session.invalidate();
-        return "login";
+        return "admin/login";
     }
 
     @RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
