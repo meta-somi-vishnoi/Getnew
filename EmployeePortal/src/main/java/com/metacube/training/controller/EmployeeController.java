@@ -48,7 +48,7 @@ public class EmployeeController {
     @RequestMapping(value = "/logout")
     public String logout() {
         session.invalidate();
-        return "login";
+        return "employee/login";
     }
 
     @RequestMapping(value = "/searchEmployees", method = RequestMethod.GET)
