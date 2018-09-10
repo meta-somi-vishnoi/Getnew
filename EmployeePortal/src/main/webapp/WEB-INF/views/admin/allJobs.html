@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>All Jobs</title>
+</head>
+<body>
+ <div th:if="${not #lists.isEmpty(job)}">
+        <h2>All Jobs</h2>
+        <table width = "70%">
+            <tr>
+                <th>Id</th>
+                <th>Job Name</th>
+                <th>Edit</th>
+                <th>Delete</th> 
+            </tr>
+            <tr th:each="job : ${job}">
+                <td th:text="${job.jobCode}">Id</td>
+                <td th:text="${job.jobTitle}">Job Name</td>
+                <td><a th:href="${'editJob?code=' + job.jobCode}">Edit</a></td>
+                <td><a th:href="${'deleteJob?code=' + job.jobCode}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
