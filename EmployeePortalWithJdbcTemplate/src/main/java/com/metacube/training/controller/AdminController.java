@@ -53,6 +53,12 @@ public class AdminController {
         }
     }
 
+     @RequestMapping(value = "/dashboard") 
+    public String dashboard() {
+        session.invalidate();
+        return "admin/dashboard";
+    }
+    
     @RequestMapping(value = "/logout")
     public String logout() {
         session.invalidate();
