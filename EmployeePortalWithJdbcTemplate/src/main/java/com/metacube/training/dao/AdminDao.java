@@ -41,6 +41,10 @@ public class AdminDao {
         return jdbcTemplate.query(Queries.GET_ALL_EMPLOYEES, new EmployeeMapper());
     }
 
+    public Employee getEmployeeByUsername(String email, String password) {
+        return jdbcTemplate.queryForObject(Queries.GET_EMPLOYEE_BY_USERNAME, new Object[] { email, password }, new EmployeeMapper());
+    }
+    
     public Employee getEmployeeByCode(int code) {
         return jdbcTemplate.queryForObject(Queries.GET_EMPLOYEE_BY_CODE, new Object[] { code }, new EmployeeMapper());
     }
@@ -50,7 +54,7 @@ public class AdminDao {
     }
 
     public List<Employee> searchEmployees(String firstName, String lastName) {
-        return (List<Employee>) jdbcTemplate.queryForObject(Queries.SEARCH_EMPLOYEES, new Object[] { firstName, lastName },
+        return jdbcTemplate.query(Queries.SEARCH_EMPLOYEES, new Object[]{firstName, lastName},
             new EmployeeMapper());
     }
 
@@ -71,6 +75,15 @@ public class AdminDao {
             return Status.DELETED;
         } else {
             return Status.NOT_DELETED;
+        }
+    }
+    
+    public Status updatePassword(String email, String password) {
+    	boolean result = jdbcTemplate.update(Queries.UPDATE_PASSWORD, password, email) > 0;
+    	if(result == true) {
+    		return Status.UPDATED;
+    	}else {
+            return Status.NOT_UPDATED;
         }
     }
 }
