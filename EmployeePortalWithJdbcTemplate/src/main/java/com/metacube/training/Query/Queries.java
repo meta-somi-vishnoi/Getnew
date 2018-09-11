@@ -39,7 +39,7 @@ public class Queries {
     		+ "name = ?, description = ?, start_date = ?, end_date = ?, project_logo = ? "
     		+ "WHERE project_id = ?";
     
-    public static final String DELETE_PROJECT = "DLETE FROM project_master "
+    public static final String DELETE_PROJECT = "DELETE FROM project_master "
     		+ "WHERE project_id = ?";
     
     public static final String ADD_SKILL = "INSERT INTO Skill_Master(Skill_Name)"
