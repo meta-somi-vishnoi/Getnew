@@ -46,6 +46,12 @@ public class EmployeeController {
         }
     }
 
+     @RequestMapping(value = "/dashboard") 
+    public String dashboard() {
+        session.invalidate();
+        return "employee/dashboard";
+    }
+    
     @RequestMapping(value = "/logout")
     public String logout() {
         session.invalidate();
