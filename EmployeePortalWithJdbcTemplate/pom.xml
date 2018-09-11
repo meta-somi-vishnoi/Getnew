@@ -17,13 +17,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-
-         <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -41,46 +39,39 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
 		<dependency>
-    <groupId>org.thymeleaf</groupId>
-    <artifactId>thymeleaf</artifactId>
-    <version>3.0.9.RELEASE</version>
-</dependency>
-<dependency>
-    <groupId>org.thymeleaf</groupId>
-    <artifactId>thymeleaf-spring5</artifactId>
-    <version>3.0.9.RELEASE</version>
-</dependency>
-
-<!-- bootstrap and jquery -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>3.3.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.2.1</version>
-        </dependency>
+    			<groupId>org.thymeleaf</groupId>
+    			<artifactId>thymeleaf</artifactId>
+    			<version>3.0.9.RELEASE</version>
+		</dependency>
+		<dependency>
+   		        <groupId>org.thymeleaf</groupId>
+   			<artifactId>thymeleaf-spring5</artifactId>
+    			<version>3.0.9.RELEASE</version>
+		</dependency>
+        	<dependency>
+            		<groupId>org.webjars</groupId>
+           		<artifactId>bootstrap</artifactId>
+                        <version>3.3.7</version>
+        	</dependency>
+        	<dependency>
+            		<groupId>org.webjars</groupId>
+            		<artifactId>jquery</artifactId>
+            		<version>3.2.1</version>
+        	</dependency>
         <!-- https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect -->
-<dependency>
-    <groupId>nz.net.ultraq.thymeleaf</groupId>
-    <artifactId>thymeleaf-layout-dialect</artifactId>
-    <version>2.3.0</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.6</version>
-</dependency>
-
-
+		<dependency>
+    			<groupId>nz.net.ultraq.thymeleaf</groupId>
+    			<artifactId>thymeleaf-layout-dialect</artifactId>
+    			<version>2.3.0</version>
+		</dependency>
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+   			<groupId>mysql</groupId>
+    			<artifactId>mysql-connector-java</artifactId>
+    			<version>5.1.6</version>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<pluginManagement>
 			<plugins>
