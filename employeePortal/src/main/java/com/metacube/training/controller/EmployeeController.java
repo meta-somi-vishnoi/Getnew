@@ -44,7 +44,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String adminLoginDetails(@Valid @RequestParam("email") String email, @RequestParam("password") String password, 
+    public String adminLoginDetails(@RequestParam("email") String email, @RequestParam("password") String password, 
             Model model) {
         Status status = adminService.login(email, password);
         System.out.print(status);
