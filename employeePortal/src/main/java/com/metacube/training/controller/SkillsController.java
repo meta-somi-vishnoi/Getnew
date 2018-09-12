@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import javax.validation.Valid;
 import com.metacube.training.models.Project;
 import com.metacube.training.models.Skills;
 import com.metacube.training.services.ProjectService;
@@ -43,7 +43,7 @@ public class SkillsController {
 	}
 
 	@RequestMapping(path = "/editSkill", method = RequestMethod.GET)
-	public String editSkill(Model model, @RequestParam("id") int id) {
+	public String editSkill(Model model,@Valid @RequestParam("id") int id) {
 		model.addAttribute("skill", skillsService.getSkillById(id));
 		return "admin/editSkill";
 	}
