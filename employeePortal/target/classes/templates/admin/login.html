@@ -7,8 +7,8 @@
 	<center>
 		<h1>Admin Login</h1>
 		<form th:action="@{/admin/login}" method="POST">
-			Email <input type="text" name="email"> <br> Password<input
-				type="password" name="password"> <br> <input
+			Email <input type="text" name="email" required> <br> Password<input
+				type="password" name="password" required> <br> <input
 				type="submit" value="submit">
 			<div th:if="${error!=null}">Invalid username or password.</div>
 		</form>
