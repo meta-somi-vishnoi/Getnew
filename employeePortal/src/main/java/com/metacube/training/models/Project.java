@@ -2,11 +2,16 @@ package com.metacube.training.models;
 
 import java.sql.Date;
 
+import javax.validation.constraints.NotNull;
+
 public class Project {
     private int projectId;
+    @NotNull
     private String name;
     private String description;
+    @NotNull
     private Date startDate;
+    @NotNull
     private Date endDate;
     private String projectLogo;
     
