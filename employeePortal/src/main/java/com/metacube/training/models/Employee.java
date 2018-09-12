@@ -2,23 +2,36 @@ package com.metacube.training.models;
 
 import java.sql.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Employee {
     private int code;
+    @NotNull
     private String firstName;
     private String middleName;
+    @NotNull
     private String lastName;
+    @NotNull
     private Date dob;
+    @NotNull
     private String gender;
+    @NotNull
+    @Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
     private String emailId;
+    @NotNull
+    @Size(min = 1, max = 100)
     private String contact;
     private String skypeId;
     private String profilePicture;
+    @NotNull
     private String skills;
 
     public String getSkills() {
         return skills;
     }
-
+    
     public void setSkills(String skills) {
         this.skills = skills;
     }
