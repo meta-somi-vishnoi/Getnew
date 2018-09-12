@@ -21,7 +21,7 @@ public class Employee {
     @Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
     private String emailId;
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 8, max = 11)
     private String contact;
     private String skypeId;
     private String profilePicture;
