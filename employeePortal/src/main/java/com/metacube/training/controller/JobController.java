@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import javax.validation.Valid;
 import com.metacube.training.models.JobTitle;
 import com.metacube.training.models.Project;
 import com.metacube.training.models.Skills;
@@ -29,7 +29,7 @@ public class JobController {
     }
 
     @RequestMapping(path = "/addJobs", method = RequestMethod.POST)
-    public String saveJob(@ModelAttribute("job") JobTitle job) {
+    public String saveJob(@Valid @ModelAttribute("job") JobTitle job) {
         if (job != null && job.getJobCode() == 0) {
             jobService.addJob(job);
         } else {
