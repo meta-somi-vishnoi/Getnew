@@ -7,7 +7,7 @@ import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -85,7 +85,7 @@ public class AdminController {
 
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    public String adminAddEmployee(@ModelAttribute("employee") Employee employee, Model model) {
+    public String adminAddEmployee(@Valid @ModelAttribute("employee") Employee employee, Model model) {
         if (employee != null && employee.getCode() == 0) {
             if(validateService.validateAddEmployee(employee).equals(Status.NOT_EXIST)) {
                 adminService.addEmployee(employee);
