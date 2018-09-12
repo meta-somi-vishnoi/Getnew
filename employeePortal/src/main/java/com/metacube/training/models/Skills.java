@@ -1,7 +1,10 @@
 package com.metacube.training.models;
 
+import javax.validation.constraints.NotNull;
+
 public class Skills {
 	private int skillId;
+	@NotNull
 	private String skillName;
 	
     public int getSkillId() {
