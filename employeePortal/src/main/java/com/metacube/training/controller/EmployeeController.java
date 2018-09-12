@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
+import javax.validation.Valid;
 import com.metacube.training.Status.Status;
 import com.metacube.training.models.Employee;
 import com.metacube.training.services.AdminService;
@@ -44,7 +44,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String adminLoginDetails(@RequestParam("email") String email, @RequestParam("password") String password, 
+    public String adminLoginDetails(@Valid @RequestParam("email") String email, @RequestParam("password") String password, 
             Model model) {
         Status status = adminService.login(email, password);
         System.out.print(status);
@@ -120,7 +120,7 @@ public class EmployeeController {
     
     @RequestMapping(value = "/editEmployee", method = RequestMethod.POST)
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    public String adminAddEmployee(@ModelAttribute("employee") Employee employee) {
+    public String adminAddEmployee(@Valid @ModelAttribute("employee") Employee employee) {
         Status status = adminService.updateEmployee(employee);
         return "redirect:allEmployees";
     }
