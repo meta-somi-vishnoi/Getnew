@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import javax.validation.Valid;
 import com.metacube.training.models.Project;
 import com.metacube.training.services.ProjectService;
 
@@ -26,7 +26,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping(path = "/addProject", method = RequestMethod.POST)
-	public String saveProject(@ModelAttribute("project") Project project) {
+	public String saveProject(@Valid @ModelAttribute("project") Project project) {
 		if(project!= null && project.getProjectId() == 0) {
 			projectService.addProject(project);	
 		}else {
