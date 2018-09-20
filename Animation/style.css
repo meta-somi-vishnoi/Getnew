@@ -1,0 +1,69 @@
+#parent_container { 
+	width: 200px;
+	height: 200px;
+	margin: 15% auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.child {
+	width: 50%;
+}
+
+@keyframes orange_move { 
+	0% {left: 0px; top: 0px;}
+	25% {left: 0px; top: 100px;} 
+	50% {left: 100px; top: 100px;} 
+	75% {left: 100px; top: 0px;}
+	100% {left: 0px; top: 0px;}
+}
+
+@keyframes blue_move { 
+	0% {left: 0px; top: 0px;}
+	25% {left: -100px; top: 0px;} 
+	50% {left: -100px; top: 100px;} 
+	75% {left: 0px; top: 100px;}
+	100% {left: 0px; top: 0px;}
+}
+
+@keyframes green_move { 
+	0% {left: 0px; top: 0px;}
+	25% {left: 100px; top: 0px;} 
+	50% {left: 100px; top: -100px;} 
+	75% {left: 0px; top: -100px;}
+	100% {left: 0px; top: 0px;}
+}
+
+@keyframes red_move { 
+	0% {left: 0px; top: 0px;}
+	25% {left: 0px; top: -100px;} 
+	50% {left: -100px; top: -100px;} 
+	75% {left: -100px; top: 0px;}
+	100% {left: 0px; top: 0px;}
+}
+
+#orange {
+	background-color: orange;
+	position: relative;
+	animation: orange_move 2s infinite;
+}
+
+#red {
+	background-color: red;
+	position: relative;
+	animation: red_move 2s infinite;
+}
+
+#blue {
+	background-color: blue;
+	position: relative;
+	animation: blue_move 2s infinite;
+}
+
+#green {
+	background-color: green;
+	position: relative;
+	animation: green_move 2s infinite;
+}
+
