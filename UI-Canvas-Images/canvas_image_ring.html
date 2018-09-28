@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+	<canvas id="myShape" width="200" height="200" ></canvas>
+	<script>
+		var canvas =document.getElementById("myShape");
+		var context = canvas.getContext("2d");
+		context.beginPath();
+		context.arc(100,100,90,0,2 * Math.PI);
+		context.lineWidth = 10;
+		context.strokeStyle = "#62273a";
+		context.stroke();
+	</script>
+  </body>
+</html>

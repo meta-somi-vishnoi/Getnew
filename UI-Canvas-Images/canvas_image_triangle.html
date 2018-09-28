@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="triangle" width="300" height="300"></canvas>
+    <script>
+      var canvas = document.getElementById('triangle');
+      var context = canvas.getContext('2d');
+      context.beginPath();
+      context.moveTo(150,20);
+      context.lineTo(280,280);
+      context.lineTo(20,280);
+      context.fillStyle="#60073a";
+      context.fill();
+      context.closePath();  
+    </script>
+  </body>
+</html>      

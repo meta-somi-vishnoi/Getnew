@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+</style>
+</head>
+<body>
+  <canvas id="rectangle" width="200" height="200"></canvas>
+  <script>
+    var canvas = document.getElementById('rectangle');
+    var context = canvas.getContext('2d');
+    context.beginPath();
+    context.arc(100,100,90,0,2*Math.PI);
+    context.fillStyle = '#d3a438';
+    context.fill(); 
+    context.beginPath();
+    context.rect(90,20,20,160);
+    context.fillStyle = 'white';
+    context.fill();
+    context.beginPath();
+    context.rect(20,90,160,20);
+    context.fillStyle = 'white';
+    context.fill();
+  </script>
+</body>
+</html>      

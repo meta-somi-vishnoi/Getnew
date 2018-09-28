@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="rectangle" width="200" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('rectangle');
+      var context = canvas.getContext('2d');
+      context.beginPath();
+      context.rect(10,10,180,100);
+	    context.fillStyle = '#246212';
+      context.fill();
+    </script>
+  </body>
+</html>      
