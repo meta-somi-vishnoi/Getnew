@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="200" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      context.beginPath();
+      var startAngle = (Math.PI / 180) * 90;
+      var endAngle   = (Math.PI / 180) * 270;
+      context.arc(100,100, 90, startAngle, endAngle,false);
+      context.fillStyle = '#2f95dc';
+      context.fill();
+      context.closePath();
+      context.lineWidth = 10;
+      context.beginPath();
+      context.arc(100, 100, 85, startAngle, endAngle, true);
+      context.strokeStyle = "#828282";
+      context.stroke();
+      context.closePath();
+    </script>
+  </body>
+</html>  
