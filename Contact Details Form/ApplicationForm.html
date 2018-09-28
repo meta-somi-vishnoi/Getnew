@@ -3,145 +3,153 @@
 <head>
 	<title>contact details form</title>
 	<link rel = "stylesheet" type = "text/css" href = "style.css" />	
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<body>
-		<div id = "form_container">
-			<h1 id = "contact_header">Contact Us Today!</h1>
-			<form id = "contact_details_form">
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							First Name
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-user"></i>
-						<input type="text" name="first_name" placeholder="First Name" pattern="[A-Za-z]{2,}" title="Atleast two letters required" autofocus required/>
-					</div>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+	      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+	<div id = "form_container">
+		<h1 id = "contact_header">Contact Us Today!</h1>
+		<form id = "contact_details_form">
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						First Name
+					</label>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							Last Name
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-user"></i>
-						<input type="text" name="last_name" placeholder="Last Name" pattern="[A-Za-z]{2,}" title="Atleast two letters required" required/>
-					</div>
+				<div class = "user_information">
+					<i class="fas fa-user"></i>
+					<input type="text" name="first_name" placeholder="First Name" pattern="[A-Za-z]{2,}" 
+					       title="Atleast two letters required" autofocus required/>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							Email
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-envelope"></i>
-						<input type="text" name="email" placeholder="E-Mail Address" required/>
-					</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						Last Name
+					</label>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							Phone#
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-phone"></i>
-						<input type="text" name="contact" placeholder="(845)555 5555" pattern="[0-9]{10,12}" title="Atleast ten digits required" required/>
-					</div>
+				<div class = "user_information">
+					<i class="fas fa-user"></i>
+					<input type="text" name="last_name" placeholder="Last Name" pattern="[A-Za-z]{2,}" 
+					       title="Atleast two letters required" required/>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							Address
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-home"></i>
-						<input type="text" name="address" placeholder="Address" />
-					</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						Email
+					</label>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							City
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-home"></i>
-						<input type="text" name="city" placeholder="City" pattern="[A-Za-z]{2,}" title="Letters allowed" />
-					</div>
+				<div class = "user_information">
+					<i class="fas fa-envelope"></i>
+					<input type="email" name="email" placeholder="E-Mail Address" required/>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							State
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-list-ul"></i>
-						<select name="state">
-							<option value="">Please select your state</option>
-							<option value="Rajasthan">Rajasthan</option>
-							<option value="Maharashtra">Maharashtra</option>
-							<option value="Assam">Assam</option>
-							<option value="TamilNadu">Tamil Nadu</option>
-						</select>
-					</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						Phone#
+					</label>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							Zip Code
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-home"></i>
-						<input type="text" name="zip_code" placeholder="Zip Code" pattern="[0-9]{6}" title="Only 6 digits required" required/>
-					</div>
+				<div class = "user_information">
+					<i class="fas fa-phone"></i>
+					<input type="text" name="contact" placeholder="(845)555 5555" pattern="[0-9]{10,12}" 
+					       title="Atleast ten digits required" required/>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							Website or domain name
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-globe-americas"></i>
-						<input type="text" name="domain_name" placeholder="Website or domain name" />
-					</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						Address
+					</label>
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label" id = "hosting_label">
-						<label class = "label_name">
-							Do you have hosting?
-						</label>
-					</div>
-					<div id = "hosting_options">
-						<input type="radio" name="hosting" value="Yes" >Yes<br><br>
-						<input type="radio" name="hosting" value="No" >No
-					</div>
+				<div class = "user_information">
+					<i class="fas fa-home"></i>
+					<input type="text" name="address" placeholder="Address" />
 				</div>
-				<div class = "detail_container">
-					<div class = "detail_label">
-						<label class = "label_name">
-							Project Description
-						</label>
-					</div>
-					<div class = "user_information">
-						<i class="fas fa-pen" id = "project_description_icon"></i>
-						<textarea name="project_description" placeholder="Project Description" cols = "30" required /></textarea>
-					</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						City
+					</label>
 				</div>
-				<div id="submit_button_container"> 
-					<button type = "submit" value="Submit" id = "submit_button">
-						Send
-						<i class="fas fa-paper-plane"></i>
-					</button>
+				<div class = "user_information">
+					<i class="fas fa-home"></i>
+					<input type="text" name="city" placeholder="City" pattern="[A-Za-z]{2,}" 
+					       title="Letters allowed" />
 				</div>
-			</form>
-		</div>
-	</body>
-	</html>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						State
+					</label>
+				</div>
+				<div class = "user_information">
+					<i class="fas fa-list-ul"></i>
+					<select name="state">
+						<option value="">Please select your state</option>
+						<option value="Rajasthan">Rajasthan</option>
+						<option value="Maharashtra">Maharashtra</option>
+						<option value="Assam">Assam</option>
+						<option value="TamilNadu">Tamil Nadu</option>
+					</select>
+				</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						Zip Code
+					</label>
+				</div>
+				<div class = "user_information">
+					<i class="fas fa-home"></i>
+					<input type="text" name="zip_code" placeholder="Zip Code" pattern="[0-9]{6}" 
+					       title="Only 6 digits required" required/>
+				</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						Website or domain name
+					</label>
+				</div>
+				<div class = "user_information">
+					<i class="fas fa-globe-americas"></i>
+					<input type="text" name="domain_name" placeholder="Website or domain name" />
+				</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label" id = "hosting_label">
+					<label class = "label_name">
+						Do you have hosting?
+					</label>
+				</div>
+				<div id = "hosting_options">
+					<input type="radio" name="hosting" value="Yes" >Yes<br><br>
+					<input type="radio" name="hosting" value="No" >No
+				</div>
+			</div>
+			<div class = "detail_container">
+				<div class = "detail_label">
+					<label class = "label_name">
+						Project Description
+					</label>
+				</div>
+				<div class = "user_information">
+					<i class="fas fa-pen" id = "project_description_icon"></i>
+					<textarea name="project_description" placeholder="Project Description" cols = "30" 
+						  required /></textarea>
+				</div>
+			</div>
+			<div id="submit_button_container"> 
+				<button type = "submit" value="Submit" id = "submit_button">
+					Send
+					<i class="fas fa-paper-plane"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
