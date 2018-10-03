@@ -1,0 +1,43 @@
+header strong, .post-title {
+	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2.25rem;
+}
+
+nav a {
+	text-decoration: none;
+	color: grey;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+section h2 , h3{
+	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+	font-weight: bold;
+}
+
+#cover h1 {
+	font-size: 50px;
+	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+	font-style: italic;
+}
+
+#cover p {
+	font-size: 20px;
+}
+
+#continue {
+	font-weight: bold;
+}
+
+nav .btn {
+	border-radius: 30px;
+}
+
+footer {
+	background-color: #f9f9f9;
+	padding: 2.5rem 0;
+	color: #999;
+	text-align: center;
+}
