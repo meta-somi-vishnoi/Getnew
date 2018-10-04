@@ -41,7 +41,8 @@
 			localStorage.clear();
 			for(var i=0;i<document.getElementById("contact_details_form").elements.length;i++){
 				if(document.getElementById("contact_details_form").elements[i].value.length !=0){
-					localStorage.setItem(document.getElementById("contact_details_form").elements[i].name,document.getElementById("contact_details_form").elements[i].value);
+					localStorage.setItem(document.getElementById("contact_details_form").elements[i].name,
+					document.getElementById("contact_details_form").elements[i].value);
 				}
 			}
 		}
