@@ -1,0 +1,109 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a, ul, li {
+	text-decoration: none;
+}
+
+
+#form_container {
+	width: 70%;
+	margin: 20px auto;
+	padding: 20px 0;
+	background-color: #D3D3D3;
+}
+
+#contact_header {
+	font-size: 25px;
+	margin: 15px 20px;
+	font-weight: bold;
+}
+
+.detail_container {
+	display: flex;
+	flex-direction: row;
+	margin: 10px auto;
+	width: 80%;
+}
+
+#contact_details_form {
+	text-align: center;
+}
+
+.fa-phone {
+	transform:rotate(90deg);
+}
+
+.detail_label {
+	padding: 10px 0;
+	display: inline-block;
+	text-align: right;
+	width: 39%;
+}
+
+.label_name {
+	width: 20%;
+	margin-right: 5%;
+	font-size: 20px;
+	color: black;
+	font-weight: bold;
+}
+
+input, select, textarea { 
+	font-size: 15px;
+	background: white; 
+	padding: 10px;
+}
+
+.user_detail {
+ 	display: inline-block;
+ 	width: 50%;
+ }
+
+.user_information {
+	position: relative;
+	left: 80px;
+	border: 1px solid;
+	border-color: grey;
+	border-radius: 5px;
+}
+
+select {
+	width: 216px; 
+}
+
+textarea {
+  width: 216px;
+  border: 1px solid grey;
+  margin: -3px;
+}
+
+i {
+	padding: 10px;
+}
+
+#pen_icon {
+	padding: 16px 7px;
+}
+
+#hosting_options{
+	padding: 0 78px;
+}
+
+#project_description_icon {
+	vertical-align: top;
+	padding: 20px 10px;
+}
+
+#submit_button_container {
+	margin-bottom: 20px;
+}
+
+#submit_button {
+	text-align: center;
+	background-color: orange;
+	color: white;
+	width: 8%;
+}
