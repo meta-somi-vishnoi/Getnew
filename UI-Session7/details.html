@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>contact details form</title>
+	<link rel = "stylesheet" type = "text/css" href = "style.css" />	
+	<link rel="stylesheet" href="fontAwesome.css" 
+	      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<script type="text/javascript">
+			window.onload = function() {
+				for (i = 0; i < localStorage.length; i++) {
+					var responseTag = document.getElementById("response");
+					var paragraphtag = document.createElement("p");
+					paragraphtag.innerHTML =  localStorage.key(i) + ": " + localStorage.getItem(localStorage.key(i));
+					responseTag.appendChild(paragraphtag);
+				}	
+			}	
+	</script>
+	</head>
+	<body>
+		<h2>Your Response.</h2>
+		<div id="response" > </div>
+	</body>
+</html>
