@@ -6,7 +6,7 @@ function removeConsecutive(string) {
 		} else {
 			if(count>0) {
 				if((i+1)<string.length) {					
-					string = string.slice(0,i-count).concat( string.substring(i+1,string.length));
+					string = string.slice(0,i-count).concat(string.substring(i+1,string.length));
 					i=0;
 				}
 			}
