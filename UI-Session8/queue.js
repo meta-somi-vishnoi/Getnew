@@ -9,10 +9,17 @@ Queue.prototype.enqueue = function(data) {
 }
 
 Queue.prototype.dequeue = function() {
-	if (this.elements.length == 0) {
+	if (this.isEmpty()) {
         return "Queue Underflow"; 
 	}
     return this.elements.shift(); 
+}
+
+Queue.prototype.isEmpty = function() {
+	if (this.elements.length == 0) {
+        return true; 
+	}
+	return false;
 }
 
 Queue.prototype.display = function() {
