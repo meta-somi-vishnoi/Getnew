@@ -21,22 +21,32 @@ function LinkedList() {
     }
 
     this.removeElement = function(data) { 
-        var current = this.head; 
-        var previousElement = null; 
-        while (current != null) {  
-            if (current.data === data) { 
-                if (previousElement == null) { 
-                    this.head = current.next; 
-                } else { 
-                    previousElement.next = current.next; 
+        if(!this.isEmpty()) {
+            var current = this.head; 
+            var previousElement = null; 
+            while (current != null) {  
+                if (current.data === data) { 
+                    if (previousElement == null) { 
+                        this.head = current.next; 
+                    } else { 
+                        previousElement.next = current.next; 
+                    } 
+                    return current.element; 
                 } 
-                return current.element; 
+                previousElement = current; 
+                current = current.next; 
             } 
-            previousElement = current; 
-            current = current.next; 
-        } 
+            return -1;
+        }
         return -1;
     } 
+
+    this.isEmpty = function() {
+        if(this.head == null) {
+            return true;
+        }
+        return false;
+    }
 
     this.display = function() {
         var currentNode = this.head;
@@ -46,4 +56,3 @@ function LinkedList() {
         }
     }
 }
-
