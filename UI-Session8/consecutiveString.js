@@ -13,5 +13,8 @@ function removeConsecutive(string) {
 			count=0;
 		}
 	}
+	if(count>0) {
+		string = string.slice(0,i-count).concat( string.substring(i+1,string.length));
+	}
 	console.log(string);
 }
