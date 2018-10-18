@@ -1,0 +1,17 @@
+.addToCart{
+	width: 100%;
+}
+
+.container{
+	max-width: 1500px!important;
+}
+
+.image{
+	width: 371px;
+	height: 237px;
+}
+
+.cart-img{
+	width: 100px;
+	height: 100px;
+}

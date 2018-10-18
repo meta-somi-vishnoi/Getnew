@@ -1,0 +1,47 @@
+ <div class = "container px-5">
+  <div class = "d-flex flex-column pt-4">
+   <h1>Shopping Cart</h1>
+   <table class="table border">
+      <thead>
+        <tr>
+          <th colspan="2">You have {{$ctrl.cartCount}} items in your shopping cart</th>
+          <th colspan="1"></th>
+          <th colspan="1" class="d-flex justify-content-end pr-3">
+            <button class="btn" ng-click="deleteAll()">Clear shopping cart</button>
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in $ctrl.items">
+          <td>
+            <img class="cart-img rounded-circle" ng-src = "{{item.imageUrl}}">
+          </td>
+          <td>{{item.title}}</td>
+          <td>
+            <div>
+              <button class="btn btn-secondary" ng-click="removeItem(item)">-</button>
+              <span class="px-5">{{item.count}} in cart</span>
+              <button class="btn btn-secondary" ng-click="addItem(item)">+</button>
+            </div>
+          </td>
+          <td>${{item.price * item.count}}</td>
+        </tr>
+        <tr>
+          <td colspan="3"></td>
+          <td>${{$ctrl.totalPrice}}</td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <a  ng-if = "getCartCount() > 0" class="btn btn-primary" href="#!/products/shipping">Check Out</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
