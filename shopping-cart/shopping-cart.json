@@ -1,0 +1,105 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Spinach",
+      "price": 2.5,
+      "imageUrl": "images/spinach.jpg",
+      "category": "Vegetables",
+      "showAddToCart": true
+    },
+    {
+      "id": 2,
+      "title": "Freshly Baked Bread",
+      "price": 3.5,
+      "imageUrl": "images/Bread.jpg",
+      "category": "Bread",
+      "showAddToCart": true
+    },
+    {
+      "id": 3,
+      "title": "Saffron",
+      "price": 4.5,
+      "imageUrl": "images/saffron.jpg",
+      "category": "Seasonings and Spice",
+      "showAddToCart": true
+    },
+    {
+      "id": 4,
+      "title": "Mango",
+      "price": 3,
+      "imageUrl": "images/mango.jpg",
+      "category": "Fruits",
+      "showAddToCart": true
+    },
+    {
+      "id": 5,
+      "title": "Butter",
+      "price": 5.5,
+      "imageUrl": "images/butter.jpg",
+      "category": "Dairy",
+      "showAddToCart": true
+    }
+  ],
+  "cart": [],
+  "orders": [
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "images/spinach.jpg",
+          "count": 3
+        }
+      ],
+      "customerName": "Somi",
+      "date": "10/18/2018",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "images/spinach.jpg",
+          "count": 2
+        }
+      ],
+      "customerName": "Somi",
+      "date": "10/18/2018",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "title": "Spinach",
+          "price": 2.5,
+          "imageUrl": "images/spinach.jpg",
+          "count": 2
+        },
+        {
+          "id": 2,
+          "title": "Freshly Baked Bread",
+          "price": 3.5,
+          "imageUrl": "images/Bread.jpg",
+          "count": 1
+        }
+      ],
+      "customerName": "Somi",
+      "date": "10/18/2018",
+      "id": 3
+    }
+  ],
+  "shipping": [
+    {
+      "id": 1,
+      "name": "Somi",
+      "address1": "Street 1",
+      "address2": "Tonk road",
+      "city": "Jaipur"
+    }
+  ]
+}

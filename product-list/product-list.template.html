@@ -1,0 +1,49 @@
+<div class = "container px-5">
+    <div class = "d-flex flex-row pt-4">
+      <aside class = "col-md-3">
+       <div class="list-group d-flex flex-column">
+        <button class="list-group-item list-group-item-action active" data-toggle="list"  role="tab" ng-click="SearchList=all">
+          All categories
+        </button>
+        <button class="list-group-item list-group-item-action" data-toggle="list" href="#list-home" role="tab" ng-click="SearchList={category:'Bread'}">
+          Bread
+        </button>
+        <button class="list-group-item list-group-item-action" data-toggle="list" href="#list-home" role="tab" ng-click="SearchList={category:'Dairy'}">
+          Dairy
+        </button>
+        <button class="list-group-item list-group-item-action" data-toggle="list" href="#list-home" role="tab" ng-click="SearchList={category:'Fruits'}">
+          Fruits
+        </button>
+        <button class="list-group-item list-group-item-action" data-toggle="list" href="#list-home" role="tab" ng-click="SearchList={category:'Seasonings and Spice'}">
+          Seasonings and Spices
+        </button>
+        <button class="list-group-item list-group-item-action" data-toggle="list" href="#list-home" role="tab" ng-click="SearchList={category:'Vegetables'}">
+          Vegetables
+        </button>
+      </div>
+    </aside>
+    <div class = "col-md-8">
+      <ul class = "list-unstyled d-flex flex-row flex-wrap align-items-center">
+        <li class = "col-md-6 pb-5" ng-repeat="product in products|filter:SearchList">
+          <div class = "card d-flex flex-column">
+            <div>
+              <img class = "image rounded img-fluid" ng-src = "{{product.imageUrl}}">
+            </div>
+            <div class="p-2">
+              <p class = "text-dark h3"><strong>{{product.title}}</strong></p>
+              <p class="text-secondary h5">${{product.price}}</p>
+            </div>
+            <div ng-show="product.showAddToCart">
+              <button class="addToCart btn btn-secondary" ng-click="addToCart(product)">ADD TO CART</button>
+            </div>
+            <div class="d-flex justify-content-between" ng-show="!(product.showAddToCart)">
+              <button class="btn btn-secondary" ng-click="removeItem(product)">-</button>
+              <p class="border" ng-if="!(product.showAddToCart)">{{getCount(product.title)}} in cart</p>
+              <button class="btn btn-secondary" ng-click="addItem(product)">+</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>  
