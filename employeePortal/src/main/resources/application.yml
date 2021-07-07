@@ -1,0 +1,22 @@
+server:
+  servlet:
+    context-path: /employeePortal
+spring:
+  datasource: 
+    url: jdbc:mysql://localhost:3306/employeePortal
+    username: root
+    password: user123
+    driver-class-name : com.mysql.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dummyuser791@gmail.com
+    password: mayankji
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true 
+            required: true   

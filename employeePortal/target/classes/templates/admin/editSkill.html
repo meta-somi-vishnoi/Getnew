@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Add Skill</title>
+</head>
+<body>
+	<center>
+		<h1>Add Skill</h1>
+		<form th:object="${skill}" th:action="@{addSkills}" method="POST">
+			<table width="50%">
+				<input type="hidden" th:field="*{skillId}" />
+				<tr>
+					<td>Skill Name</td>
+					<td><input type="text" th:field="*{skillName}" required></td>
+				</tr>
+				<tr colspan="2">
+					<td><input type="submit" value="submit"></td>
+				</tr>
+			</table>
+		</form>
+	</center>
+	<a th:href="@{../admin/dashboard}">click here to go to dashboard</a>
+</body>
+</html>
