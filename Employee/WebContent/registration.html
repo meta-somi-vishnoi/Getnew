@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<title>SignUp</title>
+<link rel="shortcut icon" href="images/html.png" />
+<link rel="stylesheet" href="style.css" //>
+<script type="text/javascript" src="validation.js"></script>
+</head>
+<body>
+	<header class="header">
+		<a href="registration.html">SignUp</a> <a href="login.html">Login</a>
+	</header>
+	<hr>
+	<div class="table-text">
+		<h1>Registration</h1>
+		<form action="SignUp" method="post" name="signupform"
+			onsubmit="return validate()">
+			<table align="center" cellspacing="10">
+				<tr align="left">
+					<td width="50px">First Name</td>
+					<td><input type="text" name="first_name"
+						placeholder="Enter First Name" onblurrequired></td>
+				</tr>
+				<tr align="left">
+					<td>Last Name</td>
+					<td><input type="text" name="last_name"
+						placeholder="Enter Last Name" required></td>
+				</tr>
+				<tr align="left">
+					<td>Email</td>
+					<td><input type="text" name="email"
+						placeholder="Enter Email Id" required></td>
+				</tr>
+				<tr align="left">
+					<td>Age</td>
+					<td><input type="number" name="age" placeholder="Enter Age"
+						required></td>
+				</tr>
+				<tr align="left">
+					<td>Dob</td>
+					<td><input type="date" name="dob" placeholder="Enter DOB"
+						required></td>
+				</tr>
+				<tr align="left">
+					<td>Password</td>
+					<td><input type="password" name="password"
+						placeholder="Enter Password" onchange="clearConfirmPassword()"
+						required></td>
+				</tr>
+				<tr align="left">
+					<td>Confirm Password</td>
+					<td><input type="password" name="confirm_password"
+						placeholder="Enter Confirm Password"
+						onkeyup="checkConfirmPassword()" required> <span
+						id="checkpassword"></span></td>
+				</tr>
+				<tr align="left">
+					<td width="30">Contact Number</td>
+					<td><input type="number" name="contact_no"
+						placeholder="Enter Contact Number" required></td>
+				</tr>
+				<tr align="left">
+					<td>Company/Organization</td>
+					<td><select name="organization">
+							<option value="">--Select--</option>
+							<option value="metacube">Metacube</option>
+							<option value="google">Google</option>
+							<option value="facebook">Facebook</option>
+							<option value="tcs">TCS</option>
+							<option value="wipro">Wipro</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td align="left"><input type="submit" name="signup"
+						value="SignUp" class="button" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
