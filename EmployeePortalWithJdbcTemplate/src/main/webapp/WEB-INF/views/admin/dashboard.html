@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Admin Dashboard</title>
+</head>
+<body>
+	<p>Welcome ${email}</p>
+	<a th:href="@{addEmployee}">Add Employee</a>
+	<br>
+	<a th:href="@{allEmployees}">Show All Employees</a>
+	<br>
+	<a th:href="@{../project/addProject}">Add project</a>
+	<br>
+	<a th:href="@{/project/allProjects}">Show all project</a>
+	<br>
+	<a th:href="@{../job/addJobs}">Add Job</a>
+	<br>
+	<a th:href="@{../skills/addSkills}">Add Skills</a>
+	<br>
+	<a th:href="@{searchEmployees}">Search Employee</a>
+	<br>
+	<a th:href="@{logout}">Logout</a>
+	</center>
+</body>
+</html>
