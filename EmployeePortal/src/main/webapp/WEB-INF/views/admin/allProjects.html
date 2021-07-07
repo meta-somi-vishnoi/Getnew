@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>projects</title>
+    
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(projects)}">
+        <h2>All projects</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <td>Name</td>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="project : ${projects}">
+                <td th:text="${project.projectId}">Id</td>
+                <td th:text="${project.name}">Project Name</td>
+                <td th:text="${project.description}">Description</td>
+                <td th:text="${project.startDate}">Start Date</td>
+                <td th:text="${project.endDate}">End Date</td>
+                <td><a th:href="${'editProject?id=' + project.projectId}">Edit</a></td>
+                <td><a th:href="${'delete?id=' + project.projectId}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

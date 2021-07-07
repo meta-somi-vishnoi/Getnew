@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>All Employees</title>
+</head>
+<body>
+ <div th:if="${not #lists.isEmpty(employees)}">
+        <h2>All Employees</h2>
+        <table width = "70%">
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>MiddleName</th>
+                <th>LastName</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>SkypeId</th>
+                <th>Profile Picture</th>
+                <th>Skills</th>
+            </tr>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.code}">Id</td>
+                <td th:text="${employee.firstName}">FirstName</td>
+                <td th:text="${employee.middleName}">MiddleName</td>
+                <td th:text="${employee.lastName}">LastName</td>
+                <td th:text="${employee.dob}">DOB</td>
+                <td th:text="${employee.gender}">Gender</td>
+                <td th:text="${employee.emailId}">Email</td>
+                <td th:text="${employee.contact}">Contact</td>
+                <td th:text="${employee.skypeId}">SkypeId</td>
+                <td th:text="${employee.profilePicture}">ProfilePicture</td> 
+             <!--  <td th:text="${employee.password}">Password</td>-->  
+                <td th:text="${employee.skills}">Skills</td>
+             </tr>
+        </table>
+    </div>
+</body>
+</html>
